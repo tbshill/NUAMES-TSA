@@ -1,7 +1,7 @@
 angular.module('App')
 	.controller('schoolController',function($scope){
 		console.log('controller: schoolController');
-			$(".flexBox").click(function(){
+			$(".flexBox").click(function(){  //Debug
     		console.log('click');
     	});
 		$scope.events = [ //From Firebase
