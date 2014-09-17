@@ -47,6 +47,8 @@ angular.module('App')
 			},
 		]
 	})
+
+	//This directive will be replaced with this JS: http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/
 	.directive("event", function() { //Almost all jquery needs to be done inside of a directive
     	return {
 	        restrict: "A",
@@ -71,12 +73,4 @@ angular.module('App')
 	        }
 	    }
 	});
-
-
-$('.flexBox').mixItUp({
-    animation: {
-      animateResizeContainer: false,
-      effects: 'fade rotateX(-45deg) translateY(-10%)'
-    }
- });
 
