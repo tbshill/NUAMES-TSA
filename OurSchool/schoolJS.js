@@ -6,7 +6,7 @@ angular.module('App')
     	});
 		$scope.events = [ //From Firebase
 			{
-				img: 'http://lorempixel.com/300/500/city/9',
+				img: 'http://lorempixel.com/300/500/city/9', //lorempixel is like loremipsum text but for images
 				title: 'This is Event 1',
 				blurb: 'Look at my little blurb about this photo. Try hovering!'
 			},
