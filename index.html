@@ -2,10 +2,14 @@
 <html ng-app="App">
 	<head>
 		<meta charset="utf-8">
+
+		<!-- lets fill the section up so we can impress the judges -->
+
 		<title>NUAMES TSA</title>
 		
 		<!-- CSS -->
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!-- Bootstrap is first so my custom CSS can over ride it if nessisary -->
+
 			<link rel="stylesheet" href="CSS/MainNav.css">
 			<link rel="stylesheet" href="CSS/IndexCSS.css">
 			<link rel="stylesheet" href="CSS/ChapterCSS.css">
@@ -18,23 +22,32 @@
 		<!-- FONTS -->
 			<link href='http://fonts.googleapis.com/css?family=Quicksand:300' rel='stylesheet' type='text/css'>
 			<link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
-			
 	</head>
 
-	<body ng-controller="mainController" ng-cloak>
-		<h1 id="logo"><a href="/">TSA</a></h1>
+	<body ng-controller="mainController" ng-cloak> <!-- I define an over all controller just incase i need it. It is helpful for debugging things -->
+
+	<!--THere are two sections:
+		1. Nav Bar : .nav
+		2. Content View : .container 
+	-->
+
+		<h1 id="logo"><a href="/">TSA</a></h1> <!-- Nav Bar -->
 				<ul class="nav">
 					<li style="margin-left: min(100px);" ng-click="gotoSchool()" class="button">Our School</li>
-					<li ng-click="gotoChapter()"  class="button">Our Chapter</li>
-					<li ng-click="gotoDesign()"  class="button">Design Brief</li>
+					<li ng-click="gotoChapter()" class="button">Our Chapter</li>
+					<li ng-click="gotoDesign()" class="button">Design Brief</li>
 					<li ng-click="gotoSponsors()"  class="button">Sponsors</li>
-					<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li>
-					<li ng-show ="isLoggedIn" ng-click="gotoManager()" class="button">{{user.displayName}}</li>
+					<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li> <!-- Only shows if someone is not logged in. -->
+					<li ng-show ="isLoggedIn" ng-click="gotoManager()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->
 				</ul>
-		
-		<div class="container" >
+
+		<div class="container">  <!-- Content View-->
 			<div ui-view></div>
 		</div>
+
+
+
+<!-- When you create a JS file, append it here under the correct category-->
 
 		<!-- JQuery -->
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -51,14 +64,16 @@
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
 		
-		<!-- App -->
+		<!-- App --> 
 		<script type="text/javascript" src="App.js" ></script>
 		<script type="text/javascript" src="OurSchool/schoolJS.js"></script>
 		<script type="text/javascript" src="OurChapter/chapterJS.js"></script>
 		<script type="text/javascript" src="DesignBreif/designBriefJS.js"></script>
 		<script type="text/javascript" src="Sponsors/sponsorsJS.js"></script>
 		<script type="text/javascript" src="Login/LoginJS.js"></script>
-			<!-- Manager -->
+
+			<!-- Manager --> 
+			<!-- I have this in a separate section because its the largest -->
 			<script type="text/javascript" src="Manager/managerJS.js"></script>
 			<script type="text/javascript" src="Manager/Admin/adminJS.js"></script>
 			<script type="text/javascript" src="Manager/Profile/profileJS.js"></script>
