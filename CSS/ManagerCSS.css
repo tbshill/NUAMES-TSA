@@ -1,0 +1,48 @@
+/*Lets hide the non active LIs by default*/
+
+.accordian, ul, li{
+	margin:0;
+	padding: 0;
+}
+.accordian ul {
+	display: none;
+	list-style: none;
+}
+.accordian li{
+	list-style: none;
+}
+.accordian li.active ul {
+	display: block;
+}
+.accordian li ul{
+	margin-left: 20px;
+	margin-top: 0px;
+}
+.navBar{
+	position: fixed;
+	width: 1.5in;
+	top: .75in;
+	left: 0;
+	height: calc(100% - .75in);
+	list-style: none;
+}
+
+.managerBody{
+	position: absolute;
+	top: 0;
+	left:1.5in;
+	width: calc(100% - 1.5in);
+	height: calc(100% + .25in);
+}
+
+.requests{
+	background-color: green;
+	width:4in;
+}
+
+.memberTable{
+	width: 100%;
+}
+.memberTable table{
+	width: 100%;
+}

@@ -1,0 +1,13 @@
+<!--<img class="bgimg" src="http://wallpapersus.com/wallpapers/2012/11/Drafting-Compasses-Drawing-Creative-1080x1920.jpg"> -->
+<div class = "flexBox">
+
+	<div ng-repeat="event in events" event class="event">
+			<div class="img">
+				<img ng-src="{{event.img}}" alt="pic"/>
+			</div>
+			<div class="text">
+				<p>{{event.title}}</p>
+				<pre>{{event.blurb}}</pre>
+			</div>
+	</div>
+</div>

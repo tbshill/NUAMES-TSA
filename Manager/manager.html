@@ -1,0 +1,45 @@
+<div ng-hide="user.member">
+	<h2> You need to Register your account.</h2>
+	<h3> Please contact our webmaster team or our officer team to register</h3>
+</div>
+
+<div ng-show="user.member">
+	<div class="navBar">
+		<ul class="accordian" accordian>
+			<li ng-show="user.admin">
+				<h3 class="button">Admin</h3>
+				<ul>
+					<li class="button"><a ui-sref="manager.admin">Members</a></li>
+					<li class="button">Events</li>
+				</ul>
+			</li>
+			<li ng-show="user.officer">
+				<h3 class="button">Officer</h3>
+				<ul>
+					<li class="button">Minutes</li>
+					<li class="button">Attendence</li>
+					<li class="button">Budget</li>
+					<li class="button">Parlimentary</li>
+				</ul>
+			</li>
+			<li>
+				<h3 class="button">My Profile</h3>
+				<ul>
+					<li class="button">Register</li>
+					<li class="button">Contact</li>
+					<li class="button">Messages</li>
+				</ul>
+			</li>
+			<li>
+				<h3 class="button">Events</h3>
+				<ul>
+					<li ng-repeat="evnt in user.events"><a ui-sref="manager.event({event: evnt})">{{evnt}}</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="managerBody">
+		<div ui-view></div>
+	</div>
+</div>
+

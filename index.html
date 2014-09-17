@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="App">
+	<head>
+		<meta charset="utf-8">
+		<title>NUAMES TSA</title>
+		
+		<!-- CSS -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+			<link rel="stylesheet" href="CSS/MainNav.css">
+			<link rel="stylesheet" href="CSS/IndexCSS.css">
+			<link rel="stylesheet" href="CSS/ChapterCSS.css">
+			<link rel="styleSheet" href="CSS/SchoolCSS.css">
+			<link rel="styleSheet" href="CSS/LoginCSS.css">
+			<link rel="styleSheet" href="CSS/SponsorsCSS.css">
+			<link rel="styleSheet" href="CSS/ManagerCSS.css">
+
+
+		<!-- FONTS -->
+			<link href='http://fonts.googleapis.com/css?family=Quicksand:300' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Syncopate' rel='stylesheet' type='text/css'>
+			
+	</head>
+
+	<body ng-controller="mainController" ng-cloak>
+		<h1 id="logo"><a href="/">TSA</a></h1>
+				<ul class="nav">
+					<li style="margin-left: min(100px);" ng-click="gotoSchool()" class="button">Our School</li>
+					<li ng-click="gotoChapter()"  class="button">Our Chapter</li>
+					<li ng-click="gotoDesign()"  class="button">Design Brief</li>
+					<li ng-click="gotoSponsors()"  class="button">Sponsors</li>
+					<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li>
+					<li ng-show ="isLoggedIn" ng-click="gotoManager()" class="button">{{user.displayName}}</li>
+				</ul>
+		
+		<div class="container" >
+			<div ui-view></div>
+		</div>
+
+		<!-- JQuery -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script> <!-- MixItUp -->
+		<!-- AngularJS -->
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+		
+		<!-- Firebase -->
+		<script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+		<script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
+		
+		<!-- Routers -->
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+		
+		<!-- App -->
+		<script type="text/javascript" src="App.js" ></script>
+		<script type="text/javascript" src="OurSchool/schoolJS.js"></script>
+		<script type="text/javascript" src="OurChapter/chapterJS.js"></script>
+		<script type="text/javascript" src="DesignBreif/designBriefJS.js"></script>
+		<script type="text/javascript" src="Sponsors/sponsorsJS.js"></script>
+		<script type="text/javascript" src="Login/LoginJS.js"></script>
+			<!-- Manager -->
+			<script type="text/javascript" src="Manager/managerJS.js"></script>
+			<script type="text/javascript" src="Manager/Admin/adminJS.js"></script>
+			<script type="text/javascript" src="Manager/Profile/profileJS.js"></script>
+			<script type="text/javascript" src="Manager/Event/eventJS.js"></script>
+	</body>
+</html>

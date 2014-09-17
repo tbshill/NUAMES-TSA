@@ -1,0 +1,34 @@
+.container{
+	position: absolute;
+	top: .75in;
+	left: 0px;
+	width: 100%;
+	height: calc(100% - 1in);
+	margin: 0;
+}
+.button{
+	-webkit-transition: all .15s linear;
+	   -moz-transition: all .15s linear;
+	    -ms-transition: all .15s linear;
+	     -o-transition: all .15s linear;
+	        transition: all .15s linear;
+}
+.button:hover { 
+  background-color: rgba(0,0,0,.1);
+}
+body{
+	background-image: url('/imgs/sos.png'); /* Background pattern from subtlepatterns.com */
+	color:black;
+}
+@media (orientation:portrait){
+	.container{
+		z-index:3;
+		position: absolute;
+		top: .75in;
+		left: 0px;
+		width: 100%;
+		height: calc(100% - .5in);
+		margin: 0;
+		background-color:white;
+	}
+}
