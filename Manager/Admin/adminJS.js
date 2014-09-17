@@ -4,23 +4,12 @@ angular.module('App')
 		$scope.members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
 		console.log('controller: adminController');
 
-		$scope.createEvent = function(evnt){
-			console.log('Create Event:' + evnt);
-		}
-		$scope.deleteEvent = function(evnt){
-			console.log('Delete Event:' + evnt);
-		}
-		$scope.editEvent = function(evnt){
-			console.log('Edit Event:' +evnt);
-		}
 		$scope.verifyUser = function (id) {
 			//change 'member' to 'true'
 			var ref = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
 			ref.child(id).update({member:true});
 
 			//Remove member from newMembers
-			
-
 		}
 		$scope.deleteUser = function(id){
 			//Delete from events
