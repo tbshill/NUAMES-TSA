@@ -14,16 +14,6 @@ angular.module('App')
 		$scope.admin = function(){
 			$location.path("/manager/admin");
 		}
-		/* d
-		$(".accordian h3").click(function(){
-			$(".accordian ul").slideUp(); //Hide All
-			if(!$(this).next().is(":visible")) //Open 1
-			{
-				$(this).next().slideDown();
-			}
-		}); // Acordian Style Nav Bar
-		*/
-
 		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
 			//add user to event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
