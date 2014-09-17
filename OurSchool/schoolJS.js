@@ -47,7 +47,7 @@ angular.module('App')
 			},
 		]
 	})
-	.directive("event", function() {
+	.directive("event", function() { //Almost all jquery needs to be done inside of a directive
     	return {
 	        restrict: "A",
 	        link: function(scope, elem, attrs) {
