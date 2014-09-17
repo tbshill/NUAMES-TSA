@@ -1,0 +1,1 @@
+JSON backups are from our firebase. They are done manually right before we have to delete everything for debuggin purposes. It really doesnt matter right now, but it might in the future when we are working on a live page.
