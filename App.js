@@ -1,6 +1,6 @@
-var app = angular.module('App',['ui.router','ngRoute','firebase',])
-	.controller('mainController',function($rootScope, $firebase,$scope,$location){
-		$rootScope.eventList = [
+var app = angular.module('App',['ui.router','ngRoute','firebase',]) //Define the angular app
+	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
+		$rootScope.eventList = [ //just a global list I delare immediately.
 			'Animatronics',
 			'Architectural Renovation',
 			'Biotechnology Design',
@@ -35,11 +35,15 @@ var app = angular.module('App',['ui.router','ngRoute','firebase',])
 			'Transportation Modeling',
 			'Video Game Design',
 			'Webmaster',
-		];
-		$rootScope.debug = true;
+		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
+
+		/*
+			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
+			If the screen is landscape nothing happens, but if the screen is portrait, then .container is hidden and the menubar is displayed
+		*/
 
 		$scope.gotoSchool = function(){
-			$location.path('/school');
+			$location.path('/school'); //redirects the user on a click.
 			if(window.innerHeight>window.innerWidth){ //If window is portrait
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
@@ -90,8 +94,8 @@ var app = angular.module('App',['ui.router','ngRoute','firebase',])
 			}
 		})
 	})
-	.constant('firebaseURL', 'https://nuames-tsa.firebaseio.com/')
-	.constant('fbMembersUrl', 'https://nuames-tsa.firebaseio.com/Members')
+	.constant('firebaseURL', 'https://nuames-tsa.firebaseio.com/') // I dont think I ever use this.
+	.constant('fbMembersUrl', 'https://nuames-tsa.firebaseio.com/Members') // 
 	.config(function($stateProvider, $urlRouterProvider){
 		$stateProvider
 			.state('home',{
