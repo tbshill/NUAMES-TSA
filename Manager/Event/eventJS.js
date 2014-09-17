@@ -1,8 +1,21 @@
-angular.module('App')
+/*
+	TODO:
+		1. Create list of members // separate controller?
+		2. Publish posts
+		3. Chat like feature
+		4. Manage Funds
+		5. 
+*/
+
+angular.module('App') // links to App
 	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams){
+
+
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;
 		$scope.ref = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt)).$asObject();
+
+
 		$scope.eventMembers = [];
 		var eventMembersRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+"/members");
 		eventMembersRef.once('value',function(dataSnapshot){
