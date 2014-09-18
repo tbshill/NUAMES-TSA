@@ -1,6 +1,6 @@
-var app = angular.module('App',['ui.router','ngRoute','firebase',]) //Define the angular app
+var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the angular app
 	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
-		$rootScope.eventList = [ //just a global list I delare immediately.
+		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
 			'Architectural Renovation',
 			'Biotechnology Design',
@@ -34,7 +34,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase',]) //Define the
 			'Technology Problem Solving',
 			'Transportation Modeling',
 			'Video Game Design',
-			'Webmaster',
+			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
 
 		/*
@@ -48,42 +48,42 @@ var app = angular.module('App',['ui.router','ngRoute','firebase',]) //Define the
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 		$scope.gotoChapter = function(){
 			$location.path('/chapter');
 			if(window.innerHeight>window.innerWidth){
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 		$scope.gotoDesign = function(){
 			$location.path('/designbrief');
 			if(window.innerHeight>window.innerWidth){
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 		$scope.gotoSponsors = function(){
 			$location.path('/sponsors');
 			if(window.innerHeight>window.innerWidth){
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 		$scope.gotoSignin = function(){
 			$location.path('/signin');
 			if(window.innerHeight>window.innerWidth){
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 		$scope.gotoManager = function(){
 			$location.path('/manager');
 			if(window.innerHeight>window.innerWidth){
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
 			}
-		}
+		};
 
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){
@@ -94,32 +94,32 @@ var app = angular.module('App',['ui.router','ngRoute','firebase',]) //Define the
 			}
 		})
 	})
-	.constant('firebaseURL', 'https://nuames-tsa.firebaseio.com/') // I dont think I ever use this.
+	.constant('firebaseURL', 'https://nuames-tsa.firebaseio.com/')// I dont think I ever use this.
 	.constant('fbMembersUrl', 'https://nuames-tsa.firebaseio.com/Members') // 
 	.config(function($stateProvider, $urlRouterProvider){
 		$stateProvider
 			.state('home',{
 				url:'',
-				templateUrl:'Home/home.html',
+				templateUrl:'Home/home.html'
 			})
 			.state('chapter',{
 				templateUrl:'OurChapter/chapter.html',
 				url:'/chapter',
-				controller:'chapterController',
+				controller:'chapterController'
 			})
 			.state('school',{
 				templateUrl:'OurSchool/school.html',
 				url:'/school',
-				controller:'schoolController',
+				controller:'schoolController'
 			})
 			.state('designbrief',{
 				templateUrl:'DesignBrief/designbrief.html',
-				url:'/designbrief',
+				url:'/designbrief'
 			})
 			.state('signin',{
 				templateUrl:'Login/signin.html',
 				url:'/signin',
-				controller: 'signinController',
+				controller: 'signinController'
 			})
 			.state('sponsors',{
 				templateUrl:'Sponsors/sponsors.html',
