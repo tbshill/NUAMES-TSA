@@ -1,12 +1,12 @@
 angular.module('App')
 	.controller('schoolController',function($scope){
 		console.log('controller: schoolController');
-			$(".flexBox").click(function(){
+			$(".flexBox").click(function(){  //Debug
     		console.log('click');
     	});
 		$scope.events = [ //From Firebase
 			{
-				img: 'http://lorempixel.com/300/500/city/9',
+				img: 'http://lorempixel.com/300/500/city/9', //lorempixel is like loremipsum text but for images
 				title: 'This is Event 1',
 				blurb: 'Look at my little blurb about this photo. Try hovering!'
 			},
@@ -47,7 +47,9 @@ angular.module('App')
 			},
 		]
 	})
-	.directive("event", function() {
+
+	//This directive will be replaced with this JS: http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/
+	.directive("event", function() { //Almost all jquery needs to be done inside of a directive
     	return {
 	        restrict: "A",
 	        link: function(scope, elem, attrs) {
@@ -71,12 +73,4 @@ angular.module('App')
 	        }
 	    }
 	});
-
-
-$('.flexBox').mixItUp({
-    animation: {
-      animateResizeContainer: false,
-      effects: 'fade rotateX(-45deg) translateY(-10%)'
-    }
- });
 

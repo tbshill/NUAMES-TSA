@@ -14,37 +14,27 @@ angular.module('App')
 		$scope.admin = function(){
 			$location.path("/manager/admin");
 		}
-		/* d
-		$(".accordian h3").click(function(){
-			$(".accordian ul").slideUp(); //Hide All
-			if(!$(this).next().is(":visible")) //Open 1
-			{
-				$(this).next().slideDown();
-			}
-		}); // Acordian Style Nav Bar
-		*/
-
-		$scope.addUserToEvent = function(id, event){
+		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
 			//add user to event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
-			var e = eventRef.child(event).child('members').child(id).set(id);
+			var e = eventRef.child(event).child('members').child(id).set(id); //Adds a copy to the Events section
 
-			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
+			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Adds a copy to the Member
 			var t = memberRef.child(id).child('events').child(event).set(event);
 		}
 		$scope.removeUserFromEvent = function(id, event){
 			//remove user from event.members
-			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
+			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');  //Removes the event from the event section
 			var e = eventRef.child(event).child('members').child(id).set({});
 
-			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
+			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Removes the event from the member section
 			var t = memberRef.child(id).child('events').child(event).set({});
 		}
 		$scope.goToEvent = function(event){
 			$location.path("/manager/event/"+evnet);
 		}
 	})
-	.directive('accordian', function(){
+	.directive('accordian', function(){ //Allows the accordian style navbar
 		// Runs during compile
 		return {
 			// name: '',

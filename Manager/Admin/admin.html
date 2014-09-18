@@ -1,9 +1,11 @@
-<div class="requests">
+<!-- The main admin pannel where users are managed-->
+
+<div class="requests"> <!-- This displays a list of users who are requesting access to the Manager. TODO: hide this section if nobody is requestin access -->
 	<table>
 		<tr><h2>Requests</h2></tr>
 		<tr ng-repeat="user in members" ng-hide="user.member">
 			<td>{{user.displayName}}</td>
-			<td><button ng-click="verifyUser(user.$id)">ADD</button></td>
+			<td><button ng-click="verifyUser(user.$id)">ADD</button></td> <!-- $id is part of angularfire (firebase extenstion for angularJS)-->
 			<td><button ng-click="deleteUser(user.$id)">Decline</button></td>
 		</tr>
 	</table>
@@ -13,7 +15,7 @@
 	<table class="table">
 		<tr>
 			<td colspan="4"><h2>All Members</h2><td>
-			<td colspan="4"><span class="glyphicon glyphicon-search"></span><input style="width:90%" ng-model="memberFilter"/><td>
+			<td colspan="4"><span class="glyphicon glyphicon-search"></span><input style="width:90%" ng-model="memberFilter"/><td> <!--Search Bar -->
 			</tr>
 		<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')" ng-class="{warning:user.admin}">
 			<td><img ng-src="{{user.picture}}" class="img-circle"/></td>
@@ -26,6 +28,7 @@
 				</select>
 			</td>
 			
+			<!-- most of this is filler to help me test the back end -->
 			<td><button class="btn btn-default" ng-click="deleteUser(user.$id)">Delete</button></td>
 			<td ng-hide="user.admin"><button class="btn btn-default" ng-click="makeAdmin(user.$id)"> Admin</button></td>
 			<td ng-show="user.admin"><button class="btn btn-default" ng-click="demoteAdmin(user.$id)">Demote</button></td>
