@@ -11,7 +11,7 @@ angular.module('App')
 			user.$bindTo($rootScope,'user');
 			members.$add(user);
 			newMembers.$add({id:user.id, name:user.displayName});
-		}
+		};
 
 		/*
 			Firebase supplies a "simple login" which allows users to login with Facebook, Twitter, Google, Github or Username and Password.
@@ -25,6 +25,9 @@ angular.module('App')
 
 		    	function(user) { //Successful Login
 
+//                    $.cookie(user);
+//                    console.debug($.cookie("user"));
+
 			    	$rootScope.isLoggedIn = true; // changes the main menuBar from  "Sign in" to "{{Users Name}}"
 
 			    	for (var i = members.length - 1; i >= 0; i--) { // finds the user in our firebase
@@ -37,7 +40,7 @@ angular.module('App')
 		    				
 		    				return; //kill loop and function
 		    			}
-			    	};
+			    	}
 			    	
 			    	//if the user is not in the database, then then we append the new user to our members database but do not 
 			    	//give them membership access.
@@ -56,7 +59,7 @@ angular.module('App')
 			    	console.error("Facebook Login: " + error);
 				}	
 			);
-		}
+		};
 
 		//GOOGLE Login
 		//See Facebook Login for more detailed explanation
@@ -72,7 +75,7 @@ angular.module('App')
 		    				$location.path("/manager");
 		    				return;
 		    			}
-			    	};
+			    	}
 					var newUser = {
 			    		displayName:user.displayName,
 			    		id:user.id,
@@ -84,8 +87,8 @@ angular.module('App')
 					console.error("Google Login:"+error)
 				}
 			);
-		}
-		
+		};
+
 		var verifyUser = function (id) {
 			for (var i = members.length - 1; i >= 0; i--) {
 	    		if(members[i].id == user.id){
@@ -94,9 +97,9 @@ angular.module('App')
     				k.$save();
     				break;
     			}
-	    	};
-		}
+	    	}
+		};
 		var declineUser = function(user){ //Removes User from firebase
 			Members.$remove(user);
 		}
-	})
+	});

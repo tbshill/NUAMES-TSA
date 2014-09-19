@@ -18,7 +18,7 @@
 			<td colspan="4"><span class="glyphicon glyphicon-search"></span><input style="width:90%" ng-model="memberFilter"/><td> <!--Search Bar -->
 			</tr>
 		<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')" ng-class="{warning:user.admin}">
-			<td><img ng-src="{{user.picture}}" class="img-circle"/></td>
+			<td><img style="max-height: 125px; max-width: 125px" ng-src="{{user.picture}}" class="img-circle"/></td>
 			<td>{{user.displayName}}</td>
 			<td>{{user.provider}}</td>
 			<td>{{user.$id}}

@@ -13,6 +13,7 @@
 		<!-- JQuery -->
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script> <!-- MixItUp -->
+        <script src="https://github.com/carhartl/jquery-cookie.git"></script> <!-- Allows the use of cookies with jQuery -->
 		<!-- AngularJS -->
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 		
@@ -32,8 +33,12 @@
 		<script type="text/javascript" src="DesignBrief/designBriefJS.js"></script>
 		<script type="text/javascript" src="Sponsors/sponsorsJS.js"></script>
 		<script type="text/javascript" src="Login/LoginJS.js"></script>
-        <!-- Node -->
+        <!-- NodeJS -->
         <script src="njs.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+        <script>
+            var socket = io();
+        </script>
 
 			<!-- Manager --> 
 			<!-- I have this in a separate section because its the largest -->
@@ -71,7 +76,7 @@
 
 		<h1 id="logo"><a href="/">TSA</a></h1> <!-- Nav Bar -->
 				<ul class="nav">
-					<li style="margin-left: min(100px);" ng-click="gotoSchool()" class="button">Our School</li>
+					<li style="margin-left: min(100px);" ng-click="gotoSchool()" class="button">Our School</li> <!-- I am getting an error with the inline margin-left -Tobin -->
 					<li ng-click="gotoChapter()" class="button">Our Chapter</li>
 					<li ng-click="gotoDesign()" class="button">Design Brief</li>
 					<li ng-click="gotoSponsors()"  class="button">Sponsors</li>
