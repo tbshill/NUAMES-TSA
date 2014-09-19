@@ -11,6 +11,7 @@
     <orderEntry type="library" name="angular-route" level="application" />
     <orderEntry type="library" name="jquery-1.11.0" level="application" />
     <orderEntry type="library" name="jquery.mixitup" level="application" />
+    <orderEntry type="library" name="socket.io-1.1.0" level="application" />
   </component>
 </module>
 

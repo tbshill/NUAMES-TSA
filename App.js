@@ -49,6 +49,15 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 				$(".container").slideToggle("slow"); //Container Animation
 			}
 		};
+        $scope.gotoSignUp = function(){
+          $location.path('/signup');
+          if(window.innerHeight>window.innerWidth){
+              $('.nav').find("li").slideToggle("fast");
+              $('.container').slideToggle("Slow");
+          }
+        };
+
+
 		$scope.gotoChapter = function(){
 			$location.path('/chapter');
 			if(window.innerHeight>window.innerWidth){
