@@ -17,5 +17,5 @@
 //});
 //
 //http.listen(5678, function(){
-//   console.log('Listening on port :5678');
+//   console.log('Listening on port :5678'); //why did you choose this port?
 //});
