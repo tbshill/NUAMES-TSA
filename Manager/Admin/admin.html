@@ -1,30 +1,27 @@
 <!-- The main admin pannel where users are managed-->
 <div ng-show="user.admin">
-
-	<div class="requests"> <!-- This displays a list of users who are requesting access to the Manager. TODO: hide this section if nobody is requestin access -->
-		<table>
-			<tr><h2>Requests</h2></tr>
-			<tr ng-repeat="user in members" ng-hide="user.member">
-				<td>{{user.displayName}}</td>
-				<td><button ng-click="verifyUser(user.$id)">ADD</button></td> <!-- $id is part of angularfire (firebase extenstion for angularJS)-->
-				<td><button ng-click="deleteUser(user.$id)">Decline</button></td>
-			</tr>
-		</table>
-	</div>
-
 	<div class="memberTable">
-		<table class="table">
+		<table class="table table-hover">
+			<!--Search Bar -->
 			<tr>
 				<td colspan="4"><h2>All Members</h2></td>
-				<td colspan="4"><span class="glyphicon glyphicon-search"></span><input style="width:90%" ng-model="memberFilter"/><td> <!--Search Bar -->
-				</tr>
+				<td colspan="4"><span class="glyphicon glyphicon-search pull-left"></span><input class= "form-control pull-left" style="width:90%" ng-model="memberFilter"/><td> 
+			</tr>
+
+			<!-- Members -->
 			<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')">
-				<td><img style="max-height: 125px; max-width: 125px" ng-src="{{user.picture}}" class="img-circle"/></td>
+				<td><img style="height: 70px; width: 70px" ng-src="{{user.picture}}" class="img-circle"/></td>
 				<td>{{user.displayName}}</td>
 
+				<!-- Member-->
+				<td ng-hide="user.member"><button class="btn btn-default" ng-click="verifyUser(user.$id)"> Member</button></td>
+				<td ng-show="user.member"><button class="btn btn-success" ng-click="unVerifyUser(user.$id)">Member</button></td>
+
+				<!-- Admin -->
 				<td ng-hide="user.admin"><button class="btn btn-default" ng-click="makeAdmin(user.$id)"> Admin</button></td>
 				<td ng-show="user.admin"><button class="btn btn-warning" ng-click="demoteAdmin(user.$id)">Admin</button></td>
 				
+				<!-- Officer -->
 				<td ng-hide="user.officer"><button class="btn btn-default" ng-click="makeOfficer(user.$id)"> Officer</button></td>
 				<td ng-show="user.officer"><button class="btn btn-warning" ng-click="demoteOfficer(user.$id)">Officer</button></td>
 
@@ -36,7 +33,6 @@
 				
 				<!-- most of this is filler to help me test the back end -->
 				<td><button class="btn btn-default" ng-click="deleteUser(user.$id)">Delete</button></td>
-				<td><button class="btn btn-default" ng-click="editUser(user.$id)"> Edit</button></td>
 				<td><button class="btn btn-default" ng-click="$parent.addUserToEvent( user.$id, event)">Add To Event</button></td>
 				<td><button class="btn btn-default" ng-click="$parent.removeUserFromEvent( user.$id, event)">Remove From Event</button></td>
 			</tr>

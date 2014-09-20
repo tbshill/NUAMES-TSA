@@ -11,6 +11,11 @@ angular.module('App')
 
 			//Remove member from newMembers
 		}
+		$scope.unVerifyUser = function(id){
+			//change 'admin' to 'false'
+			var ref = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
+			ref.child(id).update({member:false});
+		}
 		$scope.deleteUser = function(id){
 			//Delete from events
 			var memberEvents = new Firebase('https://nuames-tsa.firebaseio.com/Members/'+id+'/events');
@@ -51,5 +56,4 @@ angular.module('App')
 			var ref = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
 			ref.child(id).update({officer:false});
 		}
-	}
-);
+	});
