@@ -56,4 +56,5 @@ angular.module('App')
 			var ref = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
 			ref.child(id).update({officer:false});
 		}
+		
 	});

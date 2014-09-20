@@ -14,4 +14,7 @@ angular.module("App")
 		$scope.editEvent = function(evnt){
 			
 		}
+	})
+	.controller('registerController', function(){
+		console.log('register');
 	});

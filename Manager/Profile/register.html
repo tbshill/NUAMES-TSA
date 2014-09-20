@@ -1,0 +1,15 @@
+<h1>Register</h1>
+
+<table class="table">
+	<tr>
+		<td>
+			<select ng-model="event" class="form-control">
+				<option ng-repeat = "event in eventList" value="{{event}}">{{event}}</option>
+			</select>
+		</td>
+		<td><button class="btn btn-success" ng-click="$parent.addUserToEvent( user.$id, event)">Register</button></td>
+	<tr ng-repeat="evnt in user.events">
+		<td>{{evnt}}</td>
+		<td><button class="btn btn-danger" ng-click="$parent.removeUserFromEvent( user.$id, evnt)">Delete </button></td>
+	</tr>
+</table>
