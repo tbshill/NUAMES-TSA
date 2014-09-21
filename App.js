@@ -155,4 +155,9 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 				controller:'registerController',
 				templateUrl:'Manager/Profile/register.html'
 			})
+			.state('manager.attendance',{
+				url:'/officer/attendance',
+				controller:'attendanceController',
+				templateUrl:'Manager/officer/attendance.html'
+			})
 	});

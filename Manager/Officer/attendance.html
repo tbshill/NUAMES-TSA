@@ -1,0 +1,6 @@
+<h1>Attendance</h1>
+<table>
+	<tr ng-repeat="user in members | filter:{displayName:memberFilter}">
+		<td>{{user.displayName}}</td>
+	</tr>
+</table>
