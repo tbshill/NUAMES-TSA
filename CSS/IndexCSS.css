@@ -5,6 +5,7 @@
 	width: 100%;
 	height: calc(100% - 1in);
 	margin: 0;
+	padding: 0px 0px 0px 0px;
 }
 .button{
 	-webkit-transition: all .15s linear;

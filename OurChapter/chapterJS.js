@@ -33,5 +33,5 @@ angular.module('App')
 	        }, scrollSpeed);
     	});
 
-    	$(".screen").css({"height" : $( window ).height()-120 +'px'});
+    	$(".screen").css({"height" : $( window ).height()-100 +'px'});
 	});

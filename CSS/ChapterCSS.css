@@ -2,6 +2,11 @@
 	position: absolute;
 	top:.5in;
 	width: 100%;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	padding: 0px 0px 0px 0px; 
 }
 .box{
 	position: relative;
@@ -59,6 +64,9 @@
 	font-family: 'Syncopate', sans-serif;
 	width: calc(100% - .29in);
 }
+.box{
+	width: 100%;
+}
 .stats table{
 	width: 100%;
 	text-align: center;
@@ -73,7 +81,11 @@
 	border-color: grey;
 }
 .screen{
-	height: calc(100% - 3in);
+	/* Height is controlled with jQuery*/
 	padding: 10px;
 	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
 }
