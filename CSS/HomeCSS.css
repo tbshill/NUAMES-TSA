@@ -8,3 +8,15 @@
 	top:0px;
 	left:0px;
 }
+.overlay{
+	position: relative;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right:auto;
+	border-radius: 50px;
+	width: 50%;
+	background-color: rgba(0,0,0,.5);
+	padding: 30px;
+	color: white;
+	text-align: center;
+}
