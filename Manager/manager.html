@@ -41,7 +41,8 @@ It really only consists of a Side Nav and a Content View.
 			<li>
 				<h3 class="button">Events</h3>
 				<ul>
-					<li ng-repeat="evnt in user.events"><a ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
+					<li style="margin-bottom:10px;"><a ui-sref="manager.allEvents">All Events</a></li>
+					<li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
 				</ul>
 			</li>
 		</ul>
