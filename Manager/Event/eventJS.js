@@ -4,7 +4,6 @@
 		2. Publish posts
 		3. Chat like feature
 		4. Manage Funds
-		5. 
 */
 
 angular.module('App') // links to App
