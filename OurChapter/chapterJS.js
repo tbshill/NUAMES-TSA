@@ -33,5 +33,8 @@ angular.module('App')
 	        }, scrollSpeed);
     	});
 
-    	$(".screen").css({"height" : $( window ).height()-100 +'px'});
-	});
+    	$(".screen").css({"min-height" : $( window ).height()-100 +'px'});
+    	$( window ).resize(function() { // resize
+			$(".screen").css({"min-height" : $( window ).height()-100 +'px'});
+		});
+	})

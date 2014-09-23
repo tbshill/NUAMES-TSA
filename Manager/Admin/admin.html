@@ -32,9 +32,9 @@
 				</td>
 				
 				<!-- most of this is filler to help me test the back end -->
-				<td><button class="btn btn-default" ng-click="deleteUser(user.$id)">Delete</button></td>
 				<td><button class="btn btn-default" ng-click="$parent.addUserToEvent( user.$id, event)">Add To Event</button></td>
 				<td><button class="btn btn-default" ng-click="$parent.removeUserFromEvent( user.$id, event)">Remove From Event</button></td>
+				<td><button class="btn btn-danger" ng-click="deleteUser(user.$id)">Delete</button></td>
 			</tr>
 		</table>
 	</div>

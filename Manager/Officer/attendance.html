@@ -3,7 +3,6 @@
 	<tr ng-repeat="user in members | filter:{displayName:memberFilter}">
 		<td><img style="height: 70px; width: 70px" ng-src="{{user.picture}}" class="img-circle"/></td>
 		<td>{{user.displayName}}</td>
-
 		<td><button class="btn btn-success" ng-hide="user.present" ng-click="markPresent(user.$id)">Present</button></td>
 		<td><button class="btn btn-danger" ng-show="user.present" ng-click="markAbsent(user.$id)">Absent</button></td>
 	</tr>

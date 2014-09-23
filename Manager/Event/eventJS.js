@@ -8,13 +8,11 @@
 */
 
 angular.module('App') // links to App
-	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams){
-
+	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams,$location){
 
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;
 		$scope.ref = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt)).$asObject();
-
 
 		$scope.eventMembers = [];
 		var eventMembersRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+"/members");
@@ -33,3 +31,9 @@ angular.module('App') // links to App
 			console.log($scope.newPurchase);
 		}
 	})
+	.controller('allEventsController', function($firebase,$rootScope,$scope, $stateParams,$location){
+		console.log('allEventsController');
+		$scope.openPDF = function(event){
+			window.location.href = "/Manager/Event/EventPDF/"+event+".pdf"; //The server needs /TSA/Manager/... - I will talk to zach to see if I can fix this -Braden
+		}
+	});

@@ -1,6 +1,6 @@
 .chapterBody{
 	position: absolute;
-	top:.5in;
+	top:.25 in;
 	width: 100%;
 	margin-bottom: 0px;
 	margin-left: 0px;
@@ -82,10 +82,30 @@
 }
 .screen{
 	/* Height is controlled with jQuery*/
+	height: auto;
 	padding: 10px;
 	width: 100%;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
+}
+.fill{
+	margin-right: auto;
+	margin-left: auto;
+	height: 100%;
+}
+
+.og-grid {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+ 
+.og-grid li {
+    display: inline-block;
+    margin: 10px 5px 0 5px;
+    vertical-align: top;
 }

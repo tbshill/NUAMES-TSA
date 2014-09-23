@@ -109,6 +109,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 		$stateProvider
 			.state('home',{
 				url:'',
+				controller:'homeController',
 				templateUrl:'Home/home.html'
 			})
 			.state('chapter',{
@@ -144,6 +145,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 				url:'/admin',
 				controller:'adminController',
 				templateUrl:'Manager/Admin/admin.html'
+			})
+			.state('manager.allEvents',{
+				url:'/event/all',
+				controller:'allEventsController',
+				templateUrl:'Manager/Event/allEvents.html'
 			})
 			.state('manager.event',{
 				url:'/event/:event',

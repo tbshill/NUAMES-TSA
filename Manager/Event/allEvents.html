@@ -1,0 +1,14 @@
+<h1>All Events</h1>
+<table class="table">
+	<tr>
+		<td colspan="3"><span class="glyphicon glyphicon-search pull-left" style="margin-right:10px"></span><input class="pull-left"style="width:90%;" ng-model = "filter"></input></td>
+	</tr>
+</table>
+<table class="table">
+	<tr ng-repeat="evnt in eventList | filter:filter">
+		<td>{{evnt}}</td>
+		<td><button class="btn btn-warning" ng-click="openPDF(evnt)">PDF</button></td>
+		<!-- We need to create individual Event PDFs -->
+		<td><a ui-sref="manager.event({event: evnt})">Go To Event</a></td>
+	</tr>
+</table>
