@@ -22,12 +22,7 @@ angular.module('App')
 		$scope.loginWithFacebook = function() {
 		    authClient.$login("facebook").then( // Asyncronus call
 
-
 		    	function(user) { //Successful Login
-
-//                    $.cookie(user);
-//                    console.debug($.cookie("user"));
-
 			    	$rootScope.isLoggedIn = true; // changes the main menuBar from  "Sign in" to "{{Users Name}}"
 
 			    	for (var i = members.length - 1; i >= 0; i--) { // finds the user in our firebase
@@ -37,7 +32,7 @@ angular.module('App')
 		    				
 		    				u.$bindTo($rootScope,"user"); //3-way data binding
 		    				$location.path("/manager"); //change location
-		    				
+                            $.cookie(user.displayName, user.id, user.thirdPartyUserData.picture.data.url);
 		    				return; //kill loop and function
 		    			}
 			    	}
@@ -50,7 +45,6 @@ angular.module('App')
 			    		id:user.id,
 			    		picture:user.thirdPartyUserData.picture.data.url
 			    	}; //this object helps keep the users from Google and Facebook the same.
-
 
 			    	members.$add(newUser); //Append to database
 			  	}, 
@@ -73,6 +67,7 @@ angular.module('App')
 		    				var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject();
 		    				u.$bindTo($rootScope,"user");
 		    				$location.path("/manager");
+                            $.cookie(user.displayName, user.id, user.thirdPartyUserData.picture.data.url);
 		    				return;
 		    			}
 			    	}
@@ -103,3 +98,4 @@ angular.module('App')
 			Members.$remove(user);
 		}
 	});
+

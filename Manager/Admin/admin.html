@@ -1,4 +1,12 @@
 <!-- The main admin pannel where users are managed-->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.username').click(function(){
+            $('.events').slideToggle()
+        })
+    });
+</script>
 <div ng-show="user.admin">
 	<div class="memberTable">
 		<table class="table table-hover">
@@ -11,8 +19,7 @@
 			<!-- Members -->
 			<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')">
 				<td><img style="height: 70px; width: 70px" ng-src="{{user.picture}}" class="img-circle"/></td>
-				<td>{{user.displayName}}</td>
-
+				<td class="username">{{user.displayName}}</td>
 				<!-- Member-->
 				<td ng-hide="user.member"><button class="btn btn-default" ng-click="verifyUser(user.$id)"> Member</button></td>
 				<td ng-show="user.member"><button class="btn btn-success" ng-click="unVerifyUser(user.$id)">Member</button></td>
@@ -27,13 +34,14 @@
 
 				<td>
 					<select ng-model="event" class="form-control">
+                        <option class="active" value="{{event}}">-</option>
 						<option ng-repeat = "event in eventList" value="{{event}}">{{event}}</option>
 					</select>
 				</td>
 				
 				<!-- most of this is filler to help me test the back end -->
-				<td><button class="btn btn-default" ng-click="$parent.addUserToEvent( user.$id, event)">Add To Event</button></td>
-				<td><button class="btn btn-default" ng-click="$parent.removeUserFromEvent( user.$id, event)">Remove From Event</button></td>
+				<td><button class="btn btn-info" ng-click="$parent.addUserToEvent( user.$id, event)">Add To Event</button></td>
+				<td><button class="btn btn-primary" ng-click="$parent.removeUserFromEvent( user.$id, event)">Remove From Event</button></td>
 				<td><button class="btn btn-danger" ng-click="deleteUser(user.$id)">Delete</button></td>
 			</tr>
 		</table>
