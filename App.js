@@ -6,6 +6,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 			'Biotechnology Design',
 			'Career Preparation',
 			'Chapter Team',
+			'Children Story',
 			'CAD 2D',
 			'CAD 3D',
 			'CNC',
@@ -34,6 +35,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
 			'Technology Problem Solving',
 			'Transportation Modeling',
 			'Video Game Design',
+			'VEX Robotics',
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
 
@@ -56,7 +58,6 @@ var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the 
               $('.container').slideToggle("Slow");
           }
         };
-
 
 		$scope.gotoChapter = function(){
 			$location.path('/chapter');
