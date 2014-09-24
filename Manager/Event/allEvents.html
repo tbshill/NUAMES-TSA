@@ -8,6 +8,7 @@
 	<tr ng-repeat="evnt in eventList | filter:filter">
 		<td>{{evnt}}</td>
 		<td><button class="btn btn-warning" ng-click="openPDF(evnt)">PDF</button></td>
+		<td><button class="btn btn-info" ng-click="$parent.addUserToEvent( user.$id, evnt)">Join Event</button>
 		<!-- We need to create individual Event PDFs -->
 		<td><a ui-sref="manager.event({event: evnt})">Go To Event</a></td>
 	</tr>
