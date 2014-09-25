@@ -12,46 +12,46 @@ angular.module('App')
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 2',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 3',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 4',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 5',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 6',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 7',
 				blurb: 'this is a filler for the real events'
 			},
 			{
 				img: 'http://lorempixel.com/300/500/city/9',
-				title: 'Test Event',
+				title: 'Test Event 8',
 				blurb: 'this is a filler for the real events'
 			},
 		];
 		$('.og-box').click(function(){
-			$('.og-box').css('height',"200px");
-			$(this).css('height',"auto");
-			$(this).child('.preview').css('width',$( window ).width());
-		});
-	})
-
+			$('.og-box').css('height','200px');
+			$('.og-box').find('div').hide();
+			$(this).find('div').show();
+			$(this).css('height','400px');
+		})
+});
 	//This directive will be replaced with this JS: http://tympanus.net/Tutorials/ThumbnailGridExpandingPreview/
 

@@ -50,11 +50,13 @@
 .og-grid li{
 	height: 200px;
 	width: 200px;
-	overflow: hidden;
 }
-.preivew{
-	position: relative;
+.og-grid div{
+	position: absolute;
+	margin-top: 10px;
+	left:0px;
 	background-color: blue;
-	height: 300px;
 	width: 100%;
+	height: 2in;
+	display: none;
 }
