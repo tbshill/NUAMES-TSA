@@ -52,7 +52,7 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
         $scope.resetFight = function() {
             $scope.design_brief = 0;
             $(document).ready(function(){
-                $('h3').css('color', 'black').text('Ignore Me')
+                $('h3').css('color', 'black').text('Ignore me')
             })
         };
     }

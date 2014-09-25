@@ -1,7 +1,7 @@
-var express = require('express'),
-    app = express(),
-    http = require('http'),
-    io = require('socket.io'),
+var express = express(),
+    app = require('express')(),
+    http = require('http').Server(app),
+    io = require('socket.io')(http),
     MongoClient = require('mongodb').MongoClient,
     mongoose = require('mongoose'),
     Cookies = require( "cookies"),
@@ -36,6 +36,10 @@ app.get('/Login/*', function(req, res){
 });
 app.get('/Sponsers/*', function(req,res){
     res.sendFile(__dirname + req.path);
+});
+
+io.on('connection', function(socket){
+    console.log('Hi');
 });
 
 app.listen(5678, function(){
