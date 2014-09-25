@@ -18,7 +18,9 @@
 
 			<!-- Members -->
 			<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')">
-				<td><img style="height: 70px; width: 70px" ng-src="{{user.picture}}" class="img-circle"/></td>
+				<td><div class="crop img-circle">
+					<img ng-src="{{user.picture}}"/>
+				</div></td>
 				<td class="username">{{user.displayName}}</td>
 				<!-- Member-->
 				<td ng-hide="user.member"><button class="btn btn-default" ng-click="verifyUser(user.$id)"> Member</button></td>
