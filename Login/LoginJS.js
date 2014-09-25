@@ -32,7 +32,6 @@ angular.module('App')
 		    				
 		    				u.$bindTo($rootScope,"user"); //3-way data binding
 		    				$location.path("/manager"); //change location
-                            $.cookie(user.displayName, user.id, user.thirdPartyUserData.picture.data.url);
 		    				return; //kill loop and function
 		    			}
 			    	}
@@ -67,7 +66,6 @@ angular.module('App')
 		    				var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject();
 		    				u.$bindTo($rootScope,"user");
 		    				$location.path("/manager");
-                            $.cookie(user.displayName, user.id, user.thirdPartyUserData.picture.data.url);
 		    				return;
 		    			}
 			    	}

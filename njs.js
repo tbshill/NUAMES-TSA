@@ -38,8 +38,6 @@ app.get('/Sponsers/*', function(req,res){
     res.sendFile(__dirname + req.path);
 });
 
-
-
 app.listen(5678, function(){
     console.log('Listening on port :5678')
 });

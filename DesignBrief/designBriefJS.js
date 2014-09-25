@@ -15,10 +15,10 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
                 if($scope.design_brief >= 0){
                     $scope.design_brief = $scope.design_brief + 17;
 
-                    if (alertOn && $scope.design_brief >= 0 && $scope.design_brief <= 99) {
+                    if (alertOn && $scope.design_brief >= 1 && $scope.design_brief <= 99) {
                         alertOn = false;
                         $(document).ready(function(){
-                            $('h3').text('Stuff')
+                            $('h3').text('Stuff').css('color', 'black')
                         })
                     } alertOn = true;
                     if (alertOn && $scope.design_brief >= 100 && $scope.design_brief <= 199) {
@@ -41,7 +41,7 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
                     }
 
                 }
-            }, 150)
+            }, 500)
         };
         $scope.stopFight = function() {
             if (angular.isDefined(stop)) {
@@ -51,6 +51,9 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
         };
         $scope.resetFight = function() {
             $scope.design_brief = 0;
+            $(document).ready(function(){
+                $('h3').css('color', 'black').text('Ignore Me')
+            })
         };
     }
 ]);
