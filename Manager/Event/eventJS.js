@@ -30,6 +30,14 @@ angular.module('App') // links to App
 			console.log('purchase');
 			console.log($scope.newPurchase);
 		}
+		$scope.posts = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/Posts')).$asArray();
+		$scope.post = function(event){
+			$scope.posts.$add({
+				name: $rootScope.user.displayName,
+				data: $scope.postData
+			});
+
+		}
 	})
 	.controller('allEventsController', function($firebase,$rootScope,$scope, $stateParams,$location){
 		console.log('allEventsController');
