@@ -7,7 +7,7 @@
 */
 
 angular.module('App') // links to App
-	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams,$location){
+	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams,$location, toaster){
 
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;

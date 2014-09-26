@@ -21,6 +21,9 @@
 		<!-- AngularJS -->
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 		
+		<!-- Toast Notifications- After jQuery -->
+		<script type="text/javascript" src="3rdPartyJS/angularToast.js"></script> 
+
 		<!-- VideoJS -->
 		<script type="text/javascript" src="3rdPartyJS/video.js"></script>
 		<!--<script src="http://vjs.zencdn.net/c/video.js"></script>-->
@@ -62,6 +65,7 @@
 			<script type="text/javascript" src="Manager/Profile/profileJS.js"></script>
 			<script type="text/javascript" src="Manager/Event/eventJS.js"></script>
 			<script type="text/javascript" src="Manager/Officer/attendanceJS.js"></script>
+			<script type="text/javascript" src="Manager/Officer/newsFeedJS.js"></script>
 
 
 		<!-- CSS -->
@@ -76,6 +80,7 @@
 			<link rel="styleSheet" href="CSS/SponsorsCSS.css">
 			<link rel="styleSheet" href="CSS/ManagerCSS.css">
 			<link rel="styleSheet" href="CSS/HomeCSS.css">
+			<link rel="styleSheet" href="CSS/ToastCSS.css">
 
 
 		<!-- FONTS -->
@@ -84,7 +89,7 @@
 	</head>
 
 	<body ng-controller="mainController" ng-cloak> <!-- I define an over all controller just incase i need it. It is helpful for debugging things -->
-
+	<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
 	<!--THere are two sections:
 		1. Nav Bar : .nav
 		2. Content View : .container 

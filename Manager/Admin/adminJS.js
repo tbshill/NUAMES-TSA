@@ -1,5 +1,5 @@
 angular.module('App')
-	.controller('adminController', function($firebase,$scope,$rootScope){
+	.controller('adminController', function($firebase,$scope,$rootScope, toaster){
 		$scope.newMembers = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/newUsers')).$asArray();
 		$scope.members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
 		console.log('controller: adminController');
@@ -31,6 +31,7 @@ angular.module('App')
 			//Delete user
 			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members');
 			memberRef.child(id).remove();
+			toaster.pop('error', "Deleted User", "This user was removed from the event");
 		}
 		
 		$scope.makeAdmin = function(id){

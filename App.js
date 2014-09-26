@@ -1,4 +1,4 @@
-var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax']) //Define the angular app
+var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster']) //Define the angular app
 	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
 		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
@@ -142,11 +142,16 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax']) 
 				url:'/manager',
 				controller: 'managerController'
 			})
+
+			//Admin
 			.state('manager.admin',{
 				url:'/admin',
 				controller:'adminController',
 				templateUrl:'Manager/Admin/admin.html'
 			})
+
+
+			//Event
 			.state('manager.allEvents',{
 				url:'/event/all',
 				controller:'allEventsController',
@@ -157,14 +162,28 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax']) 
 				controller:'eventController',
 				templateUrl:'Manager/Event/event.html'
 			})
+
+			//Profile
 			.state('manager.register',{
 				url:'/profile/register',
 				controller:'registerController',
 				templateUrl:'Manager/Profile/register.html'
 			})
+			.state('manager.messages',{
+				url:'/profile/messages',
+				controller:'messagingController',
+				templateUrl:'Manager/Profile/messaging.html'
+			})
+
+			//Officer
 			.state('manager.attendance',{
 				url:'/officer/attendance',
 				controller:'attendanceController',
 				templateUrl:'Manager/officer/attendance.html'
 			})
+			.state('manager.newsFeed',{
+				url:'/officer/news',
+				controller:'newsFeedController',
+				templateUrl:'Manager/officer/newsFeed.html'
+			});
 	});

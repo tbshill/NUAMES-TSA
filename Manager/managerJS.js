@@ -1,6 +1,6 @@
 
 angular.module('App')
-	.controller('managerController',function($scope,$rootScope,$firebase,$stateParams,$location){
+	.controller('managerController',function($scope,$rootScope,$firebase,$stateParams,$location, toaster){
 
 		console.log('controller: managerController');
 		$scope.click = function(event){
@@ -20,15 +20,17 @@ angular.module('App')
 			var e = eventRef.child(event).child('members').child(id).set(id); //Adds a copy to the Events section
 			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Adds a copy to the Member
 			var t = memberRef.child(id).child('events').child(event).set(event);
-            alert('You have been added to ' + event)
+            toaster.pop('success', "Added", "This user was Added to the event");
 		};
 		$scope.removeUserFromEvent = function(id, event){
 			//remove user from event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');  //Removes the event from the event section
 			var e = eventRef.child(event).child('members').child(id).set({});
-            alert('You have been removed from ' + event);
+            
 			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Removes the event from the member section
 			var t = memberRef.child(id).child('events').child(event).set({});
+
+			toaster.pop('error', "Remove", "This user was removed from the event");
 		};
 		$scope.goToEvent = function(event){
 			$location.path("/manager/event/" + event);
