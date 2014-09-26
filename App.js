@@ -1,4 +1,4 @@
-var app = angular.module('App',['ui.router','ngRoute','firebase']) //Define the angular app
+var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax']) //Define the angular app
 	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
 		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
