@@ -1,7 +1,7 @@
 <!-- Event Page
 
 TODO:
-	1. Create purchases // this will not actuall buy an item. It will send a notification to the tresurer for permission.
+	1. Create purchases // this will not actually buy an item. It will send a notification to the treasurer for permission.
 	2. Social Media style communictaion. // Real time
 	3. Post files //We need to check with Zach about storing binders on his server. There may not be enough space.
 -->
@@ -17,7 +17,7 @@ TODO:
 </form>
 
 <h1>Members</h1>
-<table class="table">
+<table ng-show="mem in eventMembers" class="table">
 	<tbody>
 		<tr ng-repeat="mem in eventMembers">
 			<td>{{mem}}</td>
@@ -34,7 +34,8 @@ TODO:
 		<div class="col-md-1">{{post.name}}</div>
 		<div class="col-md-10">{{post.data}}</div>
 
-		<!-- Add Comment Feature -->
+
+		<!-- Add Comment Feature. What do you want to be able to comment on? -Tobin -->
 	</div>
 </div>
 
