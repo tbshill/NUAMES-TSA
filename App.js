@@ -94,6 +94,13 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				$(".container").slideToggle("slow"); //Container Animation
 			}
 		};
+        $scope.gotoChat = function(){
+          $location.path('/chat');
+            if(window.innerHeight>window.innerWidth){
+                $(".nav").find("li").slideToggle("fast");
+                $(".container").slideToggle("slow");
+            }
+        };
 
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){
@@ -142,6 +149,10 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				url:'/manager',
 				controller: 'managerController'
 			})
+            .state('chat',{
+                templateUrl:'Chat/chat.html',
+                url:'/chat'
+            })
 
 			//Admin
 			.state('manager.admin',{

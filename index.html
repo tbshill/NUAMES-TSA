@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 
+
         <!-- Socket IO -->
         <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+        <script src="Chat/chat.js"></script>
         <script>
             var socket = io();
         </script>
@@ -81,6 +83,7 @@
 			<link rel="styleSheet" href="CSS/ManagerCSS.css">
 			<link rel="styleSheet" href="CSS/HomeCSS.css">
 			<link rel="styleSheet" href="CSS/ToastCSS.css">
+            <link rel="stylesheet" href="Chat/chat.css"/>
 
 
 		<!-- FONTS -->
@@ -100,6 +103,7 @@
 					<li ng-click="gotoChapter()" class="button">Our Chapter</li>
 					<li ng-click="gotoDesign()" class="button">Design Brief</li>
 					<li ng-click="gotoSponsors()"  class="button">Sponsors</li>
+                    <li ng-click="gotoChat()" class="button">Chat</li>
 					<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li> <!-- Only shows if someone is not logged in. -->
 					<li ng-show ="isLoggedIn" ng-click="gotoManager()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->
 				</ul>
