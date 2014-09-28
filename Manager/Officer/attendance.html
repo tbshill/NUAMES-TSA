@@ -1,7 +1,7 @@
 <h1>Attendance</h1>
 <flip-table>
 <table class="table">
-	<tr ng-repeat="user in members | filter:{displayName:memberFilter}">
+	<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-show="user.member">
 		<td><img style="height: 70px; width: 70px" ng-src="{{user.picture}}" class="img-circle"/></td>
 		<td>{{user.displayName}}</td>
 		<td><button class="btn btn-success" ng-hide="user.present" ng-click="markPresent(user.$id)">Present</button></td>
