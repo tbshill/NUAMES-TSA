@@ -35,7 +35,9 @@ angular.module('App') // links to App
 			$scope.posts.$add({
 				name: $rootScope.user.displayName,
 				data: $scope.postData
+
 			});
+			$scope.postData = "";
 
 		}
 	})
