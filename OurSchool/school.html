@@ -1,75 +1,11 @@
 <!--<img class="bgimg" src="http://wallpapersus.com/wallpapers/2012/11/Drafting-Compasses-Drawing-Creative-1080x1920.jpg"> -->
-<ul id="og-grid" class="og-grid">
-	<li class="og-box">
+<ul id="og-grid" class="og-grid"> 
+	<li class="og-box" ng-repeat="posts in schoolEvents | reverse" my-preivew> 
 		<a>
 			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
 		</a>
 		<div class="preivew">
-			<h1>This is the Title 0</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title 1</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title 2</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title 3</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew" style="width:100%p;">
-			<h1>This is the Title 4</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title 5</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preivew">
-			<h1>This is the Title 6</h1>
-		</div>
-	</li>
-	<li class="og-box">
-		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
-		</a>
-		<div class="preview">
-			<h1>This is the Title 7</h1>
+			<h1>{{posts.data}}</h1>
 		</div>
 	</li>
 </ul>
