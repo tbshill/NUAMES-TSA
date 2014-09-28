@@ -29,16 +29,20 @@ angular.module('App') // links to App
 		$scope.purchase = function(){
 			console.log('purchase');
 			console.log($scope.newPurchase);
-		}
+		};
 		$scope.posts = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/Posts')).$asArray();
 		$scope.post = function(event){
 			$scope.posts.$add({
 				name: $rootScope.user.displayName,
 				data: $scope.postData
+<<<<<<< HEAD
 
 			});
 			$scope.postData = "";
 
+=======
+			})
+>>>>>>> FETCH_HEAD
 		}
 	})
 	.controller('allEventsController', function($firebase,$rootScope,$scope, $stateParams,$location){
