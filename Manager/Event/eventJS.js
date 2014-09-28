@@ -35,21 +35,9 @@ angular.module('App') // links to App
 			$scope.posts.$add({
 				name: $rootScope.user.displayName,
 				data: $scope.postData
-<<<<<<< HEAD
-//<<<<<<< HEAD
-
-			});
+				});
 			$scope.postData = "";
-		};
-//=======
-//>>>>>>> FETCH_HEAD
-=======
-
-			});
-			$scope.postData = "";
-
 			};
->>>>>>> FETCH_HEAD
 	})
 	.controller('allEventsController', function($firebase,$rootScope,$scope, $stateParams,$location){
 		console.log('allEventsController');
