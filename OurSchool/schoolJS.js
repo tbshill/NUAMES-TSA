@@ -29,7 +29,7 @@ angular.module('App')
 				$('.og-box').find('div').hide();
 				$('.og-box').css('height',"200px");
 				$(iElem).find('div').show();
-				$(iElem).css('height',"400px");
+				$(iElem).css('height',"600px");
         	});
 		}
 	};

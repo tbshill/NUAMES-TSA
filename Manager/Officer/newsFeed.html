@@ -12,3 +12,18 @@
 
 <button class="btn btn-success" ng-click="schoolPost()">Create Post</button>
 
+
+<ul id="og-grid" class="og-grid"> 
+	<li class="og-box" ng-repeat="post in schoolEvents | reverse" my-preivew> 
+		<a>
+			<img style="height:200px; width:200px;" ng-src="{{post.img}}">
+		</a>
+		<div class="preivew">
+			<img style="z-index:10; max-height:300px" ng-src="{{post.img}}" class="col-md-4"/>
+			<div class="col-md-8">
+				<h1>{{post.title}}</h1>
+				<p>{{post.data}}</p>
+			</div>
+		</div>
+	</li>
+</ul>
