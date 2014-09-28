@@ -197,4 +197,9 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'newsFeedController',
 				templateUrl:'Manager/officer/newsFeed.html'
 			});
+	})
+	.filter('reverse', function() {
+		return function(items) {
+			return items.slice().reverse();
+		};
 	});
