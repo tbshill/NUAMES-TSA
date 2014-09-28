@@ -7,7 +7,7 @@ TODO:
 -->
 <script>
     $(document).ready(function(){
-        $('td').on(load).slideDown()
+        $('tr').show('fast')
     })
 </script>
 
@@ -35,12 +35,9 @@ TODO:
 		<div class="col-md-11"><input ng-model="postData" style="width:100%"/></div>
 		<div class="col-md-1"><button ng-click="post(evnt)">Post</button></div>
 	</div>
-	<div class="row post" ng-repeat="post in posts">
+	<div class="row" ng-repeat="post in posts">
 		<div class="col-md-1">{{post.name}}</div>
 		<div class="col-md-10">{{post.data}}</div>
-<<<<<<< HEAD
-=======
 		<!-- Add Comment Feature. What do you want to be able to comment on? -Tobin -->
->>>>>>> FETCH_HEAD
 	</div>
 </div>
