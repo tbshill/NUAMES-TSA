@@ -6,9 +6,9 @@
 <!-- View/Edit posts -->
 
 <h1>NEWS FEED</h1>
+<input ng-model="schoolEvent.title" class="form-control">Title</input>
+<input ng-model="schoolEvent.data" class="form-control">Data</input>
+<input ng-model="schoolEvent.img" class="form-control">Image</input>
 
-<input ng-model="schoolEvent.data"></input>
 <button class="btn btn-success" ng-click="schoolPost()">Create Post</button>
 
-<div ng-repeat="post in schoolPosts">
-</div>

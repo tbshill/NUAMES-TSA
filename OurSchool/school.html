@@ -1,11 +1,12 @@
 <!--<img class="bgimg" src="http://wallpapersus.com/wallpapers/2012/11/Drafting-Compasses-Drawing-Creative-1080x1920.jpg"> -->
 <ul id="og-grid" class="og-grid"> 
-	<li class="og-box" ng-repeat="posts in schoolEvents | reverse" my-preivew> 
+	<li class="og-box" ng-repeat="post in schoolEvents | reverse" my-preivew> 
 		<a>
-			<img style="height:200px; width:200px;" src="http://placehold.it/200x200">
+			<img style="height:200px; width:200px;" ng-src="{{post.img}}">
 		</a>
 		<div class="preivew">
-			<h1>{{posts.data}}</h1>
+			<h1>{{post.title}}</h1>
+			<p>{{post.data}}</p>
 		</div>
 	</li>
 </ul>
