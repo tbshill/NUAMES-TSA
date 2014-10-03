@@ -6,9 +6,9 @@ angular.module('App')
     		
     	});
 
-			$scope.schoolEvents = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/SchoolEvents/')).$asArray();
-		
-})
+		$scope.schoolEvents = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/SchoolEvents/')).$asArray();
+		$('#schoolEvents').css("height",$(window).height()-72 +'px')
+	})
 .directive('myPreivew',function(){
 	// Runs during compile
 	return {

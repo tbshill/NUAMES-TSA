@@ -34,8 +34,8 @@ angular.module('App')
 	        }, scrollSpeed);
     	});
 
-    	$(".screen").css({"min-height" : $( window ).height()-100 +'px'});
+    	$(".screen").css({"min-height" : $( window ).height() - topOffset + 'px'}); //is this line nessisary?
     	$( window ).resize(function() { // resize
-			$(".screen").css({"min-height" : $( window ).height()-100 +'px'});
+			$(".screen").css({"min-height" : $( window ).height() - topOffset + 'px'});
 		});
 	})
