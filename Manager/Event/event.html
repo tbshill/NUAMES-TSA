@@ -20,6 +20,13 @@ TODO:
 	Description:<input ng-model = "newPurchase.Description"/>
 	<button ng-click="purchase()"/>
 </form>
+<table class="table">
+	<tr ng-repeat="purchase in purchases" >
+		<td>{{purchase.Name}}</td>
+		<td>{{purchase.Description}}</td>
+		<td>{{purchase.Ammount}}</td>
+	</tr>
+</table>
 
 <h1>Members</h1>
 <table class="table">

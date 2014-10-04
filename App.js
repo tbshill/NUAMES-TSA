@@ -201,6 +201,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'managerSponsorsController',
 				templateUrl:'Manager/officer/Sponsors/sponsors.html'
 			})
+			.state('manager.budget',{
+				url:'/officer/budget',
+				controller:'budgetController',
+				templateUrl:'Manager/Officer/Budget/budget.html'
+			})
 			.state('manager.newsFeed',{
 				url:'/officer/news',
 				controller:'newsFeedController',

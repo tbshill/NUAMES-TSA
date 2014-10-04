@@ -1,0 +1,15 @@
+<h1>Budget</h1>
+<table class="table">
+	<tr ng-repeat="purchase in purchases">
+		<td>{{purchase.event}}</td>
+		<td>{{purchase.Name}}</td>
+		<td>{{purchase.Description}}</td>
+		<td>{{purchase.Ammount}}</td>
+		<td>
+			<button ng-click = "unApprove(purchase.$id)" ng-show="purchase.approved" class="btn btn-warning">Approve</button>
+			<button ng-click = "approve(purchase.$id)" ng-hide="purchase.approved" class="btn btn-default">Approve</button>
+		</td>
+		<td><button class="btn btn-danger" ng-click="deletePurchase(purchase.$id)">Delete</button></td>
+	
+	</tr>
+</table>

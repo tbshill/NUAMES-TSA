@@ -12,6 +12,8 @@ angular.module('App') // links to App
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;
 		$scope.eventMembers = [];
+		$scope.purchases = $firebase(new Firebase('nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/purchase')).$asArray();
+		$scope.masterpurchases= $firebase(new Firebase('nuames-tsa.firebaseio.com/Purchases')).$asArray();
 		
 		var eventMembersRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+"/members");
 		var m = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
@@ -27,9 +29,34 @@ angular.module('App') // links to App
 			});
 
 		$scope.purchase = function(){
-			console.log('purchase');
+			
+			//create an Id
+			var currentDate = new Date();
+			var day = currentDate.getDate();
+			var month = currentDate.getMonth() + 1;
+			var year = currentDate.getFullYear();
+			var time = currentDate.getTime();
+
+			var timestmp = day+''+month+year+time;
+			var id = $rootScope.eventList.indexOf($scope.evnt)+'-'+timestmp;
+
+
+			$scope.newPurchase.id = id;
+
 			console.log($scope.newPurchase);
+			
+			$scope.purchases.$add($scope.newPurchase);
+			
+			$scope.newPurchase.event = $scope.evnt;
+			
+			$scope.masterpurchases.$add($scope.newPurchase);
+			toaster.pop('success','Purchase requested','')
+
+
+			$scope.newPurchase = {}; //Reset
+
 		};
+
 		$scope.posts = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/Posts')).$asArray();
 		$scope.post = function(event){
 			$scope.posts.$add({
