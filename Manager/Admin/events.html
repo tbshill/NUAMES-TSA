@@ -1,0 +1,12 @@
+<h1>Event Manager</h1>
+<table class="table">
+	<tr>
+		<td colspan="3"><span class="glyphicon glyphicon-search pull-left" style="margin-right:10px"></span><input class="pull-left"style="width:90%;" ng-model = "eventFilter"></input></td>
+	</tr>
+</table>
+<table class="table">
+	<tr ng-repeat="event in eventList | filter:eventFilter">
+		<td>{{event}}<td>
+		<td><button class="btn btn-info" ng-click="clearPosts(event)">Clear Posts</button></td>
+	</tr>
+</table>

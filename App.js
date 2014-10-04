@@ -160,7 +160,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'adminController',
 				templateUrl:'Manager/Admin/admin.html'
 			})
-
+			.state('manager.eventsManager',{
+				url:'/admin/events',
+				controller:'eventManagerController',
+				templateUrl:'Manager/Admin/events.html'
+			})
 
 			//Event
 			.state('manager.allEvents',{
