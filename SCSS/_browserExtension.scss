@@ -1,0 +1,29 @@
+@mixin border-radius($radius) { // @include border-radius(10px);
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($property ,$time, $easing){ //@include transition(property, time, easing)
+	-webkit-transition: $property $time $easing;
+	   -moz-transition: $property $time $easing;
+	    -ms-transition: $property $time $easing;
+	     -o-transition: $property $time $easing;
+	        transition: $property $time $easing;
+}
+
+@mixin display-flex(){
+	display:flex;
+	display:-webkit-flex;
+}
+
+@mixin flex-justify-content($parameter){
+	justify-content:$parameter;
+	-webkit-justify-content:$parameter;
+}
+@mixin flex($flexGrow){
+	-webkit-flex-grow:$flexGrow;
+	-moz-box-flex: $flexGrow; 
+	flex:$flexGrow;
+}

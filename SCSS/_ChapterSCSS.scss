@@ -1,0 +1,82 @@
+
+.chapterBody{
+	position: absolute;
+	top:.25in;
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
+	width: 100%;
+}
+
+.box{
+	position:relative;
+	width: 100%;
+	margin: 0px;
+	padding: 10px;
+}
+
+.subnav{
+	@include display-flex();
+	position: fixed;
+	top:1.5;
+	left: 0in;
+	width: 100%;
+	height: .3in;
+	background-color: $subNavBgColor;
+	
+	list-style: none;
+	align-self:center;
+	margin: 0px;
+	z-index: 2;
+	font-family: 'Quicksand', sans-serif;
+	color:black;
+
+	li{
+		margin: 0px;
+		list-style: none;
+		padding:.1em;
+		
+		@include flex(1);
+
+		text-align: center;
+
+		border-right-width: 1px;
+		border-top-width: 1px;
+		border-bottom-width: 1px;
+		border-right-style: solid;
+		border-top-style: solid;
+		border-bottom-style: solid;
+	}
+	asdf{
+		align-self:center;
+		font-size: 1.3em;
+		height: .25in;
+	}
+}
+.stats{
+	background-image: $statsBgImg;
+	padding: .25in;
+	color:white;
+	font-family: $statsFont;
+
+	table{
+		width: 100%;
+		text-align: center;
+		border-top-style: dotted;
+		border-bottom-style: dotted;
+		border-collapse: separate;
+		border-spacing: .5in;
+	}
+}
+
+.box{
+	width:100%;
+}
+.screen{
+	height: auto;
+	padding: 10px;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
