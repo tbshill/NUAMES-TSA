@@ -1,5 +1,5 @@
 	<div class="subnav">
-			<div id="topBTN" class="cbutton"><asdf>Top</asdf></div>
+			<div id="topBTN" class="button"><asdf>Top</asdf></div>
 			<div id="leadershipBTN" class="button"><asdf>Leadership</asdf></div>
 			<div id="eventsBTN" class="button"><asdf>Events</asdf></div>
 			<div id="administrationBTN" class="button"><asdf>Administration</asdf></div>
@@ -9,40 +9,36 @@
 			<img du-parallax y="groupPhoto" style="padding:0px 0px 0px 0px" src="http://interfacelift.com/wallpaper/Dc3a04a5/03709_icelandicsodhouse_1440x900.jpg" class="screen"/>
 
 		<!-- STATS -->
-			<div class="stats box">
-				<table>
-					<tr>
-						<td>
-							<h3 style="font-size:2vw;">Members</h3>
-							<h3 style="font-size:6vw;">70</h3>
-						</td>
-						<td class="sideBorders">
-							<h3 style="font-size:2vw;">Established</h3>
-							<h3 style="font-size:6vw;">2010</h3>
-						</td>
-						<td>
-							<h3 style="font-size:2vw;">Awards</h3>
-							<h3 style="font-size:6vw;">2000</h3>
-						</td>
-					</tr>
-				</table>
+			<div class="stats">
+				<div class="flex-1">
+					<p style="font-size:2vw;">Members</p>
+					<p style="font-size:6vw;">70</p>
+				</div>
+				<div class="flex-1 sideBoarders">
+					<p style="font-size:2vw;">Established</p>
+					<p style="font-size:6vw;">2010</p>
+				</div>
+				<div class="flex-1">
+					<p style="font-size:2vw;">Awards</p>
+					<p style="font-size:6vw;">2000</p>
+				</div>
 			</div> 
 
-		<div id="officers" class="box">
+		<div id="officers" class="jumbotron">
 			<h1>Officers</h1>
 		</div>
 		<!-- Events -->
-		<div id="eventScreen" class="box" ng-init="eventsScreen = 0" style="background-color:blue"> 
+		<div id="eventScreen" class="jumbotron" ng-init="eventsScreen = 0" style="background-color:blue"> 
 			<h1>EVENTS</h1>
 		</div>
 
 		<!-- Administration -->
-		<div id="administration" class="screen"  style="background-color:orange">
+		<div id="administration" class="jumbotron screen"  style="background-color:orange">
 			<h1>Administration</h1>
 		</div>
 
 		<!-- Timeline -->
-		<div id="timeline" class="screen" style="background-color:red;">
+		<div id="timeline" class="jumbotron screen" style="background-color:red;">
 			<h1>Timeline</h1>
 		</div>
 	</div>

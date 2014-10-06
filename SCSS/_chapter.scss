@@ -25,3 +25,12 @@
 	width: 100%;
 	background: inherit;
 }
+.stats{
+	@include display-flex();
+	@include justify-content(center);
+	background-image: $statsBgImg;
+	color: $statsFontColor;
+	div{
+		text-align: center;
+	}
+}

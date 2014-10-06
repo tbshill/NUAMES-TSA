@@ -8,7 +8,7 @@ $light-grey-hover: darken($light-grey, 20%);
 }
 
 //Nav Bar
-$navHeight: .5in;
+$navHeight: .75in;
 $navBgColor: $light-grey;
 $navFontSize: 18px;
 $navFont: 'Quicksand', sans-serif;
@@ -18,3 +18,10 @@ $navElementPadding: $navHeight / 3;
 $subnavHeight: .25in;
 $subnavBgColor: $light-grey;
 $subnavFontSize:12px;
+
+//sideNav
+$sidenavWidth: 2in;
+
+//stats
+$statsFontColor: $light-grey;
+$statsBgImg: url('http://nuamestsa.com/OurChapter/black_linen_v2.png')

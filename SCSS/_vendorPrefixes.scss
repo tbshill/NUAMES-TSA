@@ -12,9 +12,16 @@
 }
 @mixin flex($flexnum){
 	flex: $flexnum;
-	-webkit-flex: $flexnum
+	-webkit-flex: $flexnum;
 }
-@for $i from 1 through 5 {
+@mixin justify-content($place){
+	-webkit-justify-content: $place;
+	justify-content:$place;
+}
+.flex{
+	@include display-flex();
+}
+@for $i from 1 through 20 {
 	.flex-#{$i} {
 		@include flex($i);
 	}

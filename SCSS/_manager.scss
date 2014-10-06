@@ -1,0 +1,17 @@
+.sideNav{
+	position: fixed;
+	left: 0;
+	top: $navHeight;
+	width: $sidenavWidth;
+}
+.managerBody{
+	position: absolute;
+	top: $navHeight;
+	left: $sidenavWidth;
+	width: pixel(100%) - $sidenavWidth;
+	@include background();
+}
+img{
+	height: 100px;
+	width:100px;
+}
