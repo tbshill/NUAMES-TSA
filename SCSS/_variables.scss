@@ -1,3 +1,8 @@
+// nav
+// subnav
+// toast
+// Color
+
 //Color Scheme
 $light-grey: rgb(230,230,230); 
 $light-grey-hover: darken($light-grey, 20%);
@@ -19,8 +24,10 @@ $navFontSize: 18px;
 $navFont: 'Quicksand', sans-serif;
 $navElementPadding: $navHeight / 3;
 
+$logoFontSize: 48px;
+
 //subNav Bar
-$subnavHeight: .25in;
+$subnavHeight: .5in;
 $subnavBgColor: $light-grey;
 $subnavFontSize:12px;
 
@@ -31,4 +38,5 @@ $sidenavWidth: 2in;
 $statsFontColor: $light-grey;
 $statsBgImg: url('http://nuamestsa.com/OurChapter/black_linen_v2.png');
 
-
+//home
+$overlayBgColor: rgba(0,0,0,.7);

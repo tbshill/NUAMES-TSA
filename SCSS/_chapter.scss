@@ -7,6 +7,9 @@
 	height: $subnavHeight;
 	background-color: $subnavBgColor;
 	z-index: 9;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color:grey;
 
 	div{
 		@include flex(1);

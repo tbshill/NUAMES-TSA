@@ -25,3 +25,14 @@
 		}
 	}
 }
+#logo{
+	position: fixed;
+	z-index: 11;
+	font-family: $navFont;
+	font-size: $logoFontSize;
+	top: $navHeight - $logoFontSize * 1.5;
+	&:active, :hover , :visited {
+		color: black;	
+		text-decoration: none;
+	}
+}
