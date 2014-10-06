@@ -3,13 +3,28 @@
 	left: 0;
 	top: $navHeight;
 	width: $sidenavWidth;
+	height: 100%;
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: $light-grey;
+
+	ul{
+		margin: 0px;
+		list-style: none;
+		ul{
+			margin: 0px;
+			display: none;
+		}
+	}
 }
 .managerBody{
 	position: absolute;
+	padding-left: 10px;
+	margin-top: -.5in;
 	top: $navHeight;
 	left: $sidenavWidth;
 	width: pixel(100%) - $sidenavWidth;
-	@include background();
+	//@include background();
 }
 img{
 	height: 100px;
