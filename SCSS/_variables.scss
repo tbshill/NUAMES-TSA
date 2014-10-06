@@ -1,0 +1,20 @@
+//Color Scheme
+$light-grey: rgb(230,230,230); 
+$light-grey-hover: darken($light-grey, 20%);
+
+@mixin background (){
+	background-color:grey;
+	background-image: url('/imgs/sos.png')
+}
+
+//Nav Bar
+$navHeight: .5in;
+$navBgColor: $light-grey;
+$navFontSize: 18px;
+$navFont: 'Quicksand', sans-serif;
+$navElementPadding: $navHeight / 3;
+
+//subNav Bar
+$subnavHeight: .25in;
+$subnavBgColor: $light-grey;
+$subnavFontSize:12px;

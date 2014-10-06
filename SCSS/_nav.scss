@@ -1,0 +1,27 @@
+.nav{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $navHeight;
+	background-color: $navBgColor;
+	z-index: 10;
+	font-family: $navFont;
+
+	li{
+		@include transition(all, .3s, ease-in-out);
+		font-size: $navFontSize;
+		float: right;
+		display: inline-table;
+		top: 0px;
+		padding-top: ($navHeight - $navFontSize) / 2;
+		padding-left: $navElementPadding;
+		padding-right: $navElementPadding;
+		height: $navHeight;
+
+		&:hover{
+			background-color: $light-grey-hover;
+			//text-decoration: underline;
+		}
+	}
+}
