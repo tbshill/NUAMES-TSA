@@ -1,0 +1,50 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  display: -webkit-flex;
+  background-color: #f0f0f0;
+  /* background-image: url('/imgs/sos.png'); remember Citation*/
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
+  height: .75in;
+  font-family: 'Quicksand', sans-serif;
+}
+.nav li {
+  position: relative;
+  right: 45px;
+  padding: 10px;
+  list-style: none;
+  padding-right: 1.3em;
+  padding-left: 1.3em;
+  padding-top: 1.5em;
+  padding-bottom: 1.85em;
+  color: black;
+  text-decoration: none;
+  align-self: center;
+}
+
+#logo {
+  position: fixed;
+  z-index: 2;
+  top: -5px;
+  left: 10px;
+  padding-right: 5px;
+  font-family: 'Quicksand', sans-serif;
+}
+#logo a {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  text-decoration: none;
+  color: black;
+}
+#logo a:hover {
+  color: grey;
+}

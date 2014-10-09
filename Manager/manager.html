@@ -11,7 +11,7 @@ It really only consists of a Side Nav and a Content View.
 
 <div ng-show="user.member"> <!-- This shows other wise -->
 	<!-- The Nav Bar-->
-	<div class="navBar">
+	<div class="sideNav">
 		<ul class="accordian" accordian> <!-- The accordian directive enables jQuery. Because angularJS is real time, jQuery cannont "pre compile" everything first-->
 			<li ng-show="user.admin"> <!-- Only shows if the user is an admin -->
 				<h3 class="button">Admin</h3>
@@ -48,9 +48,7 @@ It really only consists of a Side Nav and a Content View.
 				</ul>
 			</li>
 		</ul>
-	</div>
-	<div class="managerBody"> <!-- Content View -->
-		<div ui-view></div>
-	</div>
+	</div> <!-- Content View -->
+		<div class="managerBody" ui-view></div>
 </div>
 

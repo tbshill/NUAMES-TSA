@@ -1,0 +1,9 @@
+.overlay{
+	margin-top: 2in;
+	background-color: $overlayBgColor;
+	@include center();
+	width: 50%;
+	padding: 20px;
+	border-radius: 50px;
+	color:$light-grey;
+}

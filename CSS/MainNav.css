@@ -20,9 +20,8 @@
   z-index: 1;
   height: .75in;
   font-family: 'Quicksand', sans-serif;
-
-
 }
+
 .nav li{
   position: relative;
   right: 45px;
@@ -36,6 +35,7 @@
   text-decoration: none;
   align-self:center;
 }
+
 #logo{
   position: fixed;
   z-index: 2;
@@ -43,8 +43,8 @@
   left: 10px;
   padding-right:5px; 
   font-family: 'Quicksand', sans-serif;
-
 }
+
 #logo a{
   text-decoration: none;
   color: black;
@@ -54,9 +54,11 @@
        -o-transition: all .15s linear;
           transition: all .15s linear;
 }
+
 #logo a:hover{
   color:grey;
 }
+
 .container{
   width: 100%;
 }

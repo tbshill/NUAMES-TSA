@@ -1,0 +1,10 @@
+body{
+	@include background();
+}
+.body{
+	position: absolute;
+	top: $navHeight;
+	@include background();
+	width: 100%;
+	min-height: 100%;
+}

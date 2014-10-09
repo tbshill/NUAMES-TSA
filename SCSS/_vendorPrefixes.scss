@@ -1,0 +1,41 @@
+@mixin transition ($property, $time, $easing){
+	-webkit-transition: $property $time $easing;
+	   -moz-transition: $property $time $easing;
+	    -ms-transition: $property $time $easing;
+	     -o-transition: $property $time $easing;
+	        transition: $property $time $easing; 
+}
+@mixin box-sizing(){
+	-moz-box-sizing: border-box;
+ 	-webkit-box-sizing: border-box;
+ 	box-sizing: border-box;
+}
+@mixin word-wrap(){
+	-ms-word-wrap: break-word;
+ 	word-wrap: break-word;
+}
+@mixin display-flex(){
+	display: -webkit-flex;
+	display: flex;
+}
+@mixin flex($flexnum){
+	flex: $flexnum;
+	-webkit-flex: $flexnum;
+}
+@mixin justify-content($place){
+	-webkit-justify-content: $place;
+	justify-content:$place;
+}
+.flex{
+	@include display-flex();
+}
+@for $i from 1 through 20 {
+	.flex-#{$i} {
+		@include flex($i);
+	}
+}
+
+@mixin center(){
+	margin-left: auto;
+	margin-right:auto;
+}

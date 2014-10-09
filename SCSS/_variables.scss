@@ -1,0 +1,52 @@
+// nav
+// subnav
+// toast
+// Color
+
+//Color Scheme
+$light-grey: rgb(230,230,230); 
+$light-grey-hover: darken($light-grey, 20%);
+//toasts
+$toast-success-bgColor:#51a351;
+$toast-error-bgColor:#bd362f;
+$toast-info-bgColor:#2f96b4;
+$toast-warning-bgColor:#f89406;
+
+@mixin background (){
+	background-color:grey;
+	background-image: url('/imgs/sos.png')
+}
+
+//Nav Bar
+$navHeight: .75in;
+$navBgColor: $light-grey;
+$navFontSize: 18px;
+$navFont: 'Quicksand', sans-serif;
+$navElementPadding: $navHeight / 3;
+
+$logoFontSize: 48px;
+
+//subNav Bar
+$subnavHeight: .5in;
+$subnavBgColor: $light-grey;
+$subnavFontSize:12px;
+
+//sideNav
+$sidenavWidth: 2in;
+
+//stats
+$statsFontColor: $light-grey;
+$statsBgImg: url('http://nuamestsa.com/OurChapter/black_linen_v2.png');
+
+//home
+$overlayBgColor: rgba(0,0,0,.7);
+
+//Signin
+$loginBtnWidth: 3in;
+$loginBtnHeight: .5in;
+
+$fbLoginBtnBgColor: navy;
+$gogLoginBtnBgColor: orange;
+
+$fbLoginBtnColor: $light-grey;
+$gogLoginBtnColor: $light-grey;

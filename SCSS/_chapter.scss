@@ -1,0 +1,48 @@
+.subnav{
+	@include display-flex();
+	position: fixed;
+	top:$navHeight;
+	left: 0;
+	width: 100%;
+	height: $subnavHeight;
+	background-color: $subnavBgColor;
+	z-index: 9;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color:grey;
+
+	div{
+		@include flex(1);
+		text-align: center;
+		padding: ($subnavHeight - $subnavFontSize) / 2;
+
+		&:hover{
+			background-color: $light-grey-hover;
+		}
+	}
+}
+.chapterBody{
+	position: absolute;
+	left: 0;
+	top: $navHeight+$subnavHeight;
+	width: 100%;
+	background: inherit;
+}
+.stats{
+	@include display-flex();
+	@include justify-content(center);
+	background-image: $statsBgImg;
+	color: $statsFontColor;
+	div{
+		text-align: center;
+	}
+}
+.chapterelement{
+	position: relative;
+	h1{
+		color:black;
+	}
+}
+.paralaxBg{
+	z-index: -10;
+}
