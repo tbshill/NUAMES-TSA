@@ -4,7 +4,7 @@
 		<td>{{purchase.event}}</td>
 		<td>{{purchase.Name}}</td>
 		<td>{{purchase.Description}}</td>
-		<td>{{purchase.Ammount}}</td>
+		<td>{{purchase.Ammount | currency}}</td>
 		<td>
 			<button ng-click = "unApprove(purchase.$id)" ng-show="purchase.approved" class="btn btn-warning">Approve</button>
 			<button ng-click = "approve(purchase.$id)" ng-hide="purchase.approved" class="btn btn-default">Approve</button>

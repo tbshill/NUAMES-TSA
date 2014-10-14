@@ -14,6 +14,11 @@ angular.module('App')
 		$scope.admin = function(){
 			$location.path("/manager/admin");
 		};
+        $scope.rememberMe = function(){
+            var FirebaseTokenGenerator = require("firebase-token-generator");
+            var tokenGenerator = new FirebaseTokenGenerator("<YOUR_FIREBASE_SECRET>");
+            var token = tokenGenerator.createToken({uid: "1", some: "arbitrary", data: "here"});
+        };
 		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
 			//add user to event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
