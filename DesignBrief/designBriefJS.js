@@ -1,6 +1,8 @@
-/**
- * Created by tobinegbert on 9/18/14.
- */
+
+$('#myModal').modal({
+    show: 'true'
+});
+
 angular.module('App').controller('designBrief', ['$scope', '$interval',
     function($scope, $interval) {
         $scope.design_brief = 0;
@@ -36,7 +38,7 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
                     alertOn = true;
                     if(alertOn && $scope.design_brief >= 300 && $scope.design_brief <= 399) {
                         $(document).ready(function(){
-                            $('h3').fadeIn().css('color', 'purple')
+                            $('h3').css('color', 'purple')
                         })
                     }
 

@@ -18,10 +18,12 @@
 		
 		<!-- When you create a JS file, append it here under the correct category-->
 
-		<!-- JQuery -->
+        <!-- JQuery -->
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script> <!-- MixItUp -->
-		<!-- AngularJS -->
+        <!-- Bootstrap.js -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- AngularJS -->
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 		
 		<!-- Toast Notifications- After jQuery -->
@@ -88,6 +90,27 @@
 		1. Nav Bar : .nav
 		2. Content View : .container 
 	-->
+    <script type="text/javascript">
+        $(window).load(function(){
+            $('#myModal').modal('show');
+        });
+    </script>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tutorial</h4>
+                </div>
+                <div class="modal-body">
+                    *Insert Tutorial Here*
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 		<p id="logo"><a href="/">TSA</a></p> <!-- Nav Bar -->
 				<ul class="nav">
 					<li ng-show ="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->

@@ -14,10 +14,10 @@ TODO:
 <h1>{{evnt}}</h1>
 
 <h2>Purchase</h2>
-<form>
-	Name:<input ng-model = "newPurchase.Name"/>
-	Ammount:<input type="number" ng-model = "newPurchase.Ammount"/>
-	Description:<input ng-model = "newPurchase.Description"/>
+<form name="purchase">
+	Name:<input ng-model="newPurchase.Name"/>
+	Ammount:<input ng-model = "newPurchase.Ammount"/>
+	Description:<input ng-model="newPurchase.Description"/>
 	<button ng-click="purchase()"/>
 </form>
 <table class="table">

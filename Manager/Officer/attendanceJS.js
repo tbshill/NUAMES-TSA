@@ -25,8 +25,7 @@ angular.module('App')
 			asdf.update({present:false});
 		};
 		//var t = new Firebase('https://nuames-tsa.firebaseio.com/Members/'+$rootScope.user.$id+'/Attendance/'+fullDate+'/present');
-
-		$("table").each(function() {
+        $("table").each(function() {
 	        var $this = $(this);
 	        var newrows = [];
 	        $this.find("tr").each(function(){
