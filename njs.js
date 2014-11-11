@@ -55,9 +55,10 @@ io.on('connection', function(socket){
     console.log('Number of users online is: ' + i);
     socket.on('disconnect', function(){
         i--;
-        console.log('Number of users online is: ' + i);
         if(i == 0){
             console.log('No one is online')
+        } else {
+            console.log('Number of users online is: ' + i);
         }
     })
 });

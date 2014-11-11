@@ -17,7 +17,15 @@ angular.module('App')
         $scope.rememberMe = function(){
             var FirebaseTokenGenerator = require("firebase-token-generator");
             var tokenGenerator = new FirebaseTokenGenerator("xiXrvimcsECZezGVbjdVHxhav2w8B8GEML3XJgBZ");
-            var token = tokenGenerator.createToken({uid: "1", username: "", password: ""});
+            var token = tokenGenerator.createToken({uid: "1", some: "arbitrary", data: "here"});
+            var ref = new Firebase("https://nuames-tsa..firebaseio.com/");
+            ref.authWithCustomToken(AUTH_TOKEN, function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Login Succeeded!", authData);
+                }
+            });
         };
 		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
 			//add user to event.members
