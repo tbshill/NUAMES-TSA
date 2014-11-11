@@ -45,6 +45,7 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
                 }
             }, 500)
         };
+
         $scope.stopFight = function() {
             if (angular.isDefined(stop)) {
                 $interval.cancel(stop);
