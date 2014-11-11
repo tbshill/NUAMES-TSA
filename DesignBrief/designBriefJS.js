@@ -20,25 +20,25 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
                     if (alertOn && $scope.design_brief >= 1 && $scope.design_brief <= 99) {
                         alertOn = false;
                         $(document).ready(function(){
-                            $('h3').text('Stuff').css('color', 'black')
+                            $('.ignoreme').text('Stuff').css('color', 'black')
                         })
                     } alertOn = true;
                     if (alertOn && $scope.design_brief >= 100 && $scope.design_brief <= 199) {
                         $(document).ready(function () {
-                            $('h3').css('color', 'white')
+                            $('.ignoreme').css('color', 'white')
                         });
                     }
                         alertOn = true;
                     if(alertOn && $scope.design_brief >= 200 && $scope.design_brief <= 299){
                         $(document).ready(function(){
-                            $('h3').text('We will change the background here')
+                            $('.ignoreme').text('We will change the background here')
                         });
                         alertOn = false;
                     }
                     alertOn = true;
                     if(alertOn && $scope.design_brief >= 300 && $scope.design_brief <= 399) {
                         $(document).ready(function(){
-                            $('h3').css('color', 'purple')
+                            $('.ignoreme').css('color', 'purple')
                         })
                     }
 
