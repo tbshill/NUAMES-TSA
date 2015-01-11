@@ -29,16 +29,8 @@ angular.module('App')
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
 			    console.log(authData.google.email);
-			    document.cookie="uid=" + authData.google.id;
-			    document.cookie="name=" + authData.google.displayName;
-			    document.cookie="expires=" + authData.expires;
-			    console.log(document.cookie);
 			    for(i = 0; i < members.length; i++) {
 			    	if(members[i].id == authData.google.id) {
-			    		document.cookie="loggedin=true";
-			    		document.cookie="uid=" + authData.google.id;
-			    		document.cookie="name=" + authData.google.displayName;
-			    		document.cookie="expires=" + authData.expires;
 			    		console.log("Heya--you're all logged in!");
 			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
 		    			u.$bindTo($rootScope,"user"); //3-way data binding

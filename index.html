@@ -112,8 +112,9 @@
     </div> -->
 		<p id="logo"><a href="/">TSA</a></p> <!-- Nav Bar -->
 				<ul class="nav">
-					<li ng-show ="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->
-					<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li> <!-- Only shows if someone is not logged in. -->
+					<li ng-show="isLoggedIn" ng-click="signOut()" class="button">Sign Out</li>
+					<li ng-show="isLoggedIn" ng-click="gotoManager()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->
+					<li ng-hide="isLoggedIn" ng-click="gotoSignin()"  class="button">Sign In</li> <!-- Only shows if someone is not logged in. -->
                     <li ng-click="gotoChat()" class="button">Chat</li>
 					<li ng-click="gotoSponsors()"  class="button">Sponsors</li>
 					<li ng-click="gotoDesign()" class="button">Design Brief</li>

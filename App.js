@@ -1,5 +1,5 @@
 var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster','specialDirectives']) //Define the angular app
-	.controller('mainController',function($scope, $rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
+	.controller('mainController',function($scope, $rootScope,$firebaseAuth,$firebase,$scope,$location){ //mainController is referenced in index.html
 		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
 			'Architectural Renovation',
@@ -39,19 +39,37 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
 
-		$rootScope.members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
-		var newMembers = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/newUsers')).$asArray();
+		var ref = new Firebase("https://nuames-tsa.firebaseio.com/Members/");
 
-		console.log($rootScope.members.length);
+		var members = $firebase(ref).$asArray();
 
-		$scope.loginWithGoogle = function(){
-			console.log(document.cookie);
-		};
+		var authData = ref.getAuth();
 
+		members.$loaded().then(function(members) {
+			if(authData) {
+				for(var i = 0; i < members.length; i++) {
+					console.log(members[i].$id);
+			    	if(members[i].id == authData.google.id) {
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
+			    }
+			}
+		});
 		/*
 			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
 			If the screen is landscape nothing happens, but if the screen is portrait, then .container is hidden and the menubar is displayed
 		*/
+
+		$scope.signOut = function() {
+			console.log("loggin out")
+			ref.unauth();
+			$rootScope.isLoggedIn=false;
+			$location.path("/")
+		}
 
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.
