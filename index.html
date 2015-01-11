@@ -40,9 +40,8 @@
 		<script type="text/javascript" src="3rdPartyJS/bigvideo.js"></script>
 
 		<!-- Firebase -->
-		<script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-		<script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
-		<script src="https://cdn.firebase.com/js/simple-login/1.6.3/firebase-simple-login.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
 		
 		<!-- Routers -->
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
@@ -89,7 +88,7 @@
 	<!--THere are two sections:
 		1. Nav Bar : .nav
 		2. Content View : .container 
-	-->
+	
     <script type="text/javascript">
         $(window).load(function(){
             $('#myModal').modal('show');
@@ -110,7 +109,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 		<p id="logo"><a href="/">TSA</a></p> <!-- Nav Bar -->
 				<ul class="nav">
 					<li ng-show ="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()" class="button">{{user.displayName}}</li> <!-- Only shows if someone is logged in -->

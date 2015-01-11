@@ -1,5 +1,5 @@
 var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster','specialDirectives']) //Define the angular app
-	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
+	.controller('mainController',function($scope, $rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
 		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
 			'Architectural Renovation',
@@ -34,10 +34,19 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			'Technology Bowl',
 			'Technology Problem Solving',
 			'Transportation Modeling',
-			'Video Game Design',
+			'Video Game Design', 
 			'VEX Robotics',
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
+
+		$rootScope.members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
+		var newMembers = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/newUsers')).$asArray();
+
+		console.log($rootScope.members.length);
+
+		$scope.loginWithGoogle = function(){
+			console.log(document.cookie);
+		};
 
 		/*
 			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
