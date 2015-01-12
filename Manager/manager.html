@@ -14,7 +14,7 @@ It really only consists of a Side Nav and a Content View.
 	<div class="sideNav">
 		<ul class="accordian" accordian> <!-- The accordian directive enables jQuery. Because angularJS is real time, jQuery cannont "pre compile" everything first-->
 			<li ng-show="user.admin"> <!-- Only shows if the user is an admin -->
-				<h3 class="button">Admin</h3>
+				<h3 class="button" style="cursor: pointer">Admin</h3>
 				<ul>
 					<li class="button"><a ui-sref="manager.admin">Members</a></li>
 					<li class="button"><a ui-sref="manager.eventsManager">Events</a></li>
@@ -22,7 +22,7 @@ It really only consists of a Side Nav and a Content View.
 			</li>
 
 			<li ng-show="user.officer"> <!-- only shows if the user is an officer -->
-				<h3 class="button">Officer</h3>
+				<h3 class="button" style="cursor: pointer">Officer</h3>
 				<ul>
 					<li class="button">Minutes</li> <!-- Most of these are fillers s-->
 					<li class="button"><a ui-sref="manager.attendance">Attendance</a></li>
@@ -33,7 +33,7 @@ It really only consists of a Side Nav and a Content View.
 				</ul>
 			</li>
 			<li>
-				<h3 class="button">My Profile</h3>
+				<h3 class="button" style="cursor: pointer">My Profile</h3>
 				<ul>
 					<li class="button"><a ui-sref="manager.register">Register</a></li>
 					<li class="button">Contact</li>
@@ -41,7 +41,7 @@ It really only consists of a Side Nav and a Content View.
 				</ul>
 			</li>
 			<li>
-				<h3 class="button">Events</h3>
+				<h3 class="button" style="cursor: pointer">Events</h3>
 				<ul>
 					<li style="margin-bottom:10px;"><a ui-sref="manager.allEvents">All Events</a></li>
 					<li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->

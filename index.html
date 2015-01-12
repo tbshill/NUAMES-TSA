@@ -17,8 +17,14 @@
 		<title>NUAMES TSA</title>
 		
 		<!-- When you create a JS file, append it here under the correct category-->
-
-        <!-- JQuery -->
+		<!--<link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/normalize.css" />-->
+		<!--<link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/demo.css" />-->
+		<!--<link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/icons.css" />-->
+		<link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/style5.css" />
+		<script src="AnimatedBorderMenus/js/modernizr.custom.js"></script>
+		<script src="AnimatedBorderMenus/js/classie.js"></script>
+		<script src="AnimatedBorderMenus/js/borderMenu.js"></script>
+		<!-- JQuery -->
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script> <!-- MixItUp -->
         <!-- Bootstrap.js -->
@@ -98,11 +104,11 @@
 		1. Nav Bar : .nav
 		2. Content View : .container 
 	-->
-    <script type="text/javascript">
-        $(window).load(function(){
-            $('#myModal').modal('show');
-        });
-    </script>
+    <!--<script type="text/javascript">-->
+        <!--$(window).load(function(){-->
+            <!--$('#myModal').modal('show');-->
+        <!--});-->
+    <!--</script>-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -128,14 +134,14 @@
 					<!--<li ng-click="gotoDesign()" class="button" style="cursor: pointer; color: black;">Design Brief</li>-->
 					<!--<li ng-click="gotoChapter()" class="button" style="cursor: pointer; color: black;">Our Chapter</li>-->
 					<!--<li style="margin-left: min(100px); cursor:pointer; color: #000000" ng-click="gotoSchool()" class="button">Our School</li>-->
-						<nav class="cl-effect-3">
-							<a><span ng-show="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()">{{user.displayName}}</span></a>
-							<a><span ng-hide ="isLoggedIn" ng-click="gotoSignin()">Sign In</span></a>
-							<a><span ng-click="gotoChat()">Chat</span></a>
-							<a><span ng-click="gotoSponsors()">Sponsors</span></a>
-							<a><span ng-click="gotoDesign()">Design Brief</span></a>
-							<a><span ng-click="gotoChapter()">Chapter</span></a>
-							<a><span ng-click="gotoSchool()">School</span></a>
+						<nav class="cl-effect-3 b nav" style="text-align: right; text-align: -moz-right">
+							<a><span class="a" style="cursor: pointer" ng-click="gotoSchool()">School</span></a>
+							<a><span class="a" style="cursor: pointer" ng-click="gotoChapter()">Chapter</span></a>
+							<a><span class="a" style="cursor: pointer" ng-click="gotoDesign()">Design Brief</span></a>
+							<a><span class="a" style="cursor: pointer" ng-click="gotoSponsors()">Sponsors</span></a>
+							<a><span class="a" style="cursor: pointer" ng-click="gotoChat()">Chat</span></a>
+							<a><span class="a" style="cursor: pointer" ng-hide ="isLoggedIn" ng-click="gotoSignin()">Sign In</span></a>
+							<a><span class="a" style="cursor: pointer" ng-show="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()">{{user.displayName}}</span></a>
 						</nav>
 				</ul>
 			 <!-- Content View-->

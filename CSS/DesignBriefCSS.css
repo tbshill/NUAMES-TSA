@@ -1,9 +1,21 @@
 svg circle {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    -webkit-animation: dash 5s linear forwards;
+    stroke-dasharray: 252;
+    stroke-dashoffset: 252;
+    -webkit-animation: dash .5s linear forwards;
+    -moz-animation: dash .5s linear forwards;
+    -o-animation: dash .5s linear forwards;
 }
 @-webkit-keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@-moz-keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@-o-keyframes dash {
     to {
         stroke-dashoffset: 0;
     }
