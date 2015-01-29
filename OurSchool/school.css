@@ -1,0 +1,888 @@
+.box {
+    width: 900px;
+    height: 450px;
+    position: relative;
+    background: rgba(255,255,255,1);
+    display: inline-block;
+    margin: 10px 10px;
+    alignment: center;
+    cursor: default;
+    color: #2c3e50;
+    box-shadow: inset 0 0 0 3px #2c3e50;
+    -webkit-transition: background 0.4s 0.5s;
+    transition: background 0.4s 0.5s;
+    text-align: center;
+}
+
+.box:hover {
+    background: dimgray;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.box h3 {
+    font-size: 180px;
+    line-height: 370px;
+    margin: 0;
+    font-weight: 400;
+    width: 100%;
+}
+
+.box span {
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.box h3,
+.box span {
+    -webkit-transition: color 0.4s 0.5s;
+    transition: color 0.4s 0.5s;
+}
+
+.box:hover h3,
+.box:hover span {
+    color: #000052;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.box svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box svg line {
+    stroke-width: 3;
+    stroke: #ecf0f1;
+    fill: none;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;
+}
+
+.box:hover svg line {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.box svg line.top,
+.box svg line.bottom {
+    stroke-dasharray: 1000 1000;
+}
+
+.box svg line.left,
+.box svg line.right {
+    stroke-dasharray: 450;
+}
+
+.box:hover svg line.top {
+    -webkit-transform: translateX(-2000px);
+    transform: translateX(-2000px);
+}
+
+.box:hover svg line.bottom {
+    -webkit-transform: translateX(2000px);
+    transform: translateX(2000px);
+}
+
+.box:hover svg line.left {
+    -webkit-transform: translateY(900px);
+    transform: translateY(900px);
+}
+
+.box:hover svg line.right {
+    -webkit-transform: translateY(-900px);
+    transform: translateY(-900px);
+}
+@font-face {
+    font-family: 'icons';
+    font-weight: normal;
+    font-style: normal;
+}
+
+.photostack {
+    background: #ddd;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.js .photostack {
+    height: 580px;
+}
+
+.photostack-start {
+    cursor: pointer;
+}
+
+/* Wrapper and figures */
+
+/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */
+.photostack > div {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.photostack figure {
+    width: 320px;
+    height: 360px;
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    padding: 40px;
+    text-align: center;
+    margin: 5px;
+}
+
+.js .photostack figure {
+    position: absolute;
+    display: block;
+    margin: 0;
+}
+
+.photostack figcaption h2 {
+    margin: 20px 0 0 0;
+    color: #a7a0a2;
+    font-size: 16px;
+}
+
+.photostack-img {
+    outline: none;
+    display: block;
+    width: 240px;
+    height: 240px;
+    background: #f9f9f9;
+}
+
+.photostack-back {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    font-family: "Give You Glory", cursive;
+    color: #a7a0a2;
+    padding: 50px 40px;
+    text-align: left;
+    font-size: 22px;
+    line-height: 1.25;
+    z-index: 1;
+}
+
+.photostack-back p {
+    margin: 0;
+}
+
+.photostack-back p span {
+    text-decoration: line-through;
+}
+
+/* Navigation dots */
+.photostack nav {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    z-index: 90;
+    text-align: center;
+    left: 0;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.photostack-start nav {
+    opacity: 0;
+}
+
+.photostack nav span {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #aaa;
+    border-radius: 50%;
+    text-align: center;
+    -webkit-transition: -webkit-transform 0.6s ease-in-out, background 0.3s;
+    transition: transform 0.6s ease-in-out, background 0.3s;
+    -webkit-transform: scale(0.48);
+    transform: scale(0.48);
+}
+
+.photostack nav span:last-child {
+    margin-right: 0;
+}
+
+.photostack nav span::after {
+    content: "\e600";
+    font-family: 'icons';
+    font-size: 80%;
+    display: inline-block;
+    vertical-align: top;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 30px;
+    color: #fff;
+    opacity: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.photostack nav span.current {
+    background: #888;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.photostack nav span.current.flip {
+    -webkit-transform: scale(1) rotateY(-180deg) translateZ(-1px);
+    transform: scale(1) rotateY(-180deg) translateZ(-1px);
+    background: #555;
+}
+
+.photostack nav span.flippable::after {
+    opacity: 1;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+/* Overlays */
+
+/* Initial overlay on photostack container */
+.js .photostack::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.js .photostack-start::before {
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+/* Button on photostack container */
+.js .photostack::after {
+    content: 'View Gallery';
+    font-weight: 400;
+    position: absolute;
+    border: 3px solid #fff;
+    text-align: center;
+    white-space: nowrap;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.js .photostack::before,
+.js .photostack::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.js .photostack-start::before,
+.js .photostack-start:hover::after,
+.touch .photostack-start::after  {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Overlay on figure */
+.photostack figure::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+    background: rgba(0,0,0,0.05);
+    -webkit-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+}
+
+/* Hide figure overlay when it becomes current */
+figure.photostack-current::after {
+    -webkit-transition: opacity 0.6s, visibility 0s 0.6s;
+    transition: opacity 0.6s, visibility 0s 0.6s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Special classes for transitions and perspective */
+.photostack-transition figure {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+}
+
+.photostack-perspective {
+    -webkit-perspective: 1800px;
+    perspective: 1800px;
+}
+
+.photostack-perspective > div,
+.photostack-perspective figure {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.photostack-perspective figure,
+.photostack-perspective figure div {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.photostack-perspective figure.photostack-flip {
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+}
+
+.csstransformspreserve3d figure.photostack-flip .photostack-back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    display: block;
+}
+
+.no-csstransformspreserve3d figure.photostack-showback .photostack-back {
+    display: block;
+}
+
+/* The no-JS fallback look does not need to be boring ;) */
+.no-js .photostack figure {
+    box-shadow: -2px 2px 0 rgba(0,0,0,0.05);
+}
+
+.no-js .photostack figure::after {
+    display: none;
+}
+
+.no-js .photostack figure:nth-child(3n) {
+    -webkit-transform: translateX(-10%) rotate(5deg);
+    transform: translateX(-10%) rotate(5deg);
+}
+
+.no-js .photostack figure:nth-child(3n-2) {
+    -webkit-transform: translateY(10%) rotate(-3deg);
+    transform: translateY(10%) rotate(-3deg);
+}
+
+/* Some custom styles for the demo */
+
+/* Since we don't have back sides for the first photo stack, we don't want the current dot to become too big */
+#photostack-1 nav span.current {
+    background: #888;
+    -webkit-transform: scale(0.61);
+    transform: scale(0.61);
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+    background: #fff;
+    color: #a7a0a2;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Lato', Arial, sans-serif;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+a {
+    color: #8e888a;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover, a:focus {
+    color: #a7a0a2;
+}
+
+.codrops-header {
+    margin: 0 auto;
+    padding: 9em 2em;
+    text-align: center;
+    background: #444;
+    color: #f2f8f8;
+    position: relative;
+    overflow: hidden;
+}
+
+.codrops-header h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 3.5em;
+    line-height: 1.3;
+    position: relative;
+}
+
+.codrops-header h1 span {
+    display: block;
+    padding: 0 0 0.6em 0.1em;
+    font-size: 60%;
+    opacity: 0.7;
+}
+
+/* To Navigation Style */
+.codrops-top {
+    background: #444;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.69em;
+    line-height: 2.2;
+}
+
+.codrops-top a {
+    display: inline-block;
+    padding: 0 1em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: #919191;
+}
+
+.codrops-top a:hover {
+    color: #fff;
+}
+
+.codrops-top span.right {
+    float: right;
+}
+
+.codrops-top span.right a {
+    display: block;
+    float: left;
+}
+
+.codrops-icon:before {
+    margin: 0 4px;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'codropsicons';
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon-drop:before {
+    content: "\e001";
+}
+
+.codrops-icon-prev:before {
+    content: "\e004";
+}
+
+.description {
+    padding: 6em 8em;
+    overflow: hidden;
+}
+
+.description p {
+    font-size: 200%;
+    text-align: center;
+    max-width: 800px;
+}
+
+.description p,
+.codrops-header p {
+    margin: 0 auto 1em;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.codrops-header p {
+    opacity: 0.5;
+    text-align: left;
+    font-size: 200%;
+}
+
+.columns p {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+}
+
+svg.polaroid {
+    margin: 0 auto;
+    display: block;
+    max-width: 100%;
+}
+
+.description svg.polaroid {
+    padding: 5px 0 30px;
+}
+
+svg.polaroid rect {
+    stroke: #beb4b7;
+    fill: #fff;
+    stroke-width: 6;
+}
+
+.codrops-header svg.polaroid {
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+    opacity: 0.1;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.codrops-header svg.polaroid rect {
+    fill: #444;
+    stroke-width: 2;
+}
+
+.related {
+    text-align: center;
+    font-size: 1.35em;
+    padding: 6em 2em;
+    overflow: hidden;
+    background-color: #444;
+}
+
+.related > a {
+    border: 3px solid #3c3c3c;
+    display: inline-block;
+    text-align: center;
+    margin: 20px 10px;
+    padding: 25px;
+    color: #3c3c3c;
+    -webkit-transition: color 0.3s, border-color 0.3s;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.related a:hover {
+    color: #beb4b7;
+    border-color: #beb4b7;
+}
+
+.related a img {
+    max-width: 100%;
+    opacity: 0.8;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.related a:hover img,
+.related a:active img {
+    opacity: 1;
+}
+
+.related a h3 {
+    margin: 0;
+    padding: 0.5em 0 0.3em;
+    max-width: 300px;
+    text-align: left;
+}
+
+@media screen and (min-width: 60em) {
+    .columns {
+        -moz-column-count: 2;
+        -moz-column-gap: 1em;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 1em;
+        column-count: 2;
+        column-gap: 1em;
+    }
+
+    .codrops-header .columns {
+        padding: 3em 0 0;
+        -moz-column-gap: 2em;
+        -webkit-column-gap: 2em;
+        column-gap: 2em;
+    }
+}
+
+
+@media screen and (max-width: 45em) {
+    .codrops-header,
+    .description {
+        font-size: 80%;
+    }
+
+    .description {
+        padding: 4em 1.5em;
+    }
+
+    .codrops-header svg.polaroid {
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width: 25em) {
+
+    .codrops-icon span {
+        display: none;
+    }
+
+    .codrops-icon:before {
+        font-size: 160%;
+        line-height: 2;
+    }
+
+}
+article,aside,details,figcaption,figure,footer,header,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 80px;
+}
+
+.bt-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border: 0px solid #333;
+    background-color: rgba(0,0,0,0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+    transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+}
+
+.bt-menu.bt-menu-open {
+    height: 100%;
+    border-width: 0px 0px 50px 150px;
+    background-color: rgba(0,0,0,0.3);
+    -webkit-transition: border-width 0.3s, background-color 0.3s;
+    transition: border-width 0.3s, background-color 0.3s;
+}
+
+.bt-overlay {
+    position: absolute;
+    width: 100%;
+}
+
+.bt-menu-open .bt-overlay {
+    height: 100%;
+}
+
+.bt-menu-trigger {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    z-index: 100;
+    display: block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.bt-menu-trigger span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 8%;
+    background-color: #fff;
+    font-size: 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.bt-menu-trigger span:before,
+.bt-menu-trigger span:after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    content: '';
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.bt-menu-trigger span:before {
+    -webkit-transform: translateY(-250%);
+    transform: translateY(-250%);
+}
+
+.bt-menu-trigger span:after {
+    -webkit-transform: translateY(250%);
+    transform: translateY(250%);
+}
+
+.bt-menu-open .bt-menu-trigger span:before {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+}
+
+.bt-menu-open .bt-menu-trigger span:after {
+    -webkit-transform: translateY(300%);
+    transform: translateY(300%);
+}
+
+.bt-menu ul {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bt-menu ul:first-of-type {
+    top: 75px;
+    left: 0;
+}
+
+.bt-menu ul:nth-of-type(2) {
+    right: 0;
+    bottom: 0;
+}
+
+.bt-menu ul li,
+.bt-menu ul li a {
+    display: block;
+}
+
+.bt-menu ul:nth-of-type(2) li {
+    float: left;
+    font-size: 0px;
+}
+
+.bt-menu ul li {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+    transition: transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+}
+
+.bt-menu.bt-menu-open ul:first-of-type li,
+.bt-menu.bt-menu-open ul:nth-of-type(2) li {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* First menu */
+.bt-menu ul:first-of-type li {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    -webkit-transform: translate3d(-100%,50%,0);
+    transform: translate3d(-100%,50%,0);
+}
+
+.bt-menu.bt-menu-open ul:first-of-type li {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+/* Second menu */
+.bt-menu ul:nth-of-type(2) li {
+    width: 60px;
+    height: 50px;
+    line-height: 50px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:first-child {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(2) {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(3) {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(4) {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.bt-menu ul li a {
+    display: block;
+    outline: none;
+    text-decoration: none;
+}
+
+.bt-menu ul:first-of-type li a {
+    padding: 0 20px;
+    box-shadow: inset 0 1px rgba(0,0,0,0.2);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.bt-menu ul:first-of-type li:last-child a {
+    box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
+}
+
+.bt-menu ul:nth-of-type(2) li a {
+    color: transparent;
+    text-align: center;
+    font-size: 0px;
+}
+
+.bt-menu ul li a:before {
+    color: #fff;
+    font-size: 24px;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}

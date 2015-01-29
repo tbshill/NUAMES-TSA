@@ -1,6 +1,4 @@
-var MongoClient = require('mongodb').MongoClient,
-    mongoose = require('mongoose'),
-    app = require('express')(),
+var app = require('express')(),
     http = require('http').Server(app),
     io = require('socket.io')(http),
     i = 0;

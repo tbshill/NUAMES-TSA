@@ -1,30 +1,30 @@
 .signin{
-	margin-left: auto;
-	margin-right: auto;
-	width: 5in;
-	border-collapse: separate;
-	border-spacing:2em;
-	border-radius:10px;
-	tr{
-		height: .5in;
-		color:white;
-		text-align: center;
-		h1{
-			color:black;
-		}
-		.facebook{
-			background-color: blue;
-			&:hover{
-				background-color: lighten(blue, 20%);
-			}
-		}
-		.google{
-			background-color: orange;
-			&:hover{
-				background-color: lighten(orange, 20%);
-			}
-		}
+   margin-left: auto;
+   margin-right: auto;
+   width: 5in;
+   border-collapse: separate;
+   border-spacing:2em;
+   border-radius:10px;
+   tr{
+	 height: .5in;
+	 color:white;
+	 text-align: center;
+	 h1{
+	   color:black;
+	 }
+	 .facebook{
+	   background-color: blue;
+	   &:hover{
+		 background-color: lighten(blue, 20%);
+	   }
+	 }
+	 .google{
+	   background-color: orange;
+	   &:hover{
+		 background-color: lighten(orange, 20%);
+	   }
+	 }
 
-	}
-}
+   }
+ }
 

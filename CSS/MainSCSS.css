@@ -1,5 +1,11 @@
 @charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  color: #ffffff !important;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1318,8 +1324,8 @@ pre {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px; }
+  width: 100%;
+}
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -5372,14 +5378,13 @@ button.close {
   -webkit-flex: 20; }
 
 body {
-  background-color: grey;
-  background-image: url("/imgs/sos.png"); }
+  background-color: #000052;
+}
 
 .body {
   position: absolute;
   top: 0.75in;
-  background-color: grey;
-  background-image: url("/imgs/sos.png");
+  background-color: #000052;
   width: 100%;
   min-height: 100%; }
 
@@ -5400,7 +5405,7 @@ body {
   width: 100%;
   height: 0.75in;
   background-color: #e6e6e6;
-  z-index: 10;
+  z-index: 100;
   font-family: "Quicksand", sans-serif; }
   .nav li {
     -webkit-transition: all 0.3s ease-in-out;
@@ -5421,8 +5426,9 @@ body {
 
 #logo {
   position: fixed;
-  z-index: 11;
+  z-index: 101;
   font-family: "Quicksand", sans-serif;
+  padding-left: 10px;
   font-size: 48px;
   top: 0in; }
   #logo:active, #logo :hover, #logo :visited {
@@ -5436,7 +5442,7 @@ body {
   top: 0.75in;
   left: 0;
   width: 100%;
-  height: 0.5in;
+  height: 1in;
   background-color: #e6e6e6;
   z-index: 9;
   border-top-width: 2px;
@@ -5447,8 +5453,6 @@ body {
     -webkit-flex: 1;
     text-align: center;
     padding: 0.1875in; }
-    .subnav div:hover {
-      background-color: #b3b3b3; }
 
 .chapterBody {
   position: absolute;
