@@ -21,7 +21,7 @@
 	align-self:center;
 	margin: 0;
 	z-index: 2;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', sans-serif !important;
 	color:black;
 }
 .subnav li{
@@ -48,7 +48,7 @@
 	background-image:url('http://nuamestsa.com/OurChapter/black_linen_v2.png');
 	padding: .25in;
 	color: white;
-	font-family: 'Syncopate', sans-serif;
+	font-family: 'Syncopate', sans-serif !important;
 	width: calc(100% - .29in);
 }
 .box{

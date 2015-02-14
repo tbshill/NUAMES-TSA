@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-	font-family: 'Raleway', sans-serif;
-}
-
 nav a {
 	position: relative;
 	display: inline-block;
@@ -394,7 +390,6 @@ nav a:focus {
 	text-transform: none;
 	font-style: italic;
 	font-size: 0.75em;
-	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 	opacity: 0;
 	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
 	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
