@@ -19,6 +19,30 @@ angular.module('App')
 
 		//GOOGLE Login
 		//See Facebook Login for more detailed explanation
+		$scope.loginWithFacebook = function(){
+			console.log(document.cookie);
+			console.log(members.length);
+
+			var ref = new Firebase("https://nuames-tsa.firebaseio.com");
+			ref.authWithOAuthPopup("facebook", function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			    console.log(authData.facebook.email);
+			    for(i = 0; i< members.length; i++){
+			    	if(members[i].id == authData.facebook.id){
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$location.path("/manager"); //change location
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
+			    }
+			  }
+			},{scope:"email"});
+		};
 		$scope.loginWithGoogle = function(){
 			console.log(document.cookie);
 			console.log(members.length);
@@ -54,6 +78,7 @@ angular.module('App')
     			}
 	    	}
 		};
+		
 		var declineUser = function(user){ //Removes User from firebase
 			Members.$remove(user);
 		}
