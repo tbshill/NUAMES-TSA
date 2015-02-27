@@ -56,6 +56,13 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 		    			$rootScope.isLoggedIn = true;
 		    			return; //kill loop and function
 			    	}
+			    	else if(members[i].id == authData.facebook.id){
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
 			    }
 			}
 		});
@@ -67,7 +74,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 		$scope.signOut = function() {
 			console.log("loggin out")
 			ref.unauth();
-			$rootScope.isLoggedIn=false;
+			$rootScope.isLoggedIn = false;
 			$location.path("/")
 		}
 
