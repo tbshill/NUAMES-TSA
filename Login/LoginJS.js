@@ -1,5 +1,5 @@
 angular.module('App')
-	.controller('signinController', function($scope, $rootScope, $firebase,$firebaseSimpleLogin,$location){
+	.controller('signinController', function($scope, $rootScope, $firebase, $firebaseSimpleLogin,$location){
 		console.log('controller: signinController');
 		$rootScope.isLoggedIn = false;
 
