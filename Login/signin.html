@@ -1,16 +1,25 @@
 <!-- Sign In Page-->
-<html ng-app = App>
-    <table class="signin">
-        <tbody>
-        <tr>
-            <td><h1>Sign In</h1></td>
-        </tr>
-        <tr>
-            <td id="gusername" class="google button" ng-click="loginWithGoogle()"><h3>Google</h3></td>
-        </tr>
-        <tr>
-            <td id="gusername" class="facebook button" ng-click="loginWithFacebook()"><h3>Facebook</h3></td>
-        </tr>
-        </tbody>
-    </table>
-</html>
+
+<div width ="100%"class="container"> <!-- Container -->
+  <div class="row span6">
+    <div class="col-md-6">
+      <button class="btn btn-warning" ng-click="b_signin = false">Sign Up</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-info" ng-click="b_signin = true">Sign In</button>
+    </div>
+  </div>
+  <div class="row" ng-hide="b_signin" >
+    <input class="form-control" ng-model="name" placeholder="Name">
+  </div>
+  <div class="row">
+    <input class="form-control" ng-model="email" placeholder="email">
+  </div>
+  <div class="row">
+    <input class="form-control" ng-model="password" placeholder="password">
+  </div>
+  <div class="row">
+  <button class="btn btn-success" ng-hide="b_signin" ng-click="createUser()">Create</button>
+  <button class="btn btn-success" ng-show="b_signin" ng-click="loginUser()">Login</button>
+  </div>
+</div>
