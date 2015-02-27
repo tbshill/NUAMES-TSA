@@ -139,12 +139,12 @@
 							<a><span class="a" style="cursor: pointer" ng-click="gotoChapter()">Chapter</span></a>
 							<a><span class="a" style="cursor: pointer" ng-click="gotoDesign()">Design Brief</span></a>
 							<a><span class="a" style="cursor: pointer" ng-click="gotoSponsors()">Sponsors</span></a>
-							<a><span class="a" style="cursor: pointer" ng-click="gotoChat()">Chat</span></a>
+							<!--<a><span class="a" style="cursor: pointer" ng-click="gotoChat()">Chat</span></a>-->
 							<a><span class="a" style="cursor: pointer" ng-hide ="isLoggedIn" ng-click="gotoSignin()">Sign In</span></a>
 							<a><span class="a" style="cursor: pointer" ng-show="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()">{{user.displayName}}</span></a>
 						</nav>
 				</ul>
 			 <!-- Content View-->
-			<div class="body" ui-view></div>
+			<div class="body container-fluid" ui-view></div>
 	</body>
 </html>
