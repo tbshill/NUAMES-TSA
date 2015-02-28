@@ -15,7 +15,7 @@
 }
 
 .box:hover {
-    background: dimgray;
+    
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
@@ -26,6 +26,7 @@
     margin: 0;
     font-weight: 400;
     width: 100%;
+    color: #000052;
 }
 
 .box span {
@@ -45,7 +46,7 @@
 
 .box:hover h3,
 .box:hover span {
-    color: #000052;
+    
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
