@@ -22,3 +22,5 @@ SCSS/.sass-cache/dfb99b8dcc092380ddd9d5036c5f9210e638f796/_chapter.scssc
 *.codekit
 
 config.codekit
+
+.idea/workspace.xml
