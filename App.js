@@ -43,7 +43,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
 			If the screen is landscape nothing happens, but if the screen is portrait, then .container is hidden and the menubar is displayed
 		*/
-
+/*
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.
 			if(window.innerHeight>window.innerWidth){ //If window is portrait
@@ -58,7 +58,6 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
               $('.container').slideToggle("Slow");
           }
         };
-
 		$scope.gotoChapter = function(){
 			$location.path('/chapter');
 			if(window.innerHeight>window.innerWidth){
@@ -101,6 +100,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
                 $(".container").slideToggle("slow");
             }
         };
+        */
 
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){

@@ -125,21 +125,45 @@
             </div>
         </div>
     </div>
-		<p id="logo"><a href="/">TSA</a></p> <!-- Nav Bar -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">TSA</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ui-sref="school">School</a></li>
+                    <li><a ui-sref="chapter">Chapter</a></li>
+                    <li><a ui-sref="designbrief">Design Brief</a></li>
+                    <li><a ui-sref="signin">Sign In</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+		<!-- <p id="logo"><a href="/">TSA</a></p> <!-- Nav Bar
 				<ul class="nav">
-					<!--<li ng-show ="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()" class="button" style="cursor: pointer; color: #000000">{{user.displayName}}</li> &lt;!&ndash; Only shows if someone is logged in &ndash;&gt;-->
-					<!--<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button" style="cursor: pointer; color: #000000">Sign In</li> &lt;!&ndash; Only shows if someone is not logged in. &ndash;&gt;-->
-                    <!--<li ng-click="gotoChat()" class="button" style="cursor: pointer; color:black">Chat</li>-->
-					<!--<li ng-click="gotoSponsors()"  class="button" style="cursor: pointer ; color:black;">Sponsors</li>-->
-					<!--<li ng-click="gotoDesign()" class="button" style="cursor: pointer; color: black;">Design Brief</li>-->
-					<!--<li ng-click="gotoChapter()" class="button" style="cursor: pointer; color: black;">Our Chapter</li>-->
-					<!--<li style="margin-left: min(100px); cursor:pointer; color: #000000" ng-click="gotoSchool()" class="button">Our School</li>-->
+					<!--<li ng-show ="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()" class="button" style="cursor: pointer; color: #000000">{{user.displayName}}</li> &lt;!&ndash; Only shows if someone is logged in &ndash;&gt;
+					<!--<li ng-hide ="isLoggedIn" ng-click="gotoSignin()"  class="button" style="cursor: pointer; color: #000000">Sign In</li> &lt;!&ndash; Only shows if someone is not logged in. &ndash;&gt;
+                    <!--<li ng-click="gotoChat()" class="button" style="cursor: pointer; color:black">Chat</li>
+					<!--<li ng-click="gotoSponsors()"  class="button" style="cursor: pointer ; color:black;">Sponsors</li>
+					<!--<li ng-click="gotoDesign()" class="button" style="cursor: pointer; color: black;">Design Brief</li>
+					<!--<li ng-click="gotoChapter()" class="button" style="cursor: pointer; color: black;">Our Chapter</li>
+					<!--<li style="margin-left: min(100px); cursor:pointer; color: #000000" ng-click="gotoSchool()" class="button">Our School</li>
 						<nav class="cl-effect-3 b nav" style="text-align: right; text-align: -moz-right">
 							<a><span class="a" style="cursor: pointer" ng-click="gotoSchool()">School</span></a>
 							<a><span class="a" style="cursor: pointer" ng-click="gotoChapter()">Chapter</span></a>
 							<a><span class="a" style="cursor: pointer" ng-click="gotoDesign()">Design Brief</span></a>
 							<a><span class="a" style="cursor: pointer" ng-click="gotoSponsors()">Sponsors</span></a>
-							<!--<a><span class="a" style="cursor: pointer" ng-click="gotoChat()">Chat</span></a>-->
+							<!--<a><span class="a" style="cursor: pointer" ng-click="gotoChat()">Chat</span></a>
 							<a><span class="a" style="cursor: pointer" ng-hide ="isLoggedIn" ng-click="gotoSignin()">Sign In</span></a>
 							<a><span class="a" style="cursor: pointer" ng-show="isLoggedIn" ng-click="gotoManager()" ng-click="rememberMe()">{{user.displayName}}</span></a>
 						</nav>
