@@ -56,6 +56,13 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 		    			$rootScope.isLoggedIn = true;
 		    			return; //kill loop and function
 			    	}
+			    	else if(members[i].id == authData.facebook.id){
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
 			    }
 			}
 		});
@@ -67,10 +74,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 		$scope.signOut = function() {
 			console.log("loggin out")
 			ref.unauth();
-			$rootScope.isLoggedIn=false;
+			$rootScope.isLoggedIn = false;
 			$location.path("/")
 		}
 
+/*
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.
 			if(window.innerHeight>window.innerWidth){ //If window is portrait
@@ -85,7 +93,6 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
               $('.container').slideToggle("Slow");
           }
         };
-
 		$scope.gotoChapter = function(){
 			$location.path('/chapter');
 			if(window.innerHeight>window.innerWidth){
@@ -128,6 +135,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
                 $(".container").slideToggle("slow");
             }
         };
+        */
 
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){
@@ -211,6 +219,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'registerController',
 				templateUrl:'Manager/Profile/register.html'
 			})
+            .state('manager.contact',{
+                url:'/profile/contact',
+                controller:'contactController',
+                templateUrl:'Manager/Profile/contact.html'
+            })
 			.state('manager.messages',{
 				url:'/profile/messages',
 				controller:'messagingController',

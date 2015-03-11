@@ -50,7 +50,7 @@ angular.module('App') // links to App
 			$scope.newPurchase.event = $scope.evnt;
 			
 			$scope.masterpurchases.$add($scope.newPurchase);
-			toaster.pop('success','Purchase requested','')
+			toaster.pop('success','Purchase requested','');
 
 
 			$scope.newPurchase = {}; //Reset

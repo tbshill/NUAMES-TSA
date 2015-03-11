@@ -136,7 +136,7 @@
 	.stats{
 		margin-top:.5in;
 		margin-bottom:.5in; 
-		font-family: 'Syncopate', sans-serif;
+		font-family: 'Syncopate', sans-serif !important;
 	}
 	.stats table{
 		width:calc(100% - 1in);

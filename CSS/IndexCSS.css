@@ -18,8 +18,9 @@
   background-color: rgba(0,0,0,.1);
 }
 body{
-	background-image: url('/imgs/sos.png'); /* Background pattern from subtlepatterns.com */
-	color:black;
+	/*background-image: url('/imgs/sos.png'); *//* Background pattern from subtlepatterns.com */
+	/*color:black;*/
+	background-color: #000058;
 }
 @media (orientation:portrait){
 	.container{

@@ -53,10 +53,13 @@ angular.module('App').controller('designBrief', ['$scope', '$interval',
             }
         };
         $scope.resetFight = function() {
+            if (angular.isDefined(stop))
+                $interval.cancel(stop);
             $scope.design_brief = 0;
             $(document).ready(function(){
                 $('h3').css('color', 'black').text('Ignore me')
-            })
+            });
+            stop = undefined;
         };
     }
 ]);

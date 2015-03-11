@@ -15,10 +15,6 @@
 		@include flex(1);
 		text-align: center;
 		padding: ($subnavHeight - $subnavFontSize) / 2;
-
-		&:hover{
-			background-color: $light-grey-hover;
-		}
 	}
 }
 .chapterBody{
