@@ -218,6 +218,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'registerController',
 				templateUrl:'Manager/Profile/register.html'
 			})
+            .state('manager.contact',{
+                url:'/profile/contact',
+                controller:'contactController',
+                templateUrl:'Manager/Profile/contact.html'
+            })
 			.state('manager.messages',{
 				url:'/profile/messages',
 				controller:'messagingController',
