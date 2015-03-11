@@ -1,4 +1,5 @@
 <!-- Sign In Page-->
+<<<<<<< HEAD
 <html ng-app = App>
     <table class="signin">
         <tbody>
@@ -16,3 +17,29 @@
         </tbody>
     </table>
 </html>
+=======
+
+<div width ="100%"class="container"> <!-- Container -->
+  <div class="row span6">
+    <div class="col-md-6">
+      <button class="btn btn-warning" ng-click="b_signin = false">Sign Up</button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-info" ng-click="b_signin = true">Sign In</button>
+    </div>
+  </div>
+  <div class="row" ng-hide="b_signin" >
+    <input class="form-control" ng-model="name" placeholder="Name">
+  </div>
+  <div class="row">
+    <input class="form-control" ng-model="email" placeholder="email">
+  </div>
+  <div class="row">
+    <input class="form-control" ng-model="password" placeholder="password">
+  </div>
+  <div class="row">
+  <button class="btn btn-success" ng-hide="b_signin" ng-click="createUser()">Create</button>
+  <button class="btn btn-success" ng-show="b_signin" ng-click="loginUser()">Login</button>
+  </div>
+</div>
+>>>>>>> Facebook-Login
