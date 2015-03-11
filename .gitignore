@@ -23,4 +23,41 @@ SCSS/.sass-cache/dfb99b8dcc092380ddd9d5036c5f9210e638f796/_chapter.scssc
 
 config.codekit
 
+<<<<<<< HEAD
+=======
+BradenShill/StyleSheets/MainStyleSheet.scss
+
+BradenShill/PHP/users.php
+
+BradenShill/StyleSheet.css
+
+BradenShill/min/Application-min.js
+
+BradenShill/JS Libraries/min/jQuery-min.js
+
+BradenShill/JS Libraries/jQuery.js
+
+BradenShill/JS Libraries/angularjs.min.js
+
+BradenShill/index.html
+
+BradenShill/Application.js
+
+BradenShill/.idea/workspace.xml
+
+BradenShill/.idea/vcs.xml
+
+BradenShill/.idea/scopes/scope_settings.xml
+
+BradenShill/.idea/modules.xml
+
+BradenShill/.idea/misc.xml
+
+BradenShill/.idea/encodings.xml
+
+BradenShill/.idea/BradenShill.iml
+
+BradenShill/.idea/.name
+
+>>>>>>> Facebook-Login
 .idea/workspace.xml

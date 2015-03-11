@@ -38,4 +38,4 @@ angular.module('App')
     	$( window ).resize(function() { // resize
 			$(".screen").css({"min-height" : $( window ).height() - topOffset + 'px'});
 		});
-	})
+	});

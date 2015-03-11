@@ -1,5 +1,5 @@
 var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster','specialDirectives']) //Define the angular app
-	.controller('mainController',function($rootScope, $firebase,$scope,$location){ //mainController is referenced in index.html
+	.controller('mainController',function($scope, $rootScope,$firebaseAuth,$firebase,$scope,$location){ //mainController is referenced in index.html
 		$rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
 			'Architectural Renovation',
@@ -34,15 +34,49 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			'Technology Bowl',
 			'Technology Problem Solving',
 			'Transportation Modeling',
-			'Video Game Design',
+			'Video Game Design', 
 			'VEX Robotics',
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
 
+		var ref = new Firebase("https://nuames-tsa.firebaseio.com/Members/");
+
+		var members = $firebase(ref).$asArray();
+
+		var authData = ref.getAuth();
+
+		members.$loaded().then(function(members) {
+			if(authData) {
+				for(var i = 0; i < members.length; i++) {
+					console.log(members[i].$id);
+			    	if(members[i].id == authData.google.id) {
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
+			    	else if(members[i].id == authData.facebook.id){
+			    		console.log("Heya--you're all logged in!");
+			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
+		    			u.$bindTo($rootScope,"user"); //3-way data binding
+		    			$rootScope.isLoggedIn = true;
+		    			return; //kill loop and function
+			    	}
+			    }
+			}
+		});
 		/*
 			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
 			If the screen is landscape nothing happens, but if the screen is portrait, then .container is hidden and the menubar is displayed
 		*/
+
+		$scope.signOut = function() {
+			console.log("loggin out")
+			ref.unauth();
+			$rootScope.isLoggedIn = false;
+			$location.path("/")
+		}
 
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.
@@ -184,6 +218,11 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 				controller:'registerController',
 				templateUrl:'Manager/Profile/register.html'
 			})
+            .state('manager.contact',{
+                url:'/profile/contact',
+                controller:'contactController',
+                templateUrl:'Manager/Profile/contact.html'
+            })
 			.state('manager.messages',{
 				url:'/profile/messages',
 				controller:'messagingController',
