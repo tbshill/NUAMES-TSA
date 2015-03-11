@@ -1,9 +1,5 @@
 angular.module('App')
-<<<<<<< HEAD
-	.controller('signinController', function($scope, $rootScope, $firebase, $firebaseSimpleLogin,$location){
-=======
-	.controller('signinController', function($scope, $rootScope, $firebase,$location){
->>>>>>> Facebook-Login
+	.controller('signinController', function($scope, $rootScope, firebase,$location){
 		console.log('controller: signinController');
 
 		var members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
@@ -38,8 +34,6 @@ angular.module('App')
 				    members.$save();
 				  }
 				});
-
-
 				members.$add(userData.uid);
 				members.$save();
 			  }

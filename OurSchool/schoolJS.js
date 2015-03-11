@@ -182,6 +182,7 @@ angular.module('App')
 	}
 
 })( window );
+/*
 ;( function( window ) {
 
 	'use strict';
@@ -618,4 +619,4 @@ angular.module('App')
 	// add to global namespace
 	window.Photostack = Photostack;
 
-})( window );
+})( window );*/
