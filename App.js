@@ -77,7 +77,6 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			$rootScope.isLoggedIn = false;
 			$location.path("/")
 		}
-
 /*
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.
@@ -136,7 +135,6 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
             }
         };
         */
-
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){
 				event.preventDefault();
@@ -147,7 +145,8 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 		})
 	})
 	.constant('firebaseURL', 'https://nuames-tsa.firebaseio.com/')// I dont think I ever use this.
-	.constant('fbMembersUrl', 'https://nuames-tsa.firebaseio.com/Members') // 
+	.constant('fbMembersUrl', 'https://nuames-tsa.firebaseio.com/Members') //
+
 	.config(function($stateProvider, $urlRouterProvider){
 		$stateProvider
 			.state('home',{

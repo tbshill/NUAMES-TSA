@@ -5422,14 +5422,8 @@ button.close {
   background: inherit; }
 
 .stats {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
   background-image: url("http://nuamestsa.com/OurChapter/black_linen_v2.png");
   color: #e6e6e6; }
-  .stats div {
-    text-align: center; }
 
 .chapterelement {
   position: relative; }
