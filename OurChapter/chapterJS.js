@@ -10,7 +10,7 @@ angular.module('App')
 		//Auto Scrolling
 		$("#leadershipBTN").click(function () { 
 	        $('html, body').animate({
-	        	scrollTop: $("#leadership").offset().top - topOffset
+	        	scrollTop: $("#officers").offset().top - topOffset
 	        }, scrollSpeed);
     	});
     	$("#eventsBTN").click(function () {
@@ -38,4 +38,4 @@ angular.module('App')
     	$( window ).resize(function() { // resize
 			$(".screen").css({"min-height" : $( window ).height() - topOffset + 'px'});
 		});
-	})
+	});
