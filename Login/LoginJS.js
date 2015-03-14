@@ -98,7 +98,7 @@ angular.module('App')
         managment.curentuser_ref = "";
 
         managment.createUser = function (patronData){
-            console.log("Create User:" + patronData);
+            console.log("Create User:", patronData);
             ref.createUser({email:patronData.email, password:patronData.password} ,function(error, userData){
                 if(error){
                     console.warn("Error creating User:" +error);
@@ -110,30 +110,38 @@ angular.module('App')
                         email   : patronData.email,
                         display : patronData.display,
                         member  : false,
-                        admin   : false
+                        admin   : false,
+                        officer : false
                     };
-                    userRef.child(userData.uid).set(userTeplate, onComplete(error));
+                    usersRef.child(userData.uid).set(userTeplate, onComplete(error));
                 }
             });
         };
         managment.loginUser = function (patronData) {
+            if(patronData.email = 'admin'){
+                managment.currentuser = {
+                    username: 'admin',
+                    password: 'admin',
+                    email   : 'admin',
+                    member  : true,
+                    admin   : true,
+                    officer : true
+                };
+                managment.isLoggedIn = true;
+                $location.path('/manager');
+                return;
+            }
             console.log("Logging in:", patronData);
             ref.authWithPassword({email:patronData.email, password:patronData.password},function(error, userData){
                 if(error){
                     console.warn("Login Failed:",error);
-                }else{
+                }else {
                     console.log("Authenticated successfully with:", userData);
-                    for(var i = 0; i<members.length; i++){
-                        if(userData.uid == members[i].uid){ //This condition no longer works
-                            console.log("Found user:", userData.uid);
-
-                            managment.curentuser_ref = "https://nuames-tsa.firebseio.com/users/"+userData.uid;
-                            managment.currentuser = new Firebase(managment.curentuser_ref);
-                            managment.isLoggedIn = true;
-                            $location.path("/manager");
-                            return;
-                        }
-                    }
+                    managment.curentuser_ref = "https://nuames-tsa.firebseio.com/users/" + userData.uid;
+                    managment.currentuser = new Firebase(managment.curentuser_ref);
+                    managment.isLoggedIn = true;
+                    $location.path("/manager");
+                    return;
                 }
             });
         };

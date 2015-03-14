@@ -8,11 +8,11 @@
     <form ng-submit="Signup()" ng-show="state == 'signup'">
         <div class="col-md-offset-4 col-md-4">
             <div class="form-group">
-                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.email" placeholder="email" type="text"></div>
-                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.password" placeholder="password" type="password"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.email" placeholder="email" type="text"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.password" placeholder="password" type="password"></div>
             </div>
             <div class="form-group" ng-show="state =='signup'">
-                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="login.display"></div>
+                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="signup.display"></div>
             </div>
             <div class="row" style="padding-bottom: 5px;">
                 <button type="submit" class="btn btn-success">Create Account</button>
@@ -23,11 +23,11 @@
     <form ng-submit="Login()" ng-show="state == 'login'">
         <div class="col-md-offset-4 col-md-4">
             <div class="form-group">
-                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.email" placeholder="email" type="text"></div>
-                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.password" placeholder="password" type="password"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.email" placeholder="email" type="text"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.password" placeholder="password" type="password"></div>
             </div>
             <div class="form-group" ng-show="state =='signup'">
-                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="signup.display"></div>
+                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="login.display"></div>
             </div>
             <div class="row" style="padding-bottom: 5px;">
                 <button type="submit" class="btn btn-success">Login</button>
