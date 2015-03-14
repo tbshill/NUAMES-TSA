@@ -135,8 +135,10 @@ angular.module('App')
             ref.authWithPassword({email:patronData.email, password:patronData.password},function(error, userData){
                 if(error){
                     console.warn("Login Failed:",error);
+                    toaster.pop('error', "Failed", "This user was removed from the event");
                 }else {
                     console.log("Authenticated successfully with:", userData);
+                    toaster.pop('success', "Success", "This user was removed from the event");
                     managment.curentuser_ref = "https://nuames-tsa.firebseio.com/users/" + userData.uid;
                     managment.currentuser = new Firebase(managment.curentuser_ref);
                     managment.isLoggedIn = true;
