@@ -6,8 +6,6 @@ angular.module('App')
 		var newMembers = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/newUsers')).$asArray();
 		
 		$scope.createUser = function(){
-			
-			console.log("HelloWorld");
 			var ref = new Firebase("https://nuames-tsa.firebaseio.com");
 			ref.createUser({
 			  email    : $scope.email,
@@ -29,7 +27,6 @@ angular.module('App')
 				    	"email":authData.password.email,
 				    	"uid":authData.uid,
 				    	"displayName":$scope.name
-				    }
 				    members.$add(newUser);
 				    members.$save();
 				  }
@@ -38,7 +35,6 @@ angular.module('App')
 				members.$save();
 			  }
 			});
-		}
 		$scope.loginUser = function(){
 			var ref = new Firebase("https://nuames-tsa.firebaseio.com");
 			ref.authWithPassword({
@@ -51,7 +47,6 @@ angular.module('App')
 			    console.log("Authenticated successfully with payload:", authData);
 			     for(i = 0; i<members.length; i++){
 			     	if(authData.uid == members[i].uid){
-			     		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
 		    			u.$bindTo($rootScope,"user"); //3-way data binding
 		    			$location.path("/manager"); //change location
 		    			$rootScope.isLoggedIn = true;
@@ -60,9 +55,11 @@ angular.module('App')
 			     }
 			  }
 			});
-		}
-		var declineUser = function(user){ //Removes User from firebase
 			Members.$remove(user);
 		}
-	});
+        };
+        };
+        };
+        };
+        };
 
