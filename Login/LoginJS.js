@@ -14,6 +14,7 @@ angular.module('App')
         };
         $scope.Signup= function(){
             console.log("Sign Up:", $scope.signup);
+            //$scope.state = 'signup';
             UserManagment.createUser($scope.signup);
         };
 		//var members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();

@@ -27,7 +27,7 @@ angular.module('App')
             $('html , body').animate({
                 scrollTop:$("#about").offset().top - topOffset
             }, scrollSpeed);
-        })
+        });
     	$("#timelineBTN").click(function () {
 	        $('html, body').animate({
 	        	scrollTop: $("#timeline").offset().top - topOffset
