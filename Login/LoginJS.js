@@ -92,9 +92,9 @@ angular.module('App')
             }
         };
 
-        managment.isLoggedIn    = false;
-        managment.currentuser   = {};
-        managment.curentuser_ref= "";
+        managment.isLoggedIn     = false;
+        managment.currentuser    = {};
+        managment.curentuser_ref = "";
 
         managment.createUser = function (patronData){
             console.log("Create User:" + patronData);
@@ -160,8 +160,9 @@ angular.module('App')
         managment.editUser = function(newData){
           managment.currentuser.update(newData, onComplete(error));
         };
-        managment.addEvent = function(event){
+        managment.addEvent = function(uid, event){
             console.log("add Event",event);
+
         };
         managment.rememberMe = function(){
           console.log("rememberME");
