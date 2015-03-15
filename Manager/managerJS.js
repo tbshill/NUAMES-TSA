@@ -2,7 +2,7 @@
 angular.module('App')
 	.controller('managerController',function($scope,$rootScope,$firebase,$stateParams,$location, toaster, UserManagment){
         $scope.user = UserManagment.currentuser;
-        console.log("user:",UserManagment.currentuser);
+        console.log("user:", $scope.user);
 		console.log('controller: managerController');
 		$scope.click = function(event){
 			$rootScope.Revent = $firebase(new Firebase("https://nuames-tsa.firebaseio.com/Events/"+event)).$asArray();

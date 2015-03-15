@@ -81,7 +81,7 @@ angular.module('App')
 		}
 		*/
 	})
-    .factory('UserManagment',function($location){
+    .factory('UserManagment',function($location, toaster){
         var managment = {};
         var ref = new Firebase('https://nuames-tsa.firebaseio.com');
         var usersRef = new Firebase('https://nuames-tsa.firebaseio.com/users/');
@@ -92,6 +92,7 @@ angular.module('App')
                 console.log("Syncronization Successful");
             }
         };
+
 
         managment.isLoggedIn     = false;
         managment.currentuser    = {};
@@ -105,7 +106,6 @@ angular.module('App')
                 }else{
                     console.log("Successfully Created user:", userData);
                     var userTeplate = {
-                        username: patronData.username,
                         password: patronData.password,
                         email   : patronData.email,
                         display : patronData.display,
@@ -118,7 +118,7 @@ angular.module('App')
             });
         };
         managment.loginUser = function (patronData) {
-            if(patronData.email = 'admin'){
+            if(patronData.email == 'admin'){
                 managment.currentuser = {
                     username: 'admin',
                     password: 'admin',
@@ -143,7 +143,6 @@ angular.module('App')
                     managment.currentuser = new Firebase(managment.curentuser_ref);
                     managment.isLoggedIn = true;
                     $location.path("/manager");
-                    return;
                 }
             });
         };
