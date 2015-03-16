@@ -1,10 +1,15 @@
 
 angular.module('App')
-	.controller('managerController',function($scope,$rootScope,$firebase,$stateParams,$location, toaster, UserManagment){
-        $scope.user = UserManagment.currentuser;
-        console.log("user:", $scope.user);
+	.controller('managerController',function($state,$scope,$rootScope,$firebase,$stateParams,$location, toaster, UserManagment){
+        $scope.UserManagment = UserManagment;
+        $scope.signOut = function () {
+            UserManagment.signOut();
+            $state.go('signin');
+        };
+
 		console.log('controller: managerController');
-		$scope.click = function(event){
+
+        $scope.click = function(event){
 			$rootScope.Revent = $firebase(new Firebase("https://nuames-tsa.firebaseio.com/Events/"+event)).$asArray();
 			console.log("https://nuames-tsa.firebaseio.com/Events/"+event);
 			$location.path("/manager/event/"+event);
@@ -15,26 +20,18 @@ angular.module('App')
 		$scope.admin = function(){
 			$location.path("/manager/admin");
 		};
-        $scope.rememberMe = function(){
-            var FirebaseTokenGenerator = require("firebase-token-generator");
-            var tokenGenerator = new FirebaseTokenGenerator("xiXrvimcsECZezGVbjdVHxhav2w8B8GEML3XJgBZ");
-            var token = tokenGenerator.createToken({uid: "1", some: "arbitrary", data: "here"});
-            var ref = new Firebase("https://nuames-tsa..firebaseio.com/");
-            ref.authWithCustomToken(AUTH_TOKEN, function(error, authData) {
-                if (error) {
-                    console.log("Login Failed!", error);
-                } else {
-                    console.log("Login Succeeded!", authData);
-                }
-            });
-        };
 		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
+			/*
 			//add user to event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
 			var e = eventRef.child(event).child('members').child(id).set(id); //Adds a copy to the Events section
-			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Adds a copy to the Member
+
+            var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/users/'); //Adds a copy to the Member
 			var t = memberRef.child(id).child('events').child(event).set(event);
-            toaster.pop('success', "Added", "This user was Added to the event");
+            */
+            UserManagment.addEvent(UserManagment.currentuser.uid);
+
+            //toaster.pop('success', "Added", "This user was Added to the event");
 		};
 		$scope.removeUserFromEvent = function(id, event){
 			//remove user from event.members
