@@ -12,12 +12,11 @@
   display: flex;
   display: -webkit-flex;
   background-color: #b80000;
-  /* background-image: url('/imgs/sos.png'); rember Citation*/
   justify-content: center;
   -webkit-justify-content: center;
   margin: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1001;
   height: .75in;
   font-family: 'Quicksand', sans-serif !important;
 }
@@ -25,12 +24,8 @@
 .nav li{
   position: relative;
   right: 45px;
-  padding: 10px;
   list-style: none;
-  padding-right: 1.3em;
-  padding-left: 1.3em;
-  padding-top: 1.5em;
-  padding-bottom: 1.85em;
+  padding: 1.5em 1.3em 1.85em;
   color:black;
   text-decoration: none;
   align-self:center;
@@ -56,7 +51,8 @@
 }
 
 #logo a:hover{
-  color:grey;
+  color:#ffffff;
+  text-decoration: none;
 }
 
 .container{
@@ -85,7 +81,32 @@
   }
   .a{
     color: #fcfcfc;
-
+  }
+  .a::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.3);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+  .a:hover::after,
+  .a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  a{
+    text-decoration: none !important;
   }
   .nav li{
     display:none;
