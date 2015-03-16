@@ -1,47 +1,38 @@
-<!-- Sign In Page-->
-<!--
-<html ng-app = App>
-    <table class="signin">
-        <tbody>
-        <tr>
-            <td><h1>Sign In</h1></td>
-        </tr>
-        <nav class="cl-effect-20">
-            <tr>
-                <td style="cursor: pointer" id="fusername" class="facebook button" ng-click="loginWithFacebook()"><h3 data-hover="Facebook" id="facebook">Facebook</h3></td>
-            </tr>
-            <tr>
-                <td style="cursor:pointer;" id="gusername" class="google button" ng-click="loginWithGoogle()"><h3 data-hover="Google" >Google</h3></td>
-            </tr>
-        </nav>
-        <tr>
-            <td id="gusername" class="google button" ng-click="loginWithGoogle()"><h3>Google</h3></td>
-        </tr>
-        </tbody>
-    </table>
-</html>
-=======
--->
-<div width ="100%"class="container"> <!-- Container -->
-  <div class="row span6">
-    <div class="col-md-6">
-      <button class="btn btn-warning" ng-click="b_signin = false">Sign Up</button>
+<div class="row">
+    <div class="jumbotron text-center">
+        <h1>Online TSA Manager</h1>
+        <div class="text-right"></div><h2>Learning to Live in a Technical World</h2>
     </div>
-    <div class="col-md-6">
-      <button class="btn btn-info" ng-click="b_signin = true">Sign In</button>
-    </div>
-  </div>
-  <div class="row" ng-hide="b_signin" >
-    <input class="form-control" ng-model="name" placeholder="Name">
-  </div>
-  <div class="row">
-    <input class="form-control" ng-model="email" placeholder="email">
-  </div>
-  <div class="row">
-    <input class="form-control" ng-model="password" placeholder="password">
-  </div>
-  <div class="row">
-  <button class="btn btn-success" ng-hide="b_signin" ng-click="createUser()">Create</button>
-  <button class="btn btn-success" ng-show="b_signin" ng-click="loginUser()">Login</button>
-  </div>
+</div>
+<div class="container-fluid"> <!-- Container -->
+    <form ng-submit="Signup()" ng-show="state == 'signup'">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="form-group">
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.email" placeholder="email" type="text"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="signup.password" placeholder="password" type="password"></div>
+            </div>
+            <div class="form-group" ng-show="state =='signup'">
+                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="signup.display"></div>
+            </div>
+            <div class="row" style="padding-bottom: 5px;">
+                <button type="submit" class="btn btn-success">Create Account</button>
+                <button class="btn btn-warning" ng-click="loginForm()">Already have an Account</button>
+            </div>
+        </div>
+    </form>
+    <form ng-submit="Login()" ng-show="state == 'login'">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="form-group">
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.email" placeholder="email" type="text"></div>
+                <div class="row" style="padding-bottom: 5px;"><input class="form-control" ng-model="login.password" placeholder="password" type="password"></div>
+            </div>
+            <div class="form-group" ng-show="state =='signup'">
+                <div class="row"><input  class="form-control" placeholder="name" type="text" ng-model="login.display"></div>
+            </div>
+            <div class="row" style="padding-bottom: 5px;">
+                <button type="submit" class="btn btn-success">Login</button>
+                <button class="btn btn-warning" ng-click="signupForm()">Create an Account</button>
+            </div>
+        </div>
+    </form>
 </div>

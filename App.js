@@ -38,7 +38,7 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			'VEX Robotics',
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
-
+/*
 		var ref = new Firebase("https://nuames-tsa.firebaseio.com/Members/");
 
 		var members = $firebase(ref).$asArray();
@@ -66,17 +66,14 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			    }
 			}
 		});
-		/*
-			These hyper links are done through functions so I can analyse if the screen is portrait or landscape.
-			If the screen is landscape nothing happens, but if the screen is portrait, then .container is hidden and the menubar is displayed
-		*/
+        */
 
 		$scope.signOut = function() {
-			console.log("loggin out")
+			console.log("logging out")
 			ref.unauth();
 			$rootScope.isLoggedIn = false;
 			$location.path("/")
-		}
+		};
 /*
 		$scope.gotoSchool = function(){
 			$location.path('/school'); //redirects the user on a click.

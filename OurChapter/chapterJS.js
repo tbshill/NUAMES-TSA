@@ -2,7 +2,7 @@ angular.module('App')
 	.controller('chapterController', function(parallaxHelper,$scope,$interval){
 		console.log('controller: chapterController');	
 		
-		var topOffset = $(".nav").height() + $('subnav').height(); //this needs to be changed if we change the height of the menuBar
+		var topOffset = $(".nav").height() + $('.subnav').height(); //this needs to be changed if we change the height of the menuBar
 		var scrollSpeed = 1000;// adjusts the auto-scrolling speed
 
 		$scope.groupPhoto = parallaxHelper.createAnimator(-0.7);
@@ -23,6 +23,11 @@ angular.module('App')
 	        	scrollTop: $("#administration").offset().top - topOffset
 	        }, scrollSpeed);
     	});
+        $("#aboutBTN").click(function(){
+            $('html , body').animate({
+                scrollTop:$("#about").offset().top - topOffset
+            }, scrollSpeed);
+        });
     	$("#timelineBTN").click(function () {
 	        $('html, body').animate({
 	        	scrollTop: $("#timeline").offset().top - topOffset
