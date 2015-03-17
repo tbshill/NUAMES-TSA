@@ -30,6 +30,27 @@ angular.module('App')
         var managment = {};
         var ref = new Firebase('https://nuames-tsa.firebaseio.com');
         var usersRef = new Firebase('https://nuames-tsa.firebaseio.com/users/');
+        var eventsRef = new Firebase('https://nuames-tsa.firebaseio.com/events');
+
+        console.group("getAllUsers");
+
+
+        usersRef.on('value', function(snap){
+            managment.userslist = [];
+            snap.forEach(function(user){
+                console.log(user.val());
+                var nUser = {
+                    uid: user.child("uid").val(),
+                    display: user.child('display').val(),
+                    email: user.child('email').val(),
+                    admin: user.child('admin').val(),
+                    officer: user.child('officer').val(),
+                    member: user.child('member').val()
+                };
+                managment.userslist.push(nUser);
+            });
+        });
+
         managment.isLoggedIn     = false;
         managment.currentuser = {
             admin: false,
@@ -58,7 +79,16 @@ angular.module('App')
                     managment.currentuser.email = userData.child("email").val();
                     managment.currentuser.member = userData.child("member").val();
                     managment.currentuser.officer = userData.child("officer").val();
+                    managment.currentuser.uid = userData.child("uid").val();
+                    managment.currentuser.events = [];
 
+                    console.group('Found Events');
+                    userData.child('events').forEach(function(event){
+                        console.log(event.val());
+                        managment.currentuser.events.push(event.val());
+                    });
+                    console.log("Final Count:",managment.currentuser.events);
+                    console.groupEnd();
                 });
             } else {
                 console.log("User is logged out");
@@ -77,7 +107,9 @@ angular.module('App')
             console.log("onAuth Complete");
             console.groupEnd();
         }); //Checks for logged in user.
+        managment.refreshCurrentUser = function(){
 
+        };
         managment.createUser = function (patronData){
             console.log("Create User:", patronData);
             ref.createUser({email:patronData.email, password:patronData.password} ,function(error, userData){
@@ -109,7 +141,8 @@ angular.module('App')
                         email: 'admin',
                         member: true,
                         admin: true,
-                        officer: true
+                        officer: true,
+                        uid: admin
                     };
                     managment.isLoggedIn = true;
                     console.log('going to manager');
@@ -136,18 +169,43 @@ angular.module('App')
             usersRef.remove(uid);
         };
         managment.promoteAdmin = function(uid){
-          usersRef.child(uid).update({admin:true},onComplete(error));
+            console.log("promoteAdmin");
+          usersRef.child(uid).update({admin:true});
         };
         managment.demoteAdmin = function(uid){
-            usersRef.child(uid).update({admin:false},onComplete(error));
+            console.log("demoteAdmin");
+            usersRef.child(uid).update({admin:false});
         };
         managment.promoteOfficer = function(uid){
-            usersRef.child(uid).update({officer:true},onComplete(error));
+            console.log("promoteOfficer");
+            usersRef.child(uid).update({officer:true});
         };
         managment.demoteOfficer = function(uid){
-            usersRef.child(uid).update({officer:false},onComplete(error));
+            console.log("demoteOfficer");
+            usersRef.child(uid).update({officer:false});
         };
+        managment.promoteMember = function(uid){
+            console.log("promoteMember");
+            usersRef.child(uid).update({member:true});
+        };
+        managment.demoteMember = function(uid){
+            console.log("demoteMember");
+            usersRef.child(uid).update({member:false});
+        };
+        managment.getAllUsers = function(){
+            console.group("getAllUsers");
+            var userslist = [];
 
+            usersRef.once('value', function(snap){
+                snap.forEach(function(user){
+                    console.log(user.val());
+                    userslist.push(user);
+                });
+            });
+
+            console.groupEnd();
+            return userslist;
+        };
         managment.signOut = function(){
             ref.unauth();
         };
@@ -155,12 +213,20 @@ angular.module('App')
           managment.currentuser.update(newData, onComplete(error));
         };
         managment.addEvent = function(uid, event){
-            console.log("add Event", event);
-            managment.currrentUserRef.child("events").set(event);
-        };
-        managment.rememberMe = function(){
-          console.log("rememberME");
-        };
+            console.group('AddEvent');
+            console.log("Linking User:",uid);
+            console.log("Linking Event:",event);
 
+            usersRef.child(uid).child("events").child(event).set(event);
+            eventsRef.child(event).push(uid);
+
+            console.groupEnd();
+        };
+        managment.removeEvent = function (uid, event) {
+            console.group('removeEvent');
+            console.log("remove event:", event);
+            usersRef.child(uid).child("events").child(event).set({});
+            console.groupEnd();
+        };
         return managment;
     });

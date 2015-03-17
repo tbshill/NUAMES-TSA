@@ -1,13 +1,12 @@
 
 angular.module('App')
 	.controller('managerController',function($state,$scope,$rootScope,$firebase,$stateParams,$location, toaster, UserManagment){
+        console.log('controller: managerController');
         $scope.UserManagment = UserManagment;
         $scope.signOut = function () {
             UserManagment.signOut();
             $state.go('signin');
         };
-
-		console.log('controller: managerController');
 
         $scope.click = function(event){
 			$rootScope.Revent = $firebase(new Firebase("https://nuames-tsa.firebaseio.com/Events/"+event)).$asArray();
@@ -21,6 +20,7 @@ angular.module('App')
 			$location.path("/manager/admin");
 		};
 		$scope.addUserToEvent = function(id, event){ //May be used by several child scopes 
+            console.group('AddUsertoEvent');
 			/*
 			//add user to event.members
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');
@@ -29,19 +29,28 @@ angular.module('App')
             var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/users/'); //Adds a copy to the Member
 			var t = memberRef.child(id).child('events').child(event).set(event);
             */
-            UserManagment.addEvent(UserManagment.currentuser.uid);
+            console.log('User UID: ',UserManagment.currentuser.uid);
+            console.log('Event:', event);
+            UserManagment.addEvent(UserManagment.currentuser.uid, event);
 
-            //toaster.pop('success', "Added", "This user was Added to the event");
+            toaster.pop('success', "Added", "This user was Added to the event");
+            console.groupEnd();
 		};
 		$scope.removeUserFromEvent = function(id, event){
 			//remove user from event.members
+            /*
 			var eventRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/');  //Removes the event from the event section
 			var e = eventRef.child(event).child('members').child(id).set({});
             
 			var memberRef = new Firebase('https://nuames-tsa.firebaseio.com/Members/'); //Removes the event from the member section
 			var t = memberRef.child(id).child('events').child(event).set({});
-
+*/
+            console.group('removeUserFromEvent');
+            console.log('UID:',id);
+            console.log("Event:",event);
+            UserManagment.removeEvent(id,event);
 			toaster.pop('error', "Remove", "This user was removed from the event");
+            console.groupEnd();
 		};
 		$scope.goToEvent = function(event){
 			$location.path("/manager/event/" + event);

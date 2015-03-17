@@ -1,51 +1,28 @@
 <!-- The main admin pannel where users are managed-->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.username').click(function(){
-            $('.events').slideToggle()
-        })
-    });
-</script>
-<div ng-show="user.admin">
-	<div class="memberTable">
-		<table class="table table-hover">
-			<!--Search Bar -->
-			<tr id="searchBar">
-				<td colspan="4"><h2>All Members</h2></td>
-				<td colspan="4"><span class="glyphicon glyphicon-search pull-left"></span><input class= "form-control pull-left" style="width:90%" ng-model="memberFilter"/><td> 
-			</tr>
-
-			<!-- Members -->
-			<tr ng-repeat="user in members | filter:{displayName:memberFilter}" ng-click="alert('click')">
-				<td><div class="crop img-circle">
-					<img ng-src="{{user.picture}}"/>
-				</div></td>
-				<td class="username">{{user.displayName}}</td>
-				<!-- Member-->
-				<td ng-hide="user.member"><button class="btn btn-default" ng-click="verifyUser(user.$id)"> Member</button></td>
-				<td ng-show="user.member"><button class="btn btn-success" ng-click="unVerifyUser(user.$id)">Member</button></td>
-
-				<!-- Admin -->
-				<td ng-hide="user.admin"><button class="btn btn-default" ng-click="makeAdmin(user.$id)"> Admin</button></td>
-				<td ng-show="user.admin"><button class="btn btn-warning" ng-click="demoteAdmin(user.$id)">Admin</button></td>
-				
-				<!-- Officer -->
-				<td ng-hide="user.officer"><button class="btn btn-default" ng-click="makeOfficer(user.$id)"> Officer</button></td>
-				<td ng-show="user.officer"><button class="btn btn-warning" ng-click="demoteOfficer(user.$id)">Officer</button></td>
-
-				<td>
-					<select ng-model="event" class="form-control">
-                        <option class="active" value="{{event}}">-</option>
-						<option ng-repeat = "event in eventList" value="{{event}}">{{event}}</option>
-					</select>
-				</td>
-				
-				<!-- most of this is filler to help me test the back end -->
-				<td><button class="btn btn-info" ng-click="$parent.addUserToEvent( user.$id, event)">Add To Event</button></td>
-				<td><button class="btn btn-primary" ng-click="$parent.removeUserFromEvent( user.$id, event)">Remove From Event</button></td>
-				<td><button class="btn btn-danger" ng-click="deleteUser(user.$id)">Delete</button></td>
-			</tr>
-		</table>
-	</div>
+<div ng-show="UserManagment.currentuser.admin">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Groups</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in UserManagment.userslist">
+                <td>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-warning" ng-show="user.admin" ng-click="UserManagment.demoteAdmin(user.uid)">Admin</button>
+                        <button type="button" class="btn btn-default" ng-hide="user.admin" ng-click="UserManagment.promoteAdmin(user.uid)">Admin</button>
+                        <button type="button" class="btn btn-primary" ng-show="user.officer" ng-click="UserManagment.demoteOfficer(user.uid)">Officer</button>
+                        <button type="button" class="btn btn-default" ng-hide="user.officer" ng-click="UserManagment.promoteOfficer(user.uid)">Officer</button>
+                        <button type="button" class="btn btn-success" ng-show="user.member" ng-click="UserManagment.demoteMember(user.uid)">Member</button>
+                        <button type="button" class="btn btn-default" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Member</button>
+                    </div>
+                </td>
+                <td>{{user.display}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

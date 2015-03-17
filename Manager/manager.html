@@ -15,14 +15,14 @@ It really only consists of a Side Nav and a Content View.
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav accordian" accordian>
-                <li ng-show="user.admin"> <!-- Only shows if the user is an admin -->
+                <li ng-show="UserManagment.currentuser.admin"> <!-- Only shows if the user is an admin -->
                     <h3 class="button" style="cursor: pointer">Admin</h3>
                     <ul>
                         <li class="button"><a ui-sref="manager.admin">Members</a></li>
                         <li class="button"><a ui-sref="manager.eventsManager">Events</a></li>
                     </ul>
 			    </li>
-                <li ng-show="user.officer"> <!-- only shows if the user is an officer -->
+                <li ng-show="UserManagment.currentuser.officer"> <!-- only shows if the user is an officer -->
                     <h3 class="button" style="cursor: pointer">Officer</h3>
                     <ul>
                         <li class="button">Minutes</li> <!-- Most of these are fillers s-->
@@ -45,7 +45,7 @@ It really only consists of a Side Nav and a Content View.
                     <h3 class="button" style="cursor: pointer">Events</h3>
                     <ul>
                         <li style="margin-bottom:10px;"><a ui-sref="manager.allEvents">All Events</a></li>
-                        <li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
+                        <li style="margin-bottom:5px" ng-repeat="evnt in UserManagment.currentuser.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
                     </ul>
                 </li>
                 <li>
@@ -57,7 +57,7 @@ It really only consists of a Side Nav and a Content View.
 
         <!-- Page Content -->
         <div id="page-content-wrapper" style="padding-top: 50px;">
-            <div class="container-fluid" style="top:1.25in;" ui-view></div>
+            <div class="container-fluid" style="top:1.25in; background-color:white" ui-view></div>
         </div>
         <!-- /#page-content-wrapper -->
     </div>
