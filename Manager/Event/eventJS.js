@@ -7,7 +7,7 @@
 */
 
 angular.module('App') // links to App
-	.controller('eventController',function($firebase,$rootScope,$scope, $stateParams,$location, toaster){
+	.controller('eventController',function(UserManagment,$firebase,$rootScope,$scope, $stateParams,$location, toaster){
 
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;
@@ -16,7 +16,6 @@ angular.module('App') // links to App
 		$scope.masterpurchases= $firebase(new Firebase('nuames-tsa.firebaseio.com/Purchases')).$asArray();
 		
 		var eventMembersRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+"/members");
-		var m = new Firebase('https://nuames-tsa.firebaseio.com/Members/');
 		eventMembersRef.once('value',function(dataSnapshot){
 				console.log(dataSnapshot.val());
 
@@ -60,7 +59,7 @@ angular.module('App') // links to App
 		$scope.posts = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/Posts')).$asArray();
 		$scope.post = function(event){
 			$scope.posts.$add({
-				name: $rootScope.user.displayName,
+				name: UserManagment.currentuser.display,
 				data: $scope.postData
 				});
 			$scope.postData = "";

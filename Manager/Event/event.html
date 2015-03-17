@@ -43,8 +43,7 @@ TODO:
 		<div class="col-md-1"><button class="btn btn-info" ng-click="post(evnt)">Post</button></div>
 	</div>
 	<div class="row post" ng-repeat="post in posts | reverse">
-		<div class="col-md-3"><pre>{{post.name}}</pre></div>
-		<div class="col-md-9"><pre>{{post.data}}</pre></div>
-		<!-- Add Comment Feature. What do you want to be able to comment on? -Tobin -->
+        <h3>{{post.name}}</h3>
+        <p>{{post.data}}</p>
 	</div>
 </div>

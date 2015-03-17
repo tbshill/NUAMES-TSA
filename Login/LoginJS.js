@@ -34,7 +34,6 @@ angular.module('App')
 
         console.group("getAllUsers");
 
-
         usersRef.on('value', function(snap){
             managment.userslist = [];
             snap.forEach(function(user){
