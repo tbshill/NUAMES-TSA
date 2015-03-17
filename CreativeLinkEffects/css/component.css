@@ -117,9 +117,6 @@ nav a:focus {
 }
 
 /* Effect 3: bottom line slides/fades in */
-.cl-effect-3{
-	background-color: #b80000;
-}
 .cl-effect-3 a {
 	padding: 8px 0;
 }

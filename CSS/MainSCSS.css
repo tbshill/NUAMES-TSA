@@ -3592,7 +3592,7 @@ tbody.collapse.in {
   .navbar-default .navbar-brand {
     color: #fcfcfe; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-      color: #d6d6f1;
+      color: #fcfcfe;
       background-color: transparent; }
   .navbar-default .navbar-text {
     color: #fcfcfe; }
@@ -3601,7 +3601,7 @@ tbody.collapse.in {
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #fcfcfc;
       background-color: transparent; }
-     a::after {
+     .a:hover:after {
       position: absolute;
       top: 100%;
       left: 0;
@@ -3617,13 +3617,13 @@ tbody.collapse.in {
       -moz-transform: translateY(10px);
       transform: translateY(10px);
     }
-    a:hover::after,
-    a:focus::after{
-      opacity: 1;
-      -webkit-transform: translateY(0px);
-      -moz-transform: translateY(0px);
-      transform: translateY(0px);
-    }
+    /*.a:hover
+    /*{*/
+      /*opacity: 1;*/
+      /*-webkit-transform: translateY(0px);*/
+      /*-moz-transform: translateY(0px);*/
+      /*transform: translateY(0px);*/
+    /*}*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #555;
     background-color: #670000; }
