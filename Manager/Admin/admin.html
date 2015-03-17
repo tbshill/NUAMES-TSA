@@ -5,6 +5,7 @@
             <th>Groups</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Reset Password</th>
         </tr>
     </thead>
     <tbody>
@@ -17,10 +18,12 @@
                     <button type="button" class="btn btn-default" ng-hide="user.officer" ng-click="UserManagment.promoteOfficer(user.uid)">Officer</button>
                     <button type="button" class="btn btn-success" ng-show="user.member" ng-click="UserManagment.demoteMember(user.uid)">Member</button>
                     <button type="button" class="btn btn-default" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Member</button>
+
                 </div>
             </td>
             <td>{{user.display}}</td>
             <td>{{user.email}}</td>
+            <td><button type="button" class="btn btn-warning" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Reset Password</button></td>
         </tr>
     </tbody>
 </table>
