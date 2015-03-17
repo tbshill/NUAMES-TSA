@@ -1,9 +1,9 @@
 angular.module('App')
-	.controller('signinController', function($state,$scope, UserManagment, $location){
+	.controller('signinController', function($state,$scope, UserManagment){
 		console.log('controller: signinController');
         try {
             if (UserManagment.currentuser.member == true) {
-                $location.path("/manager");
+                $state.go('manager');
             }
         }
         catch(err){
@@ -19,14 +19,14 @@ angular.module('App')
         $scope.Login = function () {
             console.log("Login:", $scope.login);
             UserManagment.loginUser($scope.login);
-            $state.go("manager");
+
         };
         $scope.Signup= function(){
             console.log("Sign Up:", $scope.signup);
             UserManagment.createUser($scope.signup);
         };
 	})
-    .factory('UserManagment',function($location){
+    .factory('UserManagment',function($state){
         var managment = {};
         var ref = new Firebase('https://nuames-tsa.firebaseio.com');
         var usersRef = new Firebase('https://nuames-tsa.firebaseio.com/users/');
@@ -47,17 +47,18 @@ angular.module('App')
         };
         ref.onAuth(function(authData) {
             if (authData) {
+                console.group('onAuth Function');
                 managment.isLoggedIn = true;
                 console.log("User " + authData.uid + " is logged in with " + authData.provider);
                 managment.currrentUserRef = new Firebase("https://nuames-tsa.firebaseio.com/users/").child(authData.uid);
                 managment.currrentUserRef.on('value',function(userData){
-                    console.log("getting user from Firebase");
+                    console.log("Mapping Firebase data to Angular");
                     managment.currentuser.admin = userData.child("admin").val();
                     managment.currentuser.display = userData.child("display").val();
                     managment.currentuser.email = userData.child("email").val();
                     managment.currentuser.member = userData.child("member").val();
                     managment.currentuser.officer = userData.child("officer").val();
-                    //$rootScope.user = managment.currentuser;
+
                 });
             } else {
                 console.log("User is logged out");
@@ -73,7 +74,8 @@ angular.module('App')
                 managment.isLoggedIn = false;
             }
 
-
+            console.log("onAuth Complete");
+            console.groupEnd();
         }); //Checks for logged in user.
 
         managment.createUser = function (patronData){
@@ -97,8 +99,10 @@ angular.module('App')
             });
         };
         managment.loginUser = function (patronData) {
+            console.group('LoginUser');
             try {
                 if (patronData.email == 'admin') {
+                    console.log('using admin account');
                     managment.currentuser = {
                         username: 'admin',
                         password: 'admin',
@@ -108,7 +112,8 @@ angular.module('App')
                         officer: true
                     };
                     managment.isLoggedIn = true;
-                    $location.path('/manager');
+                    console.log('going to manager');
+                    $state.go('manager');
                     return;
                 }
             }
@@ -121,8 +126,11 @@ angular.module('App')
                     console.warn("Login Failed:",error);
                 }else {
                     console.log("Authenticated successfully with:", userData);
+                    $state.go("manager");
                 }
             },{remember: "sessionOnly"}); //Tells firebase to remember session.
+
+            console.groupEnd();
         };
         managment.deleteUser = function(uid){
             usersRef.remove(uid);

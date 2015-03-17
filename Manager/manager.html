@@ -11,46 +11,54 @@ It really only consists of a Side Nav and a Content View.
 
 <div ng-show="UserManagment.currentuser.member"> <!-- This shows other wise -->
 	<!-- The Nav Bar-->
-	<div class="sideNav">
-		<ul class="accordian" accordian> <!-- The accordian directive enables jQuery. Because angularJS is real time, jQuery cannont "pre compile" everything first-->
-			<li ng-show="user.admin"> <!-- Only shows if the user is an admin -->
-				<h3 class="button" style="cursor: pointer">Admin</h3>
-				<ul>
-					<li class="button"><a ui-sref="manager.admin">Members</a></li>
-					<li class="button"><a ui-sref="manager.eventsManager">Events</a></li>
-				</ul>
-			</li>
+    <div id="wrapper" style="margin-top:.75in;">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav accordian" accordian>
+                <li ng-show="user.admin"> <!-- Only shows if the user is an admin -->
+                    <h3 class="button" style="cursor: pointer">Admin</h3>
+                    <ul>
+                        <li class="button"><a ui-sref="manager.admin">Members</a></li>
+                        <li class="button"><a ui-sref="manager.eventsManager">Events</a></li>
+                    </ul>
+			    </li>
+                <li ng-show="user.officer"> <!-- only shows if the user is an officer -->
+                    <h3 class="button" style="cursor: pointer">Officer</h3>
+                    <ul>
+                        <li class="button">Minutes</li> <!-- Most of these are fillers s-->
+                        <li class="button"><a ui-sref="manager.attendance">Attendance</a></li>
+                        <li class="button"><a ui-sref="manager.budget">Budget</a></li>
+                        <li class="button">Parliamentary</li>
+                        <li class="button"><a ui-sref="manager.newsFeed">News Feed</a></li>
+                        <li class="button"><a ui-sref="manager.sponsors">Sponsors</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 class="button" style="cursor: pointer">My Profile</h3>
+                    <ul>
+                        <li class="button"><a ui-sref="manager.register">Register</a></li>
+                        <li class="button"><a ui-sref="manager.contact">Contact</a></li>
+                        <li class="button"><a ui-sref="manager.messages">Messages</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 class="button" style="cursor: pointer">Events</h3>
+                    <ul>
+                        <li style="margin-bottom:10px;"><a ui-sref="manager.allEvents">All Events</a></li>
+                        <li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
+                    </ul>
+                </li>
+                <li>
+                    <h3 style="cursor: pointer" ng-click="signOut()">Sign Out </h3>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-			<li ng-show="user.officer"> <!-- only shows if the user is an officer -->
-				<h3 class="button" style="cursor: pointer">Officer</h3>
-				<ul>
-					<li class="button">Minutes</li> <!-- Most of these are fillers s-->
-					<li class="button"><a ui-sref="manager.attendance">Attendance</a></li>
-					<li class="button"><a ui-sref="manager.budget">Budget</a></li>
-					<li class="button">Parliamentary</li>
-					<li class="button"><a ui-sref="manager.newsFeed">News Feed</a></li>
-					<li class="button"><a ui-sref="manager.sponsors">Sponsors</a></li>
-				</ul>
-			</li>
-			<li>
-				<h3 class="button" style="cursor: pointer">My Profile</h3>
-				<ul>
-					<li class="button"><a ui-sref="manager.register">Register</a></li>
-					<li class="button"><a ui-sref="manager.contact">Contact</a></li>
-					<li class="button"><a ui-sref="manager.messages">Messages</a></li>
-				</ul>
-			</li>
-			<li>
-				<h3 class="button" style="cursor: pointer">Events</h3>
-				<ul>
-					<li style="margin-bottom:10px;"><a ui-sref="manager.allEvents">All Events</a></li>
-					<li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
-				</ul>
-			</li>
-            <li>
-                <h3 style="cursor: pointer" ng-click="signOut()">Sign Out </h3>
-            </li>
-		</ul>
-	</div> <!-- Content View -->
-		<div class="managerBody" style="top:1.25in;" ui-view></div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper" style="padding-top: 50px;">
+            <div class="container-fluid" style="top:1.25in;" ui-view></div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
 </div>
