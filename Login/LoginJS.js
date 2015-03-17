@@ -141,7 +141,7 @@ angular.module('App')
                         member: true,
                         admin: true,
                         officer: true,
-                        uid: admin
+                        uid: "admin"
                     };
                     managment.isLoggedIn = true;
                     console.log('going to manager');
