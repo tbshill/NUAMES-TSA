@@ -1,5 +1,5 @@
 var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster','specialDirectives']) //Define the angular app
-	.controller('mainController',function($scope, $rootScope,UserManagment){ //mainController is referenced in index.html
+	.controller('mainController',function($scope, $rootScope, UserManagment){ //mainController is referenced in index.html
 
         $scope.UserManagment = UserManagment;
 

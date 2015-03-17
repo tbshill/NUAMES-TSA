@@ -1,13 +1,8 @@
 angular.module('App')
 	.controller('schoolController',function($scope,$firebase,toaster){
-		console.log('controller: schoolController');
-			$(".flexBox").click(function(){  //Debug
-    		console.log('click');
-    		
-    	});
 
-		$scope.schoolEvents = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/SchoolEvents/')).$asArray();
-		$('#schoolEvents').css("height",$(window).height()-72 +'px')
+		//$scope.schoolEvents = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/SchoolEvents/')).$asArray();
+		//$('#schoolEvents').css("height",$(window).height()-72 +'px')
 	})
 .directive('myPreivew',function(){
 	// Runs during compile
@@ -182,8 +177,8 @@ angular.module('App')
 	}
 
 })( window );
-/*
-;( function( window ) {
+
+( function( window ) {
 
 	'use strict';
 
@@ -281,7 +276,7 @@ angular.module('App')
 		this._addNavigation();
 		this._getSizes();
 		this._initEvents();
-	}
+	};
 
 	Photostack.prototype._addNavigation = function() {
 		// add nav dots
@@ -293,7 +288,7 @@ angular.module('App')
 		this.nav.innerHTML = inner;
 		this.el.appendChild( this.nav );
 		this.navDots = [].slice.call( this.nav.children );
-	}
+	};
 
 	Photostack.prototype._initEvents = function() {
 		var self = this,
@@ -303,7 +298,7 @@ angular.module('App')
 					if( support.transitions ) {
 						classie.addClass( self.el, 'photostack-transition' );
 					}
-				}
+				};
 				if( beforeStep ) {
 					this.removeEventListener( 'click', open );
 					classie.removeClass( self.el, 'photostack-start' );
@@ -345,7 +340,7 @@ angular.module('App')
 		} );
 
 		window.addEventListener( 'resize', function() { self._resizeHandler(); } );
-	}
+	};
 
 	Photostack.prototype._resizeHandler = function() {
 		var self = this;
@@ -357,7 +352,7 @@ angular.module('App')
 			clearTimeout( this._resizeTimeout );
 		}
 		this._resizeTimeout = setTimeout( delayed, 100 );
-	}
+	};
 
 	Photostack.prototype._resize = function() {
 		var self = this, callback = function() { self._shuffle( true ); }
@@ -368,7 +363,7 @@ angular.module('App')
 		else {
 			callback();
 		}
-	}
+	};
 
 	Photostack.prototype._showPhoto = function( pos ) {
 		if( this.isShuffling ) {
@@ -398,8 +393,7 @@ angular.module('App')
 
 		// shuffle a bit
 		this._shuffle();
-	}
-
+	};
 	// display items (randomly)
 	Photostack.prototype._shuffle = function( resize ) {
 		var iter = resize ? 1 : this.currentItem.getAttribute( 'data-shuffle-iteration' ) || 1;
@@ -521,7 +515,7 @@ angular.module('App')
 			};
 
 		moveItems.call();
-	}
+	};
 
 	Photostack.prototype._getSizes = function() {
 		this.sizes = {
@@ -531,7 +525,7 @@ angular.module('App')
 
 		// translation values to center an item
 		this.centerItem = { x : this.sizes.inner.width / 2 - this.sizes.item.width / 2, y : this.sizes.inner.height / 2 - this.sizes.item.height / 2 };
-	}
+	};
 
 	Photostack.prototype._isOverlapping = function( itemVal ) {
 		var dxArea = this.sizes.item.width + this.sizes.item.width / 3, // adding some extra avoids any rotated item to touch the central area
@@ -560,16 +554,16 @@ angular.module('App')
 		return {
 			overlapping : false
 		}
-	}
+	};
 
 	Photostack.prototype._addItemPerspective = function() {
 		classie.addClass( this.el, 'photostack-perspective' );
-	}
+	};
 
 	Photostack.prototype._removeItemPerspective = function() {
 		classie.removeClass( this.el, 'photostack-perspective' );
 		classie.removeClass( this.currentItem, 'photostack-flip' );
-	}
+	};
 
 	Photostack.prototype._rotateItem = function( callback ) {
 		if( classie.hasClass( this.el, 'photostack-perspective' ) && !this.isRotating && !this.isShuffling ) {
@@ -614,9 +608,9 @@ angular.module('App')
 				onEndTransitionFn();
 			}
 		}
-	}
+	};
 
 	// add to global namespace
 	window.Photostack = Photostack;
 
-})( window );*/
+})( window );
