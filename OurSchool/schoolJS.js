@@ -177,7 +177,6 @@ angular.module('App')
 	}
 
 })( window );
-
 ( function( window ) {
 
 	'use strict';
