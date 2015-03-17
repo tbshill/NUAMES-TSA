@@ -4,12 +4,12 @@ This is the page that is going to set our website appart from every other entry 
 It really only consists of a Side Nav and a Content View.
 
 -->
-<div ng-hide="user.member"> <!-- This shows only if the user is not logged in or the user is not verrified by our chapter officers/Webmaster team -->
+<div ng-hide="UserManagment.currentuser.member"> <!-- This shows only if the user is not logged in or the user is not verrified by our chapter officers/Webmaster team -->
 	<h2> You need to Register your account.</h2>
 	<h3> Please contact our webmaster team or our officer team to register</h3>
 </div>
 
-<div ng-show="user.member"> <!-- This shows other wise -->
+<div ng-show="UserManagment.currentuser.member"> <!-- This shows other wise -->
 	<!-- The Nav Bar-->
 	<div class="sideNav">
 		<ul class="accordian" accordian> <!-- The accordian directive enables jQuery. Because angularJS is real time, jQuery cannont "pre compile" everything first-->
@@ -47,6 +47,9 @@ It really only consists of a Side Nav and a Content View.
 					<li style="margin-bottom:5px" ng-repeat="evnt in user.events"><a class="evnt" ui-sref="manager.event({event: evnt})">{{evnt}}</a></li> <!-- A list of the users events they are registared for-->
 				</ul>
 			</li>
+            <li>
+                <h3 style="cursor: pointer" ng-click="signOut()">Sign Out </h3>
+            </li>
 		</ul>
 	</div> <!-- Content View -->
 		<div class="managerBody" style="top:1.25in;" ui-view></div>

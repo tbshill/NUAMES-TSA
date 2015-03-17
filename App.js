@@ -1,6 +1,9 @@
 var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','toaster','specialDirectives']) //Define the angular app
-	.controller('mainController',function($scope, $rootScope,$firebaseAuth,$firebase,$scope,$location){ //mainController is referenced in index.html
-		$rootScope.eventList = [ //just a global list I declare immediately.
+	.controller('mainController',function($scope, $rootScope,UserManagment){ //mainController is referenced in index.html
+
+        $scope.UserManagment = UserManagment;
+
+        $rootScope.eventList = [ //just a global list I declare immediately.
 			'Animatronics',
 			'Architectural Renovation',
 			'Biotechnology Design',
@@ -38,106 +41,12 @@ var app = angular.module('App',['ui.router','ngRoute','firebase','duParallax','t
 			'VEX Robotics',
 			'Webmaster'
 		]; //There may be an event or two that we need to edit. I am just waiting on Zach to get the official list of events.
-/*
-		var ref = new Firebase("https://nuames-tsa.firebaseio.com/Members/");
 
-		var members = $firebase(ref).$asArray();
-
-		var authData = ref.getAuth();
-
-		members.$loaded().then(function(members) {
-			if(authData) {
-				for(var i = 0; i < members.length; i++) {
-					console.log(members[i].$id);
-			    	if(members[i].id == authData.google.id) {
-			    		console.log("Heya--you're all logged in!");
-			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
-		    			u.$bindTo($rootScope,"user"); //3-way data binding
-		    			$rootScope.isLoggedIn = true;
-		    			return; //kill loop and function
-			    	}
-			    	else if(members[i].id == authData.facebook.id){
-			    		console.log("Heya--you're all logged in!");
-			    		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject(); 
-		    			u.$bindTo($rootScope,"user"); //3-way data binding
-		    			$rootScope.isLoggedIn = true;
-		    			return; //kill loop and function
-			    	}
-			    }
-			}
-		});
-        */
-
-		$scope.signOut = function() {
-			console.log("logging out")
-			ref.unauth();
-			$rootScope.isLoggedIn = false;
-			$location.path("/")
-		};
-/*
-		$scope.gotoSchool = function(){
-			$location.path('/school'); //redirects the user on a click.
-			if(window.innerHeight>window.innerWidth){ //If window is portrait
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-        $scope.gotoSignUp = function(){
-          $location.path('/signup');
-          if(window.innerHeight>window.innerWidth){
-              $('.nav').find("li").slideToggle("fast");
-              $('.container').slideToggle("Slow");
-          }
-        };
-		$scope.gotoChapter = function(){
-			$location.path('/chapter');
-			if(window.innerHeight>window.innerWidth){
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-		$scope.gotoDesign = function(){
-			$location.path('/designbrief');
-			if(window.innerHeight>window.innerWidth){
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-		$scope.gotoSponsors = function(){
-			$location.path('/sponsors');
-			if(window.innerHeight>window.innerWidth){
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-		$scope.gotoSignin = function(){
-			$location.path('/signin');
-			if(window.innerHeight>window.innerWidth){
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-		$scope.gotoManager = function(){
-			$location.path('/manager');
-			if(window.innerHeight>window.innerWidth){
-				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
-				$(".container").slideToggle("slow"); //Container Animation
-			}
-		};
-        $scope.gotoChat = function(){
-          $location.path('/chat');
-            if(window.innerHeight>window.innerWidth){
-                $(".nav").find("li").slideToggle("fast");
-                $(".container").slideToggle("slow");
-            }
-        };
-        */
 		$("#logo").click(function(event){
 			if(window.innerHeight > window.innerWidth){
 				event.preventDefault();
 				$(".nav").find("li").slideToggle("fast"); //Menu bar animation
 				$(".container").slideToggle("slow"); //Container Animation
-
 			}
 		})
 	})

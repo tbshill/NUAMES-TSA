@@ -1,6 +1,14 @@
 angular.module('App')
-	.controller('signinController', function($scope, UserManagment){
+	.controller('signinController', function($state,$scope, UserManagment, $location){
 		console.log('controller: signinController');
+        try {
+            if (UserManagment.currentuser.member == true) {
+                $location.path("/manager");
+            }
+        }
+        catch(err){
+            console.log("no Current User")
+        }
         $scope.state = "login";
         $scope.loginForm = function(){
             $scope.state = "login";
@@ -11,80 +19,25 @@ angular.module('App')
         $scope.Login = function () {
             console.log("Login:", $scope.login);
             UserManagment.loginUser($scope.login);
+            $state.go("manager");
         };
         $scope.Signup= function(){
             console.log("Sign Up:", $scope.signup);
-            //$scope.state = 'signup';
             UserManagment.createUser($scope.signup);
         };
-		//var members = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members')).$asArray();
-		//var newMembers = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/newUsers')).$asArray();
-        /*
-		$scope.createUser = function(){
-			var ref = new Firebase("https://nuames-tsa.firebaseio.com");
-			ref.createUser({
-			  email    : $scope.email,
-			  password : $scope.password
-			}, function(error, userData) {
-			  if (error) {
-			    console.log("Error creating user:", error);
-			  } else {
-			    console.log("Successfully created user account with uid:", userData);
-				ref.authWithPassword({
-				  email    : $scope.email,
-				  password : $scope.password
-				}, function(error, authData) {
-				  if (error) {
-				    console.log("Login Failed!", error);
-				  } else {
-				    console.log("Authenticated successfully with payload:", authData);
-				    newUser = {
-				    	"email":authData.password.email,
-				    	"uid":authData.uid,
-				    	"displayName":$scope.name
-				    };
-				    members.$add(newUser);
-				    members.$save();
-				  }
-				});
-				members.$add(userData.uid);
-				members.$save();
-			  }
-			});
-		};
-		$scope.loginUser = function(){
-			var ref = new Firebase("https://nuames-tsa.firebaseio.com");
-			ref.authWithPassword({
-			  email    : $scope.email,
-			  password : $scope.password
-			}, function(error, authData) {
-			  if (error) {
-			    console.log("Login Failed!", error);
-			  } else {
-			    console.log("Authenticated successfully with payload:", authData);
-			     for(i = 0; i<members.length; i++){
-			     	if(authData.uid == members[i].uid){
-			     		var u = $firebase(new Firebase('https://nuames-tsa.firebaseio.com/Members/'+members[i].$id)).$asObject();
-		    			u.$bindTo($rootScope,"user"); //3-way data binding
-		    			$location.path("/manager"); //change location
-		    			$rootScope.isLoggedIn = true;
-		    			return; //kill loop and function
-			     	}
-			     }
-			  }
-			});
-		};
-
-
-        var declineUser = function(user){ //Removes User from firebase
-			Members.$remove(user);
-		}
-		*/
 	})
-    .factory('UserManagment',function($location, toaster){
+    .factory('UserManagment',function($location){
         var managment = {};
         var ref = new Firebase('https://nuames-tsa.firebaseio.com');
         var usersRef = new Firebase('https://nuames-tsa.firebaseio.com/users/');
+        managment.isLoggedIn     = false;
+        managment.currentuser = {
+            admin: false,
+            display: "",
+            email : "",
+            member: false,
+            officer : false
+        };
         var onComplete = function(error){
             if(error){
                 console.warn("Syncronization Failed!!!");
@@ -92,11 +45,36 @@ angular.module('App')
                 console.log("Syncronization Successful");
             }
         };
+        ref.onAuth(function(authData) {
+            if (authData) {
+                managment.isLoggedIn = true;
+                console.log("User " + authData.uid + " is logged in with " + authData.provider);
+                managment.currrentUserRef = new Firebase("https://nuames-tsa.firebaseio.com/users/").child(authData.uid);
+                managment.currrentUserRef.on('value',function(userData){
+                    console.log("getting user from Firebase");
+                    managment.currentuser.admin = userData.child("admin").val();
+                    managment.currentuser.display = userData.child("display").val();
+                    managment.currentuser.email = userData.child("email").val();
+                    managment.currentuser.member = userData.child("member").val();
+                    managment.currentuser.officer = userData.child("officer").val();
+                    //$rootScope.user = managment.currentuser;
+                });
+            } else {
+                console.log("User is logged out");
+                managment.currentuser = {
+                    uid     : "",
+                    password: "",
+                    email   : "",
+                    display : "",
+                    member  : false,
+                    admin   : false,
+                    officer : false
+                };
+                managment.isLoggedIn = false;
+            }
 
 
-        managment.isLoggedIn     = false;
-        managment.currentuser    = {};
-        managment.curentuser_ref = "";
+        }); //Checks for logged in user.
 
         managment.createUser = function (patronData){
             console.log("Create User:", patronData);
@@ -106,6 +84,7 @@ angular.module('App')
                 }else{
                     console.log("Successfully Created user:", userData);
                     var userTeplate = {
+                        uid     : userData.uid,
                         password: patronData.password,
                         email   : patronData.email,
                         display : patronData.display,
@@ -118,33 +97,32 @@ angular.module('App')
             });
         };
         managment.loginUser = function (patronData) {
-            if(patronData.email == 'admin'){
-                managment.currentuser = {
-                    username: 'admin',
-                    password: 'admin',
-                    email   : 'admin',
-                    member  : true,
-                    admin   : true,
-                    officer : true
-                };
-                managment.isLoggedIn = true;
-                $location.path('/manager');
-                return;
+            try {
+                if (patronData.email == 'admin') {
+                    managment.currentuser = {
+                        username: 'admin',
+                        password: 'admin',
+                        email: 'admin',
+                        member: true,
+                        admin: true,
+                        officer: true
+                    };
+                    managment.isLoggedIn = true;
+                    $location.path('/manager');
+                    return;
+                }
+            }
+            catch (err){
+                console.log("patronData not defined");
             }
             console.log("Logging in:", patronData);
             ref.authWithPassword({email:patronData.email, password:patronData.password},function(error, userData){
                 if(error){
                     console.warn("Login Failed:",error);
-                    toaster.pop('error', "Failed", "This user was removed from the event");
                 }else {
                     console.log("Authenticated successfully with:", userData);
-                    toaster.pop('success', "Success", "This user was removed from the event");
-                    managment.curentuser_ref = "https://nuames-tsa.firebseio.com/users/" + userData.uid;
-                    managment.currentuser = new Firebase(managment.curentuser_ref);
-                    managment.isLoggedIn = true;
-                    $location.path("/manager");
                 }
-            });
+            },{remember: "sessionOnly"}); //Tells firebase to remember session.
         };
         managment.deleteUser = function(uid){
             usersRef.remove(uid);
@@ -163,16 +141,14 @@ angular.module('App')
         };
 
         managment.signOut = function(){
-            managment.isLoggedIn = false;
-            managment.currentuser = {};
-            $location.path("/");
+            ref.unauth();
         };
         managment.editUser = function(newData){
           managment.currentuser.update(newData, onComplete(error));
         };
         managment.addEvent = function(uid, event){
-            console.log("add Event",event);
-
+            console.log("add Event", event);
+            managment.currrentUserRef.child("events").set(event);
         };
         managment.rememberMe = function(){
           console.log("rememberME");
