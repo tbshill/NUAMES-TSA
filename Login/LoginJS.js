@@ -30,7 +30,7 @@ angular.module('App')
         var managment = {};
         var ref = new Firebase('https://nuames-tsa.firebaseio.com');
         var usersRef = new Firebase('https://nuames-tsa.firebaseio.com/users/');
-        var eventsRef = new Firebase('https://nuames-tsa.firebaseio.com/events');
+        var eventsRef = new Firebase('https://nuames-tsa.firebaseio.com/events/');
 
         console.group("getAllUsers");
 
@@ -227,13 +227,21 @@ angular.module('App')
             usersRef.child(uid).child("events").child(event).set({});
             console.groupEnd();
         };
-        managment.getEventMember = function(event){
+        managment.getEventMembers = function(event){
+            console.group('getEventMembers');
+            console.log('Getting Members for:', event);
             var eventMembers = [];
             eventsRef.once('value',function(snap){
-                snap.forEach(function(member){
-                    eventMembers.push(member.child('uid').val());
+                console.log(snap.val());
+                snap.child(event).forEach(function(member){
+                    //eventMembers.push(usersRef.child(member.val()).child('display').once('value',function(snap){return snap.val()}));
+                    console.log(usersRef.child(member.val()).once('value',function(snap){
+                        return snap.val();
+                    }));
                 });
             });
+            console.log("Event Members are:", eventMembers);
+            console.groupEnd();
             return eventMembers;
         };
         return managment;
