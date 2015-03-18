@@ -1,25 +1,4 @@
-<!-- Event Page
-
-TODO:
-	1. Create purchases // this will not actually buy an item. It will send a notification to the treasurer for permission.
-	2. Social Media style communictaion. // Real time
-	3. Post files //We need to check with Zach about storing binders on his server. There may not be enough space.
--->
-<script>
-    $(document).ready(function(){
-        $('tr').show('fast')
-    })
-</script>
-
 <h1>{{evnt}}</h1>
-
-<h2>Purchase</h2>
-<form name="purchase">
-	Name:<input ng-model="newPurchase.Name"/>
-	Ammount:<input ng-model = "newPurchase.Ammount"/>
-	Description:<input ng-model="newPurchase.Description"/>
-	<button ng-click="purchase()"/>
-</form>
 <table class="table">
 	<tr ng-repeat="purchase in purchases" >
 		<td>{{purchase.Name}}</td>
@@ -29,13 +8,9 @@ TODO:
 </table>
 
 <h1>Members</h1>
-<table class="table">
-	<tbody>
-		<tr ng-repeat="mem in eventMembers">
-			<td>{{mem}}</td>
-		</tr>
-	</tbody>
-</table>
+<ul>
+    <li ng-repeat="member in UserManagment"></li>
+</ul>
 
 <div class="container-fluid"> <!-- Social Media Section -->
 	<div class="row">

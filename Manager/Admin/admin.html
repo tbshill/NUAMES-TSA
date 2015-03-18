@@ -18,12 +18,13 @@
                     <button type="button" class="btn btn-default" ng-hide="user.officer" ng-click="UserManagment.promoteOfficer(user.uid)">Officer</button>
                     <button type="button" class="btn btn-success" ng-show="user.member" ng-click="UserManagment.demoteMember(user.uid)">Member</button>
                     <button type="button" class="btn btn-default" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Member</button>
+                    <!--<button type="button" class="btn btn-warning" ng-show="user.admin" ng-click="UserManagment.deleteUser(user.uid)">Delete</button>-->
 
                 </div>
             </td>
             <td>{{user.display}}</td>
             <td>{{user.email}}</td>
-            <td><button type="button" class="btn btn-warning" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Reset Password</button></td>
+            <td><button type="button" class="btn btn-error" ng-hide="user.member" > Reset Password</button></td>
         </tr>
     </tbody>
 </table>

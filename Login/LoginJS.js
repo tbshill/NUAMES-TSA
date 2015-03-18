@@ -227,5 +227,14 @@ angular.module('App')
             usersRef.child(uid).child("events").child(event).set({});
             console.groupEnd();
         };
+        managment.getEventMember = function(event){
+            var eventMembers = [];
+            eventsRef.once('value',function(snap){
+                snap.forEach(function(member){
+                    eventMembers.push(member.child('uid').val());
+                });
+            });
+            return eventMembers;
+        };
         return managment;
     });
