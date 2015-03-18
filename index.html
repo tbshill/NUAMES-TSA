@@ -82,8 +82,6 @@
 		<script type="text/javascript" src="Login/LoginJS.js"></script>
 		<script type="text/javascript" src="Home/homeJS.js"></script>
         <!-- Node -->
-        <script src="njs.js"></script>
-
 			<!-- Manager --> 
 			<!-- I have this in a separate section because its the largest -->
 			<script type="text/javascript" src="Manager/managerJS.js"></script>
@@ -107,7 +105,6 @@
 		<link rel="stylesheet" href="CreativeLinkEffects/css/normalize.css"/>
 		<link rel="stylesheet" href="OurChapter/chapter.css"/>
 		<link rel="stylesheet" href="CSS/DesignBriefCSS.css"/>
-        <link rel="stylesheet" href="CSS/SimpleSideNav.css"/>
 	</head>
 
 	<body ng-controller="mainController" ng-cloak> <!-- I define an over all controller just incase i need it. It is helpful for debugging things -->
@@ -159,15 +156,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a ui-sref="school">School</a></li>
-                    <li><a ui-sref="chapter">Chapter</a></li>
-                    <li><a href="http://designbrief.nuamestsa.com">Design Brief</a></li>
-                    <li><a ui-sref="signin" ng-hide="UserManagment.isLoggedIn">Signin</a></li>
-                    <li><a ui-sref="manager">{{UserManagment.currentuser.display}}</a></li>
+                    <li><a class="a" ui-sref="school">School</a></li>
+                    <li><a class="a" ui-sref="chapter">Chapter</a></li>
+                    <li><a class="a" href="http://designbrief.nuamestsa.com">Design Brief</a></li>
+                    <li><a class="a" ui-sref="signin">Sign In</a></li>
+                    <li><a class="a" ui-sref="manager">{{user.displayName}}</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="body container-fluid" ui-view></div>
+
+			 <!-- Content View-->
+			<div class="body container-fluid" ui-view></div>
 	</body>
 </html>

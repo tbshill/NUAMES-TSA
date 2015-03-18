@@ -106,7 +106,7 @@
 }
 
 .photostack {
-    background: #ddd;
+    background: #000058;
     position: relative;
     text-align: center;
     overflow: hidden;
@@ -114,6 +114,7 @@
 
 .js .photostack {
     height: 580px;
+    width:100%;
 }
 
 .photostack-start {
@@ -407,7 +408,7 @@ figure.photostack-current::after {
 
 body {
     background: #fff;
-    color: #a7a0a2;
+    color: #000058;
     font-weight: 400;
     font-size: 1em;
     font-family: 'Lato', Arial, sans-serif;
@@ -678,7 +679,7 @@ svg.polaroid rect {
     left: 0;
     width: 100%;
     height: 0;
-    border: 0px solid #333;
+    border: 0 solid #333;
     background-color: rgba(0,0,0,0);
     -webkit-backface-visibility: hidden;
     -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
