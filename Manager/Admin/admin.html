@@ -1,28 +1,30 @@
 <!-- The main admin pannel where users are managed-->
-<div ng-show="UserManagment.currentuser.admin">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Groups</th>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="user in UserManagment.userslist">
-                <td>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-warning" ng-show="user.admin" ng-click="UserManagment.demoteAdmin(user.uid)">Admin</button>
-                        <button type="button" class="btn btn-default" ng-hide="user.admin" ng-click="UserManagment.promoteAdmin(user.uid)">Admin</button>
-                        <button type="button" class="btn btn-primary" ng-show="user.officer" ng-click="UserManagment.demoteOfficer(user.uid)">Officer</button>
-                        <button type="button" class="btn btn-default" ng-hide="user.officer" ng-click="UserManagment.promoteOfficer(user.uid)">Officer</button>
-                        <button type="button" class="btn btn-success" ng-show="user.member" ng-click="UserManagment.demoteMember(user.uid)">Member</button>
-                        <button type="button" class="btn btn-default" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Member</button>
-                    </div>
-                </td>
-                <td>{{user.display}}</td>
-                <td>{{user.email}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Groups</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Reset Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in UserManagment.userslist">
+            <td>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-warning" ng-show="user.admin" ng-click="UserManagment.demoteAdmin(user.uid)">Admin</button>
+                    <button type="button" class="btn btn-default" ng-hide="user.admin" ng-click="UserManagment.promoteAdmin(user.uid)">Admin</button>
+                    <button type="button" class="btn btn-primary" ng-show="user.officer" ng-click="UserManagment.demoteOfficer(user.uid)">Officer</button>
+                    <button type="button" class="btn btn-default" ng-hide="user.officer" ng-click="UserManagment.promoteOfficer(user.uid)">Officer</button>
+                    <button type="button" class="btn btn-success" ng-show="user.member" ng-click="UserManagment.demoteMember(user.uid)">Member</button>
+                    <button type="button" class="btn btn-default" ng-hide="user.member" ng-click="UserManagment.promoteMember(user.uid)">Member</button>
+                    <!--<button type="button" class="btn btn-warning" ng-show="user.admin" ng-click="UserManagment.deleteUser(user.uid)">Delete</button>-->
+
+                </div>
+            </td>
+            <td>{{user.display}}</td>
+            <td>{{user.email}}</td>
+            <td><button type="button" class="btn btn-error" ng-hide="user.member" > Reset Password</button></td>
+        </tr>
+    </tbody>
+</table>

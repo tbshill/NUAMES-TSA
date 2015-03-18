@@ -13,7 +13,7 @@ It really only consists of a Side Nav and a Content View.
 	<!-- The Nav Bar-->
     <div id="wrapper" style="margin-top:.75in;">
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" style="padding-bottom: 200px;">
             <ul class="sidebar-nav accordian" accordian>
                 <li ng-show="UserManagment.currentuser.admin"> <!-- Only shows if the user is an admin -->
                     <h3 class="button" style="cursor: pointer">Admin</h3>
@@ -25,20 +25,21 @@ It really only consists of a Side Nav and a Content View.
                 <li ng-show="UserManagment.currentuser.officer"> <!-- only shows if the user is an officer -->
                     <h3 class="button" style="cursor: pointer">Officer</h3>
                     <ul>
-                        <li class="button">Minutes</li> <!-- Most of these are fillers s-->
-                        <li class="button"><a ui-sref="manager.attendance">Attendance</a></li>
-                        <li class="button"><a ui-sref="manager.budget">Budget</a></li>
-                        <li class="button">Parliamentary</li>
-                        <li class="button"><a ui-sref="manager.newsFeed">News Feed</a></li>
-                        <li class="button"><a ui-sref="manager.sponsors">Sponsors</a></li>
+                        <li class="button">Minutes<span class="text-success">*Comming Soon</span></li> <!-- Most of these are fillers s-->
+                        <li class="button"><a ui-sref="manager.attendance">Attendance <span class="text-success">*Comming Soon</span></a></li>
+                        <li class="button"><a ui-sref="manager.budget">Budget<span class="text-success">*Comming Soon</span></a></li>
+                        <li class="button">Parliamentary<span class="text-success">*Comming Soon</span></li>
+                        <li class="button"><a ui-sref="manager.newsFeed">News Feed<span class="text-success">*Comming Soon</span></a></li>
+                        <li class="button"><a ui-sref="manager.sponsors">Sponsors<span class="text-success">*Comming Soon</span></a></li>
                     </ul>
                 </li>
                 <li>
                     <h3 class="button" style="cursor: pointer">My Profile</h3>
                     <ul>
                         <li class="button"><a ui-sref="manager.register">Register</a></li>
-                        <li class="button"><a ui-sref="manager.contact">Contact</a></li>
-                        <li class="button"><a ui-sref="manager.messages">Messages</a></li>
+                        <li class="button"><a ui-sref="manager.contact">Contact<span class="text-success">*Comming Soon</span></a></li>
+                        <li class="button"><a ui-sref="manager.messages">Messages<span class="text-success">*Comming Soon</span></a></li>
+                        <li class="button"><a ui-sref="manager.documents">Documents<span class="text-success">*Comming Soon</span></a></li>
                     </ul>
                 </li>
                 <li>
@@ -56,8 +57,7 @@ It really only consists of a Side Nav and a Content View.
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper" style="padding-top: 50px;">
-            <div class="container-fluid" style="top:1.25in; background-color:white" ui-view></div>
+        <div id="page-content-wrapper" class="container-fluid" style="min-height: 100%; background-color:white; padding:0 0 0 0;" ui-view>
         </div>
         <!-- /#page-content-wrapper -->
     </div>

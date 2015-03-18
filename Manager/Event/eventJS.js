@@ -11,21 +11,14 @@ angular.module('App') // links to App
 
 		console.log($stateParams);
 		$scope.evnt = $stateParams.event;
-		$scope.eventMembers = [];
+		var eventMembersUid = UserManagment.getEventMembers($stateParams.event);
 		$scope.purchases = $firebase(new Firebase('nuames-tsa.firebaseio.com/Events/'+$scope.evnt+'/purchase')).$asArray();
 		$scope.masterpurchases= $firebase(new Firebase('nuames-tsa.firebaseio.com/Purchases')).$asArray();
-		
-		var eventMembersRef = new Firebase('https://nuames-tsa.firebaseio.com/Events/'+$scope.evnt+"/members");
-		eventMembersRef.once('value',function(dataSnapshot){
-				console.log(dataSnapshot.val());
+        $scope.eventMembers = [];
 
-				dataSnapshot.forEach(function(childSnapshot){
-					var k = new Firebase('https://nuames-tsa.firebaseio.com/Members/'+childSnapshot.val()+'/displayName');
-					k.once('value',function(ds){
-						$scope.eventMembers.push(ds.val());
-					});
-				});
-			});
+        for(member in eventMembersUid){
+            new Firebase('nuames-tsa.firebaseio.com/users/'+member+'display');
+        }
 
 		$scope.purchase = function(){
 			
